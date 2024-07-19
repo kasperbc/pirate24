@@ -1,0 +1,71 @@
+[gd_scene load_steps=14 format=3 uid="uid://b15lnd5i2umfm"]
+
+[ext_resource type="Texture2D" uid="uid://dvn1axgb5tpi3" path="res://art/player/placeholder-player.png" id="1_3ouu5"]
+[ext_resource type="Script" path="res://components/player/player_movement.gd" id="1_t6385"]
+[ext_resource type="Texture2D" uid="uid://mcdmgx6cfkbn" path="res://art/player/placeholder-player-walkcycle1.png" id="2_51akn"]
+[ext_resource type="Texture2D" uid="uid://d0aitjtyf7v8q" path="res://art/player/placeholder-player-walkcycle2.png" id="3_5yg2h"]
+[ext_resource type="Texture2D" uid="uid://bo2qk6g63joe5" path="res://art/player/placeholder-player-walkcycle3.png" id="4_5wii5"]
+[ext_resource type="Texture2D" uid="uid://cply2j281s1gr" path="res://art/player/placeholder-player-walkcycle4.png" id="5_exjuv"]
+[ext_resource type="Texture2D" uid="uid://7mfsb5jyqpea" path="res://art/player/placeholder-player-walkcycle5.png" id="6_slupe"]
+[ext_resource type="Texture2D" uid="uid://cfa30j1r78v35" path="res://art/player/placeholder-player-walkcycle6.png" id="7_7baao"]
+[ext_resource type="Texture2D" uid="uid://de3imxt154vqw" path="res://art/player/placeholder-player-walkcycle7.png" id="8_djya2"]
+[ext_resource type="Texture2D" uid="uid://coyuy2ceeayo1" path="res://art/player/placeholder-player-walkcycle8.png" id="9_myj2j"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1ftvp"]
+radius = 6.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbqxm"]
+atlas = ExtResource("1_3ouu5")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_70kws"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gbqxm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_51akn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_5yg2h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5wii5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_exjuv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_slupe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_7baao")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_djya2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_myj2j")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+z_index = 100
+script = ExtResource("1_t6385")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1ftvp")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_70kws")
+animation = &"walk"
+frame_progress = 0.443148

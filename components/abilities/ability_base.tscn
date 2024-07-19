@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkdppj4uf5c4w"]
+
+[ext_resource type="Texture2D" uid="uid://1owwjrrg7x2d" path="res://icon.png" id="1_8su5o"]
+[ext_resource type="Script" path="res://components/abilities/ability.gd" id="1_ierln"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_17l2o"]
+size = Vector2(16, 16)
+
+[node name="AbilityBase" type="StaticBody2D"]
+script = ExtResource("1_ierln")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_8su5o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_17l2o")
