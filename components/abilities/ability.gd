@@ -1,10 +1,6 @@
-extends StaticBody2D
+extends Resource
 class_name Ability
 
-
-func _ready():
-	pass
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+@export var name = "Ability"
+@export var single_use = false
+@export var ability : PackedScene = null
