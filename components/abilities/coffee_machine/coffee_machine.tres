@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Ability" load_steps=2 format=3 uid="uid://il2fkv6ar5ey"]
+
+[ext_resource type="Script" path="res://components/abilities/ability.gd" id="1_bxi1f"]
+
+[resource]
+script = ExtResource("1_bxi1f")
+name = "Ability"
+single_use = true
+animation_prefix = "coffeemachine"
