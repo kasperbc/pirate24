@@ -12,11 +12,25 @@ func _process(delta):
 
 func _physics_process(delta):
 	movement_update()
+	
+	animation_update()
 	move_and_slide()
 
 func movement_update():
 	var move_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down").normalized()
 	velocity = move_dir * BASE_SPEED
+
+func animation_update():
+	var state = "default"
+	var prefix = "player"
+	
+	if velocity.length() != 0:
+		state = "walk"
+	
+	if has_ability():
+		prefix = curr_ability.ability.animation_prefix
+	
+	%Sprite2D.animation = "%s_%s" % [prefix, state]
 
 #region Interactables
 
@@ -58,10 +72,20 @@ func try_interact():
 
 #region Abilities
 
-func change_ability(ability : Ability):
-	pass
+func set_ability(ability : Ability, abiltiy_controller : PackedScene):
+	if has_ability():
+		push_error("Cannot change ability when another ability is ")
+		return
+	
+	var controller = abiltiy_controller.instantiate()
+	add_child(controller)
+	curr_ability = controller
 
 func end_ability():
-	pass
+	curr_ability.queue_free()
+	curr_ability = null
+
+func has_ability() -> bool:
+	return curr_ability != null
 
 #endregion

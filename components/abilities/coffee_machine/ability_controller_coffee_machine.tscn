@@ -1,0 +1,9 @@
+[gd_scene load_steps=4 format=3 uid="uid://5qn41iedtbcr"]
+
+[ext_resource type="PackedScene" uid="uid://6lfdcwk5vl65" path="res://components/abilities/ability_controller_base.tscn" id="1_af7v5"]
+[ext_resource type="Script" path="res://components/abilities/coffee_machine/coffee_machine_controller.gd" id="2_4onf0"]
+[ext_resource type="Resource" uid="uid://il2fkv6ar5ey" path="res://components/abilities/coffee_machine/coffee_machine.tres" id="3_72762"]
+
+[node name="AbilityControllerCoffeeMachine" instance=ExtResource("1_af7v5")]
+script = ExtResource("2_4onf0")
+ability = ExtResource("3_72762")

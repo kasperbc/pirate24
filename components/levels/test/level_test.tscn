@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=4 uid="uid://b0lthrrnl6sd2"]
 
 [ext_resource type="PackedScene" uid="uid://4vqigtk166tx" path="res://components/levels/level_base.tscn" id="1_8df03"]
-[ext_resource type="PackedScene" uid="uid://bpfwlp8kckv26" path="res://components/abilities/coffee_machine/coffee_machine_world.tscn" id="2_1eue6"]
+[ext_resource type="PackedScene" uid="uid://bpfwlp8kckv26" path="res://components/abilities/coffee_machine/coffee_machine.tscn" id="2_1eue6"]
 
 [node name="Level" instance=ExtResource("1_8df03")]
 

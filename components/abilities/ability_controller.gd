@@ -7,7 +7,7 @@ func activate_ability():
 	_on_ability_activate()
 	
 	if ability.single_use:
-		pass # unability player
+		GameMan.player.end_ability()
 
 func _on_ability_activate():
 	print("Ability activated!")

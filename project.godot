@@ -32,6 +32,7 @@ window/stretch/mode="viewport"
 folder_colors={
 "res://art/": "teal",
 "res://components/": "green",
+"res://components/abilities/": "orange",
 "res://components/levels/": "orange",
 "res://components/main/": "orange",
 "res://components/scripts/": "orange"
