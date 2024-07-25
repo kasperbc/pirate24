@@ -8,4 +8,4 @@ func _on_interact():
 	if ability == null:
 		return
 	
-	GameMan.player.set_ability(ability, ability_controller)
+	GameMan.player.charge_ability(ability, ability_controller)

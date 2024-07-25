@@ -1,38 +1,33 @@
 extends CharacterBody2D
 class_name Player
 
-const BASE_SPEED = 75.0
+@export var default_controller : PlayerController
 
+var controller : PlayerController
+var move_input : Vector2
 var closest_interactable : Interactable
 
-var curr_ability : AbilityController
+var charged_ability : Ability
+var charged_ability_controller : PackedScene
+
+func _ready():
+	set_controller(default_controller)
 
 func _process(delta):
-	interaction_update()
+	move_input = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	
+	if controller.able_to_interact:
+		interaction_update()
+	
+	if has_ability_charged() and Input.is_action_just_pressed("use_ability"):
+		activate_ability()
+	
+	controller.process_controller()
 
 func _physics_process(delta):
-	movement_update()
-	
-	animation_update()
 	move_and_slide()
 
-func movement_update():
-	var move_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down").normalized()
-	velocity = move_dir * BASE_SPEED
-
-func animation_update():
-	var state = "default"
-	var prefix = "player"
-	
-	if velocity.length() != 0:
-		state = "walk"
-	
-	if has_ability():
-		prefix = curr_ability.ability.animation_prefix
-	
-	%Sprite2D.animation = "%s_%s" % [prefix, state]
-
-#region Interactables
+#region Interaction
 
 func interaction_update():
 	closest_interactable = get_closest_interactable()
@@ -72,20 +67,45 @@ func try_interact():
 
 #region Abilities
 
-func set_ability(ability : Ability, abiltiy_controller : PackedScene):
+func charge_ability(ability : Ability, ability_controller : PackedScene):
+	charged_ability = ability
+	charged_ability_controller = ability_controller
+	
+	print("Charged ability %s!" % ability.name)
+
+func activate_ability():
 	if has_ability():
-		push_error("Cannot change ability when another ability is ")
+		push_error("Cannot activate ability another ability is active!")
 		return
 	
-	var controller = abiltiy_controller.instantiate()
-	add_child(controller)
-	curr_ability = controller
+	await Engine.get_main_loop().process_frame
+	
+	var new_controller = charged_ability_controller.instantiate()
+	add_child(new_controller)
+	set_controller(new_controller)
+	
+	charged_ability = null
+	charged_ability_controller = null
 
 func end_ability():
-	curr_ability.queue_free()
-	curr_ability = null
+	if not has_ability():
+		return
+	
+	controller.queue_free()
+	set_controller(default_controller)
 
 func has_ability() -> bool:
-	return curr_ability != null
+	return controller is not BasePlayerController
+
+func has_ability_charged():
+	return charged_ability != null and charged_ability_controller != null
 
 #endregion
+
+func set_controller(c : PlayerController):
+	velocity = Vector2.ZERO
+	
+	controller = c
+	c.player = self
+	%Sprite2D.sprite_frames = c.sprite_frames
+	c.player_sprite = %Sprite2D

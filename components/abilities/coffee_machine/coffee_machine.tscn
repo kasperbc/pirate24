@@ -2,12 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://bkdppj4uf5c4w" path="res://components/abilities/ability_base.tscn" id="1_2nbpf"]
 [ext_resource type="Texture2D" uid="uid://c1b7g7pu7eta" path="res://art/objects/coffeemachine-placeholder.png" id="2_hxd5j"]
-[ext_resource type="Resource" uid="uid://il2fkv6ar5ey" path="res://components/abilities/coffee_machine/coffee_machine.tres" id="2_xf782"]
-[ext_resource type="PackedScene" uid="uid://5qn41iedtbcr" path="res://components/abilities/coffee_machine/ability_controller_coffee_machine.tscn" id="3_biqld"]
+[ext_resource type="Resource" uid="uid://il2fkv6ar5ey" path="res://components/abilities/coffee_machine/coffee_machine.tres" id="2_waqle"]
+[ext_resource type="PackedScene" uid="uid://5qn41iedtbcr" path="res://components/abilities/coffee_machine/ability_controller_coffee_machine.tscn" id="3_ox3l7"]
 
 [node name="CoffeeMachine" instance=ExtResource("1_2nbpf")]
-ability = ExtResource("2_xf782")
-ability_controller = ExtResource("3_biqld")
+ability = ExtResource("2_waqle")
+ability_controller = ExtResource("3_ox3l7")
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_hxd5j")
