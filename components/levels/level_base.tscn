@@ -1,11 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://4vqigtk166tx"]
+[gd_scene load_steps=4 format=3 uid="uid://4vqigtk166tx"]
 
-[ext_resource type="TileSet" uid="uid://tgudx4qv8jnw" path="res://art/tilesets/tileset.tres" id="1_82r68"]
+[ext_resource type="TileSet" uid="uid://tgudx4qv8jnw" path="res://components/levels/tileset.tres" id="1_82r68"]
 [ext_resource type="PackedScene" uid="uid://b8vsk0u1g10cg" path="res://components/level_exit/exit.tscn" id="2_06gur"]
+[ext_resource type="TileSet" uid="uid://bw820epf48338" path="res://components/levels/tileset_floor.tres" id="3_6fwhi"]
 
 [node name="Level" type="Node2D"]
 
 [node name="LevelExit" parent="." instance=ExtResource("2_06gur")]
+
+[node name="Floor" type="TileMapLayer" parent="."]
+tile_set = ExtResource("3_6fwhi")
 
 [node name="Walls" type="TileMapLayer" parent="."]
 tile_set = ExtResource("1_82r68")
