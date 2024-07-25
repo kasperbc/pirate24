@@ -77,12 +77,18 @@ func charge_ability(ability : Ability, ability_controller : PackedScene):
 	
 	print("Charged ability %s!" % ability.name)
 
+func uncharge_ability():
+	if not has_ability_charged():
+		print("No ability charged!")
+		return
+	
+	charged_ability = null
+	charged_ability_controller = null
+
 func activate_ability():
 	if has_ability():
 		push_error("Cannot activate ability another ability is active!")
 		return
-	
-	await Engine.get_main_loop().process_frame
 	
 	var new_controller = charged_ability_controller.instantiate()
 	add_child(new_controller)
@@ -113,3 +119,7 @@ func set_controller(c : PlayerController):
 	c.player = self
 	%Sprite2D.sprite_frames = c.sprite_frames
 	c.player_sprite = %Sprite2D
+
+func reset():
+	end_ability()
+	uncharge_ability()

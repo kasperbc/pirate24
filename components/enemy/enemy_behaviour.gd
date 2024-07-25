@@ -32,7 +32,7 @@ func create_player_check_rays():
 		
 		player_check_rays.append(ray)
 
-func get_player_ray_positions() -> Array[Vector2]:
+func get_player_ray_positions() -> Array:
 	var positions = []
 	
 	for i in PLAYER_CHECK_RAY_COUNT + 1:
@@ -52,7 +52,7 @@ func _physics_process(delta):
 		rotate(deg_to_rad(180))
 	
 	if try_detect_player():
-		print("")
+		GameMan.level_loader.reload_level()
 	
 	move_and_slide()
 
@@ -68,7 +68,7 @@ func try_detect_player() -> bool:
 	for r in player_check_rays:
 		var collider = r.get_collider()
 		
-		if collider != null and collider.is_in_group("Player"):
+		if collider != null and collider.is_in_group("Player") and not collider.has_ability():
 			return true
 	
 	return false

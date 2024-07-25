@@ -1,4 +1,5 @@
 extends Node
+class_name LevelLoader
 
 @export var default_level : Level
 
@@ -17,6 +18,12 @@ func load_level(l : Level):
 	
 	curr_level = loaded_level
 	curr_level_res = l
+	
+	GameMan.player.global_position = Vector2.ZERO
+	GameMan.player.reset()
+
+func reload_level():
+	load_level(curr_level_res)
 
 func unload_current_level():
 	curr_level.queue_free()

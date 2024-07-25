@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_bxi1f")
-name = "Ability"
+name = "Coffee Machine"
 single_use = true
 animation_prefix = "coffeemachine"

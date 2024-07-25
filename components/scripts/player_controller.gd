@@ -11,18 +11,33 @@ var player : Player
 var player_sprite : AnimatedSprite2D
 var dt : float
 
+var anim_state : String
+var anim_suffix : String
+
+var cycle : int = 0
+
 func _process(delta):
 	dt = delta
 
 func process_controller():
 	_process_io()
 	_process_animation()
+	apply_animation()
+	cycle += 1
 
 func _process_io():
 	pass
 
 func _process_animation():
 	pass
+
+func apply_animation():
+	var state = anim_state if not anim_state.is_empty() else "default"
+	
+	if not anim_suffix.is_empty():
+		player_sprite.animation = "%s_%s" % [state, anim_suffix]
+	else:
+		player_sprite.animation = state
 
 func get_move_input() -> Vector2:
 	return player.move_input
@@ -31,4 +46,4 @@ func get_move_direction() -> Vector2:
 	return player.move_input.normalized()
 
 func is_use_just_pressed() -> bool:
-	return Input.is_action_just_pressed("use_ability")
+	return Input.is_action_just_pressed("use_ability") and cycle != 0

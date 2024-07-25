@@ -1,12 +1,12 @@
 [gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://7ftp12tdcbvn"]
 
-[ext_resource type="Texture2D" uid="uid://c1b7g7pu7eta" path="res://art/objects/coffeemachine-placeholder.png" id="1_61slx"]
+[ext_resource type="Texture2D" uid="uid://ba0lkyf7womv7" path="res://art/obscures/coffeemachine_side.png" id="1_5j2ac"]
 
 [resource]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_61slx")
+"texture": ExtResource("1_5j2ac")
 }],
 "loop": true,
 "name": &"default",
