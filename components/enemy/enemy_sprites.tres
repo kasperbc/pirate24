@@ -1,0 +1,75 @@
+[gd_resource type="SpriteFrames" load_steps=14 format=3 uid="uid://w4tfj2yjtydd"]
+
+[ext_resource type="Texture2D" uid="uid://7yyxhrwb7nes" path="res://art/enemy/placeholder-goon.png" id="1_1rn67"]
+[ext_resource type="Texture2D" uid="uid://dftq2fkl7o2i7" path="res://art/enemy/placeholder-goon-walkcycle1.png" id="2_g7nd1"]
+[ext_resource type="Texture2D" uid="uid://1prr2vol8hfr" path="res://art/enemy/placeholder-goon-shoot1.png" id="2_niq3q"]
+[ext_resource type="Texture2D" uid="uid://dsbpaglypp0xl" path="res://art/enemy/placeholder-goon-shoot2.png" id="3_mtgit"]
+[ext_resource type="Texture2D" uid="uid://b4wvgjv1aq5dk" path="res://art/enemy/placeholder-goon-walkcycle2.png" id="3_q3okg"]
+[ext_resource type="Texture2D" uid="uid://cdty4i8i40egb" path="res://art/enemy/placeholder-goon-walkcycle3.png" id="4_5l0o8"]
+[ext_resource type="Texture2D" uid="uid://cpki4xyueid1t" path="res://art/enemy/placeholder-goon-shoot3.png" id="4_ffj7o"]
+[ext_resource type="Texture2D" uid="uid://bg2csf0qe27gc" path="res://art/enemy/placeholder-goon-walkcycle4.png" id="5_g2cp2"]
+[ext_resource type="Texture2D" uid="uid://ctji8sp3ohryt" path="res://art/enemy/placeholder-goon-shoot4.png" id="5_wedxo"]
+[ext_resource type="Texture2D" uid="uid://65ynduh16l3i" path="res://art/enemy/placeholder-goon-walkcycle5.png" id="6_frwl3"]
+[ext_resource type="Texture2D" uid="uid://dm1m00fehboei" path="res://art/enemy/placeholder-goon-walkcycle6.png" id="7_fjuex"]
+[ext_resource type="Texture2D" uid="uid://cw1tfso3wq550" path="res://art/enemy/placeholder-goon-walkcycle7.png" id="8_0c1n1"]
+[ext_resource type="Texture2D" uid="uid://b10a2l4cf07y4" path="res://art/enemy/placeholder-goon-walkcycle8.png" id="9_o46sw"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_1rn67")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_niq3q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_mtgit")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ffj7o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_wedxo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_niq3q")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_g7nd1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_q3okg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5l0o8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_g2cp2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_frwl3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_fjuex")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_0c1n1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_o46sw")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 7.5
+}]

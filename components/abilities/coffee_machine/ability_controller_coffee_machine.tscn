@@ -8,4 +8,5 @@
 [node name="AbilityControllerCoffeeMachine" instance=ExtResource("1_af7v5")]
 script = ExtResource("2_4onf0")
 ability = ExtResource("3_72762")
+able_to_interact = false
 sprite_frames = ExtResource("4_rkvio")

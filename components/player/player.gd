@@ -68,6 +68,10 @@ func try_interact():
 #region Abilities
 
 func charge_ability(ability : Ability, ability_controller : PackedScene):
+	if ability == charged_ability:
+		print("This ability is already charged!")
+		return
+	
 	charged_ability = ability
 	charged_ability_controller = ability_controller
 	
