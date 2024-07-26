@@ -20,6 +20,10 @@ config/icon="res://TMS-desktop-icon.png"
 
 GameMan="*res://components/scripts/gameman.gd"
 
+[debug]
+
+gdscript/warnings/unused_variable=0
+
 [display]
 
 window/size/viewport_width=960

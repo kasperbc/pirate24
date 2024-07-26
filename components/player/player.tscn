@@ -18,8 +18,12 @@ shape = SubResource("CircleShape2D_1ftvp")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
+position = Vector2(0, -9)
 sprite_frames = ExtResource("2_m2g0d")
+animation = &"gain_ability"
 autoplay = "default"
+frame = 6
+frame_progress = 1.0
 
 [node name="BaseController" type="Node" parent="."]
 script = ExtResource("3_andyc")

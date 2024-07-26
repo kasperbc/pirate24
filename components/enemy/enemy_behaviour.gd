@@ -3,6 +3,7 @@ class_name EnemyBehvaiour
 
 const BASE_SPEED : float = 60.0
 const PLAYER_CHECK_RAY_COUNT : int = 24 # it actually makes one more :3
+const LIGHT_POLY_COLOR : Color = Color(1,0,0,0.33)
 
 @export_group("Movement")
 @export var move_speed : float = BASE_SPEED
@@ -15,8 +16,11 @@ const PLAYER_CHECK_RAY_COUNT : int = 24 # it actually makes one more :3
 
 var player_check_rays : Array[RayCast2D]
 
+var stunned : bool = false
+
 func _ready():
 	%WallCheck.target_position = Vector2(0, -wall_turn_distance)
+	%LightPoly.color = LIGHT_POLY_COLOR
 	
 	create_player_check_rays()
 
@@ -70,11 +74,15 @@ func _process(delta):
 
 func draw_light_poly():
 	var vertices = [Vector2(0,0)]
+	
 	vertices.append_array(get_player_ray_collision_positions())
 	
 	%LightPoly.polygon = PackedVector2Array(vertices)
 
 func _physics_process(delta):
+	if stunned:
+		return
+	
 	velocity = transform.x.rotated(deg_to_rad(-90)) * move_speed
 	
 	if %WallCheck.get_collider() != null:
@@ -101,3 +109,24 @@ func try_detect_player() -> bool:
 			return true
 	
 	return false
+
+func stun(duration : float):
+	stunned = true
+	
+	var shaker = Shaker.new()
+	%Sprite2D.add_child(shaker)
+	shaker.start_shake(%Sprite2D, 1.0, duration * 0.75)
+	
+	get_tree().create_tween().tween_property(%LightPoly, "color", Color(0,0,0,0), duration * 0.1)
+
+	
+	await get_tree().create_timer(duration * 0.75).timeout
+	
+	var t = get_tree().create_tween().set_trans(Tween.TRANS_EXPO)
+	t.tween_property(%LightPoly, "color", LIGHT_POLY_COLOR, duration * 0.2)
+	
+	await get_tree().create_timer(duration * 0.1).timeout
+	
+	await get_tree().create_timer(duration * 0.15).timeout
+	
+	stunned = false
