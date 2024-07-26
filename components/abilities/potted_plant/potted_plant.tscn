@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://b4wvq5jl7y5tj"]
+
+[ext_resource type="PackedScene" uid="uid://bkdppj4uf5c4w" path="res://components/abilities/ability_base.tscn" id="1_l6y1d"]
+[ext_resource type="Texture2D" uid="uid://cg2sfcdp7f143" path="res://art/obscures/potted_plant/potted-plant-side.png" id="2_m8goa"]
+[ext_resource type="PackedScene" uid="uid://6irmu5xhpt3o" path="res://components/abilities/potted_plant/ability_controller_potted_plant.tscn" id="2_vtdwh"]
+[ext_resource type="Script" path="res://components/scripts/y_sort.gd" id="4_ik0xj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h7fyc"]
+size = Vector2(16, 8)
+
+[node name="PottedPlant" instance=ExtResource("1_l6y1d")]
+ability_controller = ExtResource("2_vtdwh")
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, -16)
+texture = ExtResource("2_m8goa")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_h7fyc")
+
+[node name="YSort" type="Node2D" parent="." index="2" node_paths=PackedStringArray("target")]
+script = ExtResource("4_ik0xj")
+target = NodePath("../Sprite2D")

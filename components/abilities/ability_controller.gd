@@ -1,7 +1,6 @@
 extends PlayerController
 class_name AbilityController
 
-@export var ability : Ability
 @export var ability_end_delay : float = 1.0
 @export_group("Attack")
 @export var attack : PackedScene
@@ -31,13 +30,14 @@ func activate_ability():
 	
 	if attack != null:
 		create_attack()
+		if shake_sprite_on_attack:
+			var shaker = Shaker.new()
+			player_sprite.add_child(shaker)
+			shaker.start_shake(player_sprite)
 	
 	await get_tree().create_timer(ability_end_delay).timeout
 	
-	if ability.single_use:
-		GameMan.player.end_ability()
-	else:
-		ability_active = false
+	GameMan.player.end_ability()
 
 func _on_ability_activate():
 	print("Ability activated!")

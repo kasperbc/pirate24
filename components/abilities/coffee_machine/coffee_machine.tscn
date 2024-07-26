@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://bpfwlp8kckv26"]
+[gd_scene load_steps=6 format=3 uid="uid://bpfwlp8kckv26"]
 
 [ext_resource type="PackedScene" uid="uid://bkdppj4uf5c4w" path="res://components/abilities/ability_base.tscn" id="1_2nbpf"]
-[ext_resource type="Resource" uid="uid://il2fkv6ar5ey" path="res://components/abilities/coffee_machine/coffee_machine.tres" id="2_waqle"]
 [ext_resource type="PackedScene" uid="uid://5qn41iedtbcr" path="res://components/abilities/coffee_machine/ability_controller_coffee_machine.tscn" id="3_ox3l7"]
 [ext_resource type="Texture2D" uid="uid://ba0lkyf7womv7" path="res://art/obscures/coffeemachine_side.png" id="4_31weu"]
 [ext_resource type="Script" path="res://components/scripts/y_sort.gd" id="5_cyr6f"]
@@ -10,8 +9,8 @@
 size = Vector2(15, 10)
 
 [node name="CoffeeMachine" instance=ExtResource("1_2nbpf")]
-ability = ExtResource("2_waqle")
 ability_controller = ExtResource("3_ox3l7")
+disable_after_interaction = false
 
 [node name="Sprite2D" parent="." index="0"]
 position = Vector2(0, -8)

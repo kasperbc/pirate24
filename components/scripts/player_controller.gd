@@ -4,6 +4,7 @@ class_name PlayerController
 @export_group("Parameters")
 @export var able_to_interact : bool = true
 @export var freeze_direction : bool = true
+@export var height : int = 27
 
 @export_group("Animation")
 @export var sprite_frames : SpriteFrames
@@ -19,6 +20,7 @@ var cycle : int = 0
 
 func activate():
 	_on_activate()
+	player_sprite.play("default")
 
 func _on_activate():
 	pass

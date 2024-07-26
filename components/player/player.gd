@@ -1,14 +1,18 @@
 extends CharacterBody2D
 class_name Player
 
+const PLAYER_HEIGHT : int = 27
+
 @export var default_controller : PlayerController
+@export var transform_duration : float = 2.0
 
 var controller : PlayerController
 var move_input : Vector2
 var closest_interactable : Interactable
 
-var charged_ability : Ability
-var charged_ability_controller : PackedScene
+var charged_controller : PackedScene
+var transforming : bool = false
+var charging : bool = false
 
 var direction : Vector2
 
@@ -18,16 +22,17 @@ func _ready():
 func _process(delta):
 	move_input = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	
-	if move_input != Vector2.ZERO and not controller.freeze_direction:
+	if move_input != Vector2.ZERO and not controller.freeze_direction and input_enabled():
 		direction = get_direction(move_input)
 	
 	if controller.able_to_interact:
 		interaction_update()
 	
 	if has_ability_charged() and Input.is_action_just_pressed("use_ability"):
-		activate_ability()
+		transform()
 	
-	controller.process_controller()
+	if input_enabled():
+		controller.process_controller()
 
 func get_direction(move_vector : Vector2) -> Vector2:
 	if abs(move_vector.x) > abs(move_vector.y):
@@ -61,7 +66,7 @@ func get_closest_interactable() -> Interactable:
 		
 		var dist = global_position.distance_to(itr.global_position)
 		
-		if dist > closest_dist or dist > itr.range:
+		if dist > closest_dist or dist > itr.interaction_range:
 			continue
 		
 		closest_dist = dist
@@ -79,35 +84,65 @@ func try_interact():
 
 #region Abilities
 
-func charge_ability(ability : Ability, ability_controller : PackedScene):
-	if ability == charged_ability:
+func charge_ability(controller : PackedScene):
+	if charged_controller == controller:
 		print("This ability is already charged!")
 		return
 	
-	charged_ability = ability
-	charged_ability_controller = ability_controller
+	charging = true
+	velocity = Vector2.ZERO
+	%Sprite2D.play("gain_ability")
 	
-	print("Charged ability %s!" % ability.name)
+	await get_tree().create_timer(0.2).timeout
+	
+	var shaker = Shaker.new()
+	%Sprite2D.add_child(shaker)
+	shaker.start_shake(%Sprite2D, 0.65)
+	
+	await get_tree().create_timer(1).timeout
+	
+	if not charging:
+		return
+	
+	charged_controller = controller
+	charging = false
+	%Sprite2D.play("default")
+	print("Charged ability!")
 
 func uncharge_ability():
 	if not has_ability_charged():
 		print("No ability charged!")
 		return
 	
-	charged_ability = null
-	charged_ability_controller = null
+	charged_controller = null
 
-func activate_ability():
+func transform():
 	if has_ability():
 		push_error("Cannot activate ability another ability is active!")
 		return
 	
-	var new_controller = charged_ability_controller.instantiate()
+	if not input_enabled():
+		return
+	
+	transforming = true
+	velocity = Vector2.ZERO
+	
+	await get_tree().create_timer(transform_duration).timeout
+	
+	if not has_ability_charged():
+		end_transform()
+		return
+	
+	var new_controller = charged_controller.instantiate()
 	add_child(new_controller)
 	set_controller(new_controller)
 	
-	charged_ability = null
-	charged_ability_controller = null
+	charged_controller = null
+	
+	end_transform()
+
+func end_transform():
+	transforming = false
 
 func end_ability():
 	if not has_ability():
@@ -120,9 +155,12 @@ func has_ability() -> bool:
 	return controller is not BasePlayerController
 
 func has_ability_charged():
-	return charged_ability != null and charged_ability_controller != null
+	return charged_controller != null
 
 #endregion
+
+func input_enabled() -> bool:
+	return not transforming and not charging
 
 func set_controller(c : PlayerController):
 	velocity = Vector2.ZERO
@@ -130,6 +168,7 @@ func set_controller(c : PlayerController):
 	controller = c
 	c.player = self
 	%Sprite2D.sprite_frames = c.sprite_frames
+	%Sprite2D.offset = Vector2(0, (PLAYER_HEIGHT - c.height) / 2)
 	c.player_sprite = %Sprite2D
 	
 	controller.activate()
@@ -137,3 +176,4 @@ func set_controller(c : PlayerController):
 func reset():
 	end_ability()
 	uncharge_ability()
+	charging = false

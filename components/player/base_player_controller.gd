@@ -7,4 +7,11 @@ func _process_io():
 	player.velocity = get_move_direction() * move_speed
 
 func _process_animation():
-	anim_state = "walk" if get_move_direction().length() != 0 else "default"
+	if get_move_input() == Vector2.ZERO:
+		anim_state = "default"
+		anim_suffix = ""
+	else:
+		anim_state = "walk"
+		anim_suffix = Utils.get_anim_suffix_based_on_dir(player.direction)
+		
+		player_sprite.flip_h = true if anim_suffix == "side" and player.direction.x < 0 else false

@@ -9,15 +9,15 @@ class_name AbilityAttack
 var dir : Vector2
 
 func _ready():
-	attack()
+	start_attack()
 	play_attack_anim()
 
-func attack():
+func start_attack():
 	for i in 2:
 		await get_tree().physics_frame
 	
 	await get_tree().create_timer(attack_delay).timeout
-	_on_attack()
+	attack_guards()
 	
 	await get_tree().create_timer(fadeout_delay).timeout
 	
@@ -34,10 +34,12 @@ func play_attack_anim():
 	
 	%Sprite2D.play("attack_%s" % anim_suffix)
 
-func _on_attack():
+func attack_guards():
 	var nodes = get_overlapping_bodies()
 	
-	print(nodes)
 	for n in nodes:
 		if n is EnemyBehvaiour:
-			n.queue_free()
+			_attack(n)
+
+func _attack(target : EnemyBehvaiour):
+	pass
