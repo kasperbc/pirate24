@@ -93,11 +93,21 @@ func charge_ability(controller : PackedScene):
 	velocity = Vector2.ZERO
 	%Sprite2D.play("gain_ability")
 	
+	
 	await get_tree().create_timer(0.2).timeout
 	
 	var shaker = Shaker.new()
 	%Sprite2D.add_child(shaker)
 	shaker.start_shake(%Sprite2D, 0.65)
+	
+	%ShadowParticlesBack.amount_ratio = 1
+	%ShadowParticlesFront.amount_ratio = 1
+	
+	var t1 = get_tree().create_tween().set_trans(Tween.TRANS_CIRC)
+	var t2 = get_tree().create_tween().set_trans(Tween.TRANS_CIRC)
+	
+	t1.tween_property(%ShadowParticlesBack, "amount_ratio", 0, 4)
+	t2.tween_property(%ShadowParticlesFront, "amount_ratio", 0, 4)
 	
 	await get_tree().create_timer(1).timeout
 	

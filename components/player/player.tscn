@@ -1,11 +1,30 @@
-[gd_scene load_steps=5 format=3 uid="uid://b15lnd5i2umfm"]
+[gd_scene load_steps=9 format=3 uid="uid://b15lnd5i2umfm"]
 
 [ext_resource type="Script" path="res://components/player/player.gd" id="1_t6385"]
 [ext_resource type="SpriteFrames" uid="uid://bergdw84aflyp" path="res://components/player/player_sprites.res" id="2_m2g0d"]
 [ext_resource type="Script" path="res://components/player/base_player_controller.gd" id="3_andyc"]
+[ext_resource type="Texture2D" uid="uid://bllcrp6rvhcud" path="res://art/particles/shadow_piece.png" id="4_axcjf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1ftvp"]
 radius = 6.0
+
+[sub_resource type="Gradient" id="Gradient_kjhtt"]
+offsets = PackedFloat32Array(0, 0.149425, 0.494253, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_j1ll8"]
+gradient = SubResource("Gradient_kjhtt")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_533x2"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 17.0
+angle_min = -720.0
+angle_max = 720.0
+angular_velocity_min = -40.0
+angular_velocity_max = 40.0
+gravity = Vector3(0, 40, 0)
+color_ramp = SubResource("GradientTexture1D_j1ll8")
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("default_controller") groups=["Player"]]
 z_index = 100
@@ -29,3 +48,20 @@ frame_progress = 1.0
 script = ExtResource("3_andyc")
 freeze_direction = false
 sprite_frames = ExtResource("2_m2g0d")
+
+[node name="ShadowParticlesBack" type="GPUParticles2D" parent="."]
+unique_name_in_owner = true
+z_index = -1
+position = Vector2(0, -18)
+amount = 16
+amount_ratio = 0.0
+process_material = SubResource("ParticleProcessMaterial_533x2")
+texture = ExtResource("4_axcjf")
+
+[node name="ShadowParticlesFront" type="GPUParticles2D" parent="ShadowParticlesBack"]
+unique_name_in_owner = true
+z_index = 1
+amount = 4
+amount_ratio = 0.0
+process_material = SubResource("ParticleProcessMaterial_533x2")
+texture = ExtResource("4_axcjf")
