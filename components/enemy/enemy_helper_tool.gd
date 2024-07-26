@@ -12,7 +12,7 @@ func _process(delta):
 		queue_redraw()
 
 func _draw():
-	if enemy == null:
+	if enemy == null or not Engine.is_editor_hint():
 		return
 	
 	for p in get_player_ray_positions():
