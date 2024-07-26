@@ -2,11 +2,12 @@ extends CharacterBody2D
 class_name EnemyBehvaiour
 
 const BASE_SPEED : float = 60.0
-const PLAYER_CHECK_RAY_COUNT : int = 10 # it actually makes one more :3
+const PLAYER_CHECK_RAY_COUNT : int = 24 # it actually makes one more :3
 
 @export_group("Movement")
 @export var move_speed : float = BASE_SPEED
 @export var wall_turn_distance : float = 32.0
+@export var wait_time : float = 5.0
 
 @export_group("Player Detection")
 @export var detection_angle : float = 30.0
@@ -27,7 +28,7 @@ func create_player_check_rays():
 		
 		var ray = RayCast2D.new()
 		%PlayerCheckGroup.add_child(ray)
-		ray.collision_mask = 1
+		ray.collision_mask = 0x3
 		ray.target_position = ray_pos
 		
 		player_check_rays.append(ray)
@@ -42,8 +43,36 @@ func get_player_ray_positions() -> Array:
 	
 	return positions
 
+func get_player_ray_collision_positions() -> Array:
+	var positions = []
+	var default_positions = get_player_ray_positions()
+	
+	var i = 0
+	for r : RayCast2D in player_check_rays:
+		if not r.is_colliding():
+			positions.append(default_positions[i])
+			i += 1
+			continue
+		
+		if not r.get_collision_mask_value(2):
+			positions.append(default_positions[i])
+			i += 1
+			continue
+		
+		positions.append(to_local(r.get_collision_point()))
+		i += 1
+	
+	return positions
+
 func _process(delta):
 	process_animation()
+	draw_light_poly()
+
+func draw_light_poly():
+	var vertices = [Vector2(0,0)]
+	vertices.append_array(get_player_ray_collision_positions())
+	
+	%LightPoly.polygon = PackedVector2Array(vertices)
 
 func _physics_process(delta):
 	velocity = transform.x.rotated(deg_to_rad(-90)) * move_speed

@@ -32,3 +32,10 @@ unique_name_in_owner = true
 [node name="EnemyHelper" type="Node2D" parent="." node_paths=PackedStringArray("enemy")]
 script = ExtResource("3_m0o5n")
 enemy = NodePath("..")
+
+[node name="LightPoly" type="Polygon2D" parent="."]
+unique_name_in_owner = true
+z_index = -99
+z_as_relative = false
+color = Color(1, 0, 0, 0.235294)
+invert_border = 0.1

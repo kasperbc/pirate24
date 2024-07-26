@@ -16,4 +16,5 @@ tile_set = ExtResource("3_6fwhi")
 tile_set = ExtResource("3_vx4pv")
 
 [node name="Walls" type="TileMapLayer" parent="."]
+z_index = 50
 tile_set = ExtResource("1_82r68")

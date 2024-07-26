@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1b7g7pu7eta"
-path="res://.godot/imported/coffeemachine-placeholder.png-630cf00006b0c00a38ae6cff94b58ee1.ctex"
+uid="uid://cqfkhgaocrel2"
+path="res://.godot/imported/coffeemachine-spill-up3.png-90c45e1e74f4fdee85db22edba7486c4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/obscures/coffeemachine-placeholder.png"
-dest_files=["res://.godot/imported/coffeemachine-placeholder.png-630cf00006b0c00a38ae6cff94b58ee1.ctex"]
+source_file="res://art/obscures/coffee_machine/coffeemachine-spill-up3.png"
+dest_files=["res://.godot/imported/coffeemachine-spill-up3.png-90c45e1e74f4fdee85db22edba7486c4.ctex"]
 
 [params]
 
