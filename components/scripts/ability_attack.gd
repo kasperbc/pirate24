@@ -13,6 +13,9 @@ func _ready():
 	play_attack_anim()
 
 func attack():
+	for i in 2:
+		await get_tree().physics_frame
+	
 	await get_tree().create_timer(attack_delay).timeout
 	_on_attack()
 	
@@ -34,6 +37,7 @@ func play_attack_anim():
 func _on_attack():
 	var nodes = get_overlapping_bodies()
 	
+	print(nodes)
 	for n in nodes:
 		if n is EnemyBehvaiour:
 			n.queue_free()

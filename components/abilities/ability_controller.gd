@@ -2,6 +2,7 @@ extends PlayerController
 class_name AbilityController
 
 @export var ability : Ability
+@export var ability_end_delay : float = 1.0
 @export_group("Attack")
 @export var attack : PackedScene
 @export var attack_spawn_pos_offset : float = 0.0
@@ -19,8 +20,9 @@ func _process_io():
 		activate_ability()
 
 func _process_animation():
-	anim_suffix = Utils.get_anim_suffix_based_on_dir(dir)
+	anim_state = "default" if ability_active else "ability"
 	
+	anim_suffix = Utils.get_anim_suffix_based_on_dir(dir)
 	player_sprite.flip_h = true if anim_suffix == "side" and dir.x < 0 else false
 
 func activate_ability():
@@ -29,6 +31,8 @@ func activate_ability():
 	
 	if attack != null:
 		create_attack()
+	
+	await get_tree().create_timer(ability_end_delay).timeout
 	
 	if ability.single_use:
 		GameMan.player.end_ability()
