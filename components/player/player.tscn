@@ -23,4 +23,5 @@ autoplay = "default"
 
 [node name="BaseController" type="Node" parent="."]
 script = ExtResource("3_andyc")
+freeze_direction = false
 sprite_frames = ExtResource("2_m2g0d")

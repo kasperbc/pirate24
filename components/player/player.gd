@@ -10,11 +10,16 @@ var closest_interactable : Interactable
 var charged_ability : Ability
 var charged_ability_controller : PackedScene
 
+var direction : Vector2
+
 func _ready():
 	set_controller(default_controller)
 
 func _process(delta):
 	move_input = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	
+	if move_input != Vector2.ZERO and not controller.freeze_direction:
+		direction = get_direction(move_input)
 	
 	if controller.able_to_interact:
 		interaction_update()
@@ -23,6 +28,13 @@ func _process(delta):
 		activate_ability()
 	
 	controller.process_controller()
+
+func get_direction(move_vector : Vector2) -> Vector2:
+	if abs(move_vector.x) > abs(move_vector.y):
+		return Vector2.LEFT if move_vector.x < 0 else Vector2.RIGHT
+	else:
+		return Vector2.UP if move_vector.y < 0 else Vector2.DOWN
+	
 
 func _physics_process(delta):
 	move_and_slide()
@@ -119,6 +131,8 @@ func set_controller(c : PlayerController):
 	c.player = self
 	%Sprite2D.sprite_frames = c.sprite_frames
 	c.player_sprite = %Sprite2D
+	
+	controller.activate()
 
 func reset():
 	end_ability()
