@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1b7g7pu7eta"
-path="res://.godot/imported/coffeemachine-placeholder.png-630cf00006b0c00a38ae6cff94b58ee1.ctex"
+uid="uid://br6b631w1fatw"
+path="res://.godot/imported/potted-plant-right.png-2250fcbbe6e3780f15c9613095c8a008.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/obscures/coffeemachine-placeholder.png"
-dest_files=["res://.godot/imported/coffeemachine-placeholder.png-630cf00006b0c00a38ae6cff94b58ee1.ctex"]
+source_file="res://art/obscures/potted-plant-right.png"
+dest_files=["res://.godot/imported/potted-plant-right.png-2250fcbbe6e3780f15c9613095c8a008.ctex"]
 
 [params]
 
