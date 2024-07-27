@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=22 format=3 uid="uid://w4tfj2yjtydd"]
+[gd_resource type="SpriteFrames" load_steps=27 format=3 uid="uid://w4tfj2yjtydd"]
 
 [ext_resource type="Texture2D" uid="uid://crp6yluav2wlg" path="res://art/enemy/guard-idle-down1.png" id="2_uu03y"]
 [ext_resource type="Texture2D" uid="uid://dy0klfy8f674y" path="res://art/enemy/guard-idle-down2.png" id="3_bsmqy"]
@@ -8,9 +8,14 @@
 [ext_resource type="Texture2D" uid="uid://7eg7xgbw0r63" path="res://art/enemy/guard-idle-up2.png" id="7_o2h1r"]
 [ext_resource type="Texture2D" uid="uid://durvnsb2j04uc" path="res://art/enemy/guard-spotted-down.png" id="8_6ywhs"]
 [ext_resource type="Texture2D" uid="uid://dbyway5froubg" path="res://art/enemy/guard-spotted-sides.png" id="9_haqt2"]
+[ext_resource type="Texture2D" uid="uid://b3l0wclnqo655" path="res://art/enemy/guard-stunned-down.png" id="10_fj785"]
 [ext_resource type="Texture2D" uid="uid://cwfvj7g272gd8" path="res://art/enemy/guard-spotted-up.png" id="10_os86u"]
 [ext_resource type="Texture2D" uid="uid://n68bfq0p56n" path="res://art/enemy/guard-walkcycle-down1.png" id="11_1rj60"]
+[ext_resource type="Texture2D" uid="uid://djfd6lmnge48f" path="res://art/enemy/guard-stunned-down-coffee.png" id="11_g1h3l"]
+[ext_resource type="Texture2D" uid="uid://bwlsx41qlyeds" path="res://art/enemy/guard-stunned-sides.png" id="11_jqpxn"]
+[ext_resource type="Texture2D" uid="uid://tn6pvwmlw6ox" path="res://art/enemy/guard-stunned-up.png" id="11_tck0p"]
 [ext_resource type="Texture2D" uid="uid://cc6wbhdsxd8r5" path="res://art/enemy/guard-walkcycle-down2.png" id="12_bisru"]
+[ext_resource type="Texture2D" uid="uid://dvr3d4w66q730" path="res://art/enemy/guard-stunned-sides-coffee.png" id="13_3e302"]
 [ext_resource type="Texture2D" uid="uid://o6mfeqc4t2b3" path="res://art/enemy/guard-walkcycle-down3.png" id="13_4u1ec"]
 [ext_resource type="Texture2D" uid="uid://c1bd810kgvx6u" path="res://art/enemy/guard-walkcycle-down4.png" id="14_pw77n"]
 [ext_resource type="Texture2D" uid="uid://c3p57riftx8dy" path="res://art/enemy/guard-walkcycle-sides1.png" id="15_k2v03"]
@@ -84,6 +89,54 @@ animations = [{
 }],
 "loop": true,
 "name": &"spotted_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_g1h3l")
+}],
+"loop": true,
+"name": &"stunned_coffee_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_3e302")
+}],
+"loop": true,
+"name": &"stunned_coffee_side",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_tck0p")
+}],
+"loop": true,
+"name": &"stunned_coffee_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_fj785")
+}],
+"loop": true,
+"name": &"stunned_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_jqpxn")
+}],
+"loop": true,
+"name": &"stunned_side",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_tck0p")
+}],
+"loop": true,
+"name": &"stunned_up",
 "speed": 5.0
 }, {
 "frames": [{
