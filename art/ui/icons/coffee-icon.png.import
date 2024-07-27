@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://citbh730touca"
-path="res://.godot/imported/flashlight3.png-257946287b35571094f08e4a71c5236b.ctex"
+uid="uid://b1voddmwvu6bk"
+path="res://.godot/imported/coffee-icon.png-cde2177040c7054edb4bfaf1bebbc8eb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/gradients/flashlight3.png"
-dest_files=["res://.godot/imported/flashlight3.png-257946287b35571094f08e4a71c5236b.ctex"]
+source_file="res://art/ui/icons/coffee-icon.png"
+dest_files=["res://.godot/imported/coffee-icon.png-cde2177040c7054edb4bfaf1bebbc8eb.ctex"]
 
 [params]
 

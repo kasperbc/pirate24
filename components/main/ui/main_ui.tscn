@@ -1,14 +1,27 @@
 [gd_scene load_steps=2 format=3 uid="uid://qj0hwwx0iarx"]
 
-[ext_resource type="Texture2D" uid="uid://1owwjrrg7x2d" path="res://icon.png" id="1_ctnvj"]
+[ext_resource type="Texture2D" uid="uid://k8rxtlak83ki" path="res://art/ui/itembox.png" id="1_68npu"]
 
 [node name="UI" type="CanvasLayer"]
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
+offset_right = 960.0
+offset_bottom = 540.0
 
-[node name="TextureRect" type="TextureRect" parent="Control"]
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("1_ctnvj")
+[node name="ItemBox" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 96.0
+offset_bottom = 96.0
+texture = ExtResource("1_68npu")
+
+[node name="ItemIcon" type="TextureRect" parent="Control/ItemBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

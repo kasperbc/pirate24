@@ -87,7 +87,6 @@ func _physics_process(delta):
 	velocity = transform.x.rotated(deg_to_rad(-90)) * move_speed if not waiting else Vector2.ZERO
 	
 	if %WallCheck.get_collider() != null and not waiting:
-		print(%WallCheck.get_collider())
 		turn_around()
 	
 	if try_detect_player():

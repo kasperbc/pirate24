@@ -2,6 +2,7 @@ extends Interactable
 class_name AbilityInteractable
 
 @export var ability_controller : PackedScene
+@export var ability_icon : CompressedTexture2D
 
 func _on_interact():
 	if ability_controller == null:

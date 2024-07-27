@@ -2,6 +2,7 @@ extends CharacterBody2D
 class_name Player
 
 const PLAYER_HEIGHT : int = 27
+const DEFAULT_ANIM : StringName = "default_side"
 
 @export var default_controller : PlayerController
 @export var transform_duration : float = 2.0
@@ -93,7 +94,8 @@ func charge_ability(controller : PackedScene):
 	
 	charging = true
 	velocity = Vector2.ZERO
-	%Sprite2D.play("gain_ability")
+	
+	%Sprite2D.play("gain_ability_%s" % Utils.get_anim_suffix_based_on_dir(direction))
 	
 	
 	await get_tree().create_timer(0.2).timeout
@@ -118,7 +120,7 @@ func charge_ability(controller : PackedScene):
 	
 	charged_controller = controller
 	charging = false
-	%Sprite2D.play("default")
+	%Sprite2D.play(DEFAULT_ANIM)
 	print("Charged ability!")
 
 func uncharge_ability():

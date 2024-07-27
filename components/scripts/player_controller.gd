@@ -20,7 +20,7 @@ var cycle : int = 0
 
 func activate():
 	_on_activate()
-	player_sprite.play("default")
+	player_sprite.play(Player.DEFAULT_ANIM)
 
 func _on_activate():
 	pass
