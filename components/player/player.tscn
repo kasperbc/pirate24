@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bllcrp6rvhcud" path="res://art/particles/shadow_piece.png" id="4_axcjf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1ftvp"]
-radius = 6.0
+radius = 3.0
 
 [sub_resource type="Gradient" id="Gradient_kjhtt"]
 offsets = PackedFloat32Array(0, 0.149425, 0.494253, 1)
@@ -39,9 +39,8 @@ shape = SubResource("CircleShape2D_1ftvp")
 unique_name_in_owner = true
 position = Vector2(0, -9)
 sprite_frames = ExtResource("2_m2g0d")
-animation = &"walk_down"
+animation = &"spotted_side"
 autoplay = "default"
-frame_progress = 0.160096
 
 [node name="BaseController" type="Node" parent="."]
 script = ExtResource("3_andyc")
