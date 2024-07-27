@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="Level" load_steps=3 format=3 uid="uid://cktli1x2n5qu"]
+[gd_resource type="Resource" script_class="Level" load_steps=4 format=3 uid="uid://cktli1x2n5qu"]
 
+[ext_resource type="Resource" uid="uid://cjcx8sl2yldkl" path="res://components/levels/test/level_test_2.tres" id="1_3x05e"]
 [ext_resource type="Script" path="res://components/levels/level.gd" id="1_beec5"]
 [ext_resource type="PackedScene" uid="uid://b0lthrrnl6sd2" path="res://components/levels/test/level_test.tscn" id="1_t2sx8"]
 
@@ -7,3 +8,4 @@
 script = ExtResource("1_beec5")
 level_name = "Level"
 scene = ExtResource("1_t2sx8")
+next_level = ExtResource("1_3x05e")

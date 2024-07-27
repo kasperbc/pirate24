@@ -79,6 +79,10 @@ func get_closest_interactable() -> Interactable:
 		if dist > closest_dist or dist > itr.interaction_range:
 			continue
 		
+		%InteractionWallCheck.target_position = to_local(itr.global_position)
+		if %InteractionWallCheck.is_colliding():
+			continue
+		
 		closest_dist = dist
 		closest = itr
 	

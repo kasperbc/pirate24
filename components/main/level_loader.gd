@@ -8,11 +8,19 @@ var curr_level_res : Level
 var curr_level_seg : LevelSegment
 
 func _ready():
-	load_level(default_level)
+	var level : Level = default_level
+	if GameMan.level_override != null:
+		level = GameMan.level_override
+	
+	load_level(level)
 
-func load_level(l : Level, segment = 0, reloading : bool = false):
+func load_level(l : Level, segment : int = 0, reloading : bool = false):
 	if curr_level != null:
 		unload_current_level()
+	
+	if GameMan.segement_override != -1:
+		segment = GameMan.segement_override
+		GameMan.segement_override == 1
 	
 	var loaded_level = l.scene.instantiate()
 	add_child(loaded_level)
@@ -23,6 +31,7 @@ func load_level(l : Level, segment = 0, reloading : bool = false):
 	
 	GameMan.player.global_position = curr_level_seg.player_start_point.global_position
 	GameMan.player.reset()
+	# GameMan.camera.get_node("Background").color = l.background_color
 	
 	GameMan.player.spotted = false
 	

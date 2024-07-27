@@ -18,6 +18,7 @@ var player_check_rays : Array[RayCast2D]
 
 var stunned : bool = false
 var waiting : bool = false
+var spotted : bool = false
 
 func _ready():
 	%WallCheck.target_position = Vector2(0, -wall_turn_distance)
@@ -91,6 +92,7 @@ func _physics_process(delta):
 	
 	if try_detect_player():
 		GameMan.player.on_spotted()
+		spotted = true
 		%SpottedIcon._on_spot()
 	
 	move_and_slide()
@@ -111,10 +113,23 @@ func turn_around():
 	waiting = false
 
 func process_animation():
+	if not stunned:
+		%Sprite2D.global_position = global_position
+	
 	var anim = "default"
 	if velocity.length() != 0:
 		anim = "walk"
 		%Sprite2D.speed_scale = move_speed / BASE_SPEED
+	if spotted:
+		anim = "spotted"
+	
+	var dir_vec2 = Vector2.UP.rotated(rotation)
+	
+	
+	var suffix = Utils.get_anim_suffix_based_on_dir(dir_vec2)
+	anim += "_%s" % suffix
+	
+	%Sprite2D.flip_h = dir_vec2.x < 0
 	
 	%Sprite2D.animation = anim
 

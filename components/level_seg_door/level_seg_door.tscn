@@ -31,7 +31,7 @@ gravity = Vector3(0, 0, 0)
 color_ramp = SubResource("GradientTexture1D_1jgkx")
 
 [node name="LevelSegmentDoor" type="StaticBody2D"]
-collision_layer = 2
+collision_layer = 10
 script = ExtResource("1_rkctn")
 
 [node name="YSort" type="Node2D" parent="." node_paths=PackedStringArray("target")]

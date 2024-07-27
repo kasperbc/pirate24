@@ -12,7 +12,7 @@ config_version=5
 
 config/name="pirate24"
 config/version="0.0"
-run/main_scene="res://components/main/main.tscn"
+run/main_scene="res://components/entry/entry.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://TMS-desktop-icon.png"
 
@@ -37,9 +37,11 @@ folder_colors={
 "res://art/": "teal",
 "res://components/": "green",
 "res://components/abilities/": "orange",
+"res://components/entry/": "orange",
 "res://components/levels/": "orange",
 "res://components/main/": "orange",
-"res://components/scripts/": "orange"
+"res://components/scripts/": "orange",
+"res://components/title/": "orange"
 }
 
 [global_group]
@@ -99,9 +101,12 @@ toggle_debug={
 2d_physics/layer_1="Player"
 2d_physics/layer_2="Map"
 2d_physics/layer_3="Enemy"
+2d_physics/layer_4="InteractionBlocking"
+2d_physics/defaults/default_clear_color=Color(0.101961, 0.121569, 0.180392, 1)
 
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.101961, 0.121569, 0.180392, 1)

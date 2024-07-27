@@ -19,8 +19,9 @@ detection_angle = 15.0
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
+top_level = true
+position = Vector2(0, -8)
 sprite_frames = ExtResource("1_u4apu")
-animation = &"walk"
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -47,8 +48,8 @@ invert_border = 0.1
 
 [node name="SpottedIcon" type="Sprite2D" parent="."]
 unique_name_in_owner = true
+top_level = true
 z_index = 1000
-position = Vector2(0, 20)
 texture = ExtResource("4_woul6")
 script = ExtResource("5_kkgiw")
 
