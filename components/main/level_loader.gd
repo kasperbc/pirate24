@@ -21,8 +21,13 @@ func load_level(l : Level):
 	
 	GameMan.player.global_position = Vector2.ZERO
 	GameMan.player.reset()
+	
+	GameMan.camera.zoom = Vector2.ONE * 2.5
 
-func reload_level():
+func reload_level(fade_anim : bool = false):
+	if fade_anim:
+		pass
+	
 	load_level(curr_level_res)
 
 func unload_current_level():

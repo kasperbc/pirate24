@@ -189,6 +189,12 @@ func on_spotted():
 	spotted = true
 	velocity = Vector2.ZERO
 	
+	%CollisionShape.disabled = true
+	
+	var t = get_tree().create_tween().set_ease(Tween.EASE_OUT)
+	t.set_trans(Tween.TRANS_CIRC)
+	t.tween_property(GameMan.camera, "zoom", Vector2.ONE * 3, 0.75)
+	
 	%Sprite2D.play("spotted_side")
 	
 	await get_tree().create_timer(1).timeout
@@ -200,3 +206,7 @@ func reset():
 	uncharge_ability()
 	charging = false
 	spotted = false
+	
+	await get_tree().create_timer(0.1).timeout
+	
+	%CollisionShape.disabled = false
