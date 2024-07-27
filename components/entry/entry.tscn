@@ -1,8 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://cldnqkqxlbtnd"]
+[gd_scene load_steps=4 format=3 uid="uid://cldnqkqxlbtnd"]
 
 [ext_resource type="Script" path="res://components/entry/entry.gd" id="1_spttp"]
 [ext_resource type="PackedScene" uid="uid://2h4xghhte6jp" path="res://components/main/main.tscn" id="2_21tli"]
+[ext_resource type="PackedScene" uid="uid://den24pxjr7xvj" path="res://components/title/title.tscn" id="3_p4eiv"]
 
 [node name="Entry" type="Node"]
 script = ExtResource("1_spttp")
+load_title = true
 main_scene = ExtResource("2_21tli")
+title_scene = ExtResource("3_p4eiv")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://v2ct8qqorrsj"
-path="res://.godot/imported/TMS-logo2-big.png-870d7fc6b926836aee7f480a31708104.ctex"
+uid="uid://ba7554nc1ra0j"
+path="res://.godot/imported/water-dispenser-sides.png-42b262b0680762456d53ebfc4c20f9f7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/logo/TMS-logo2-big.png"
-dest_files=["res://.godot/imported/TMS-logo2-big.png-870d7fc6b926836aee7f480a31708104.ctex"]
+source_file="res://art/obscures/water_dispenser/water-dispenser-sides.png"
+dest_files=["res://.godot/imported/water-dispenser-sides.png-42b262b0680762456d53ebfc4c20f9f7.ctex"]
 
 [params]
 

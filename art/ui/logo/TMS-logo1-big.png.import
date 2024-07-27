@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfu2xqkv05xp6"
-path="res://.godot/imported/TMS-logo1.png-30adcdc45fd2a81020f95f910b0cd50a.ctex"
+uid="uid://bffjjwj0ic40j"
+path="res://.godot/imported/TMS-logo1-big.png-37d97e6ffbe59a61c0242d3ca9293c8c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/logo/TMS-logo1.png"
-dest_files=["res://.godot/imported/TMS-logo1.png-30adcdc45fd2a81020f95f910b0cd50a.ctex"]
+source_file="res://art/ui/logo/TMS-logo1-big.png"
+dest_files=["res://.godot/imported/TMS-logo1-big.png-37d97e6ffbe59a61c0242d3ca9293c8c.ctex"]
 
 [params]
 

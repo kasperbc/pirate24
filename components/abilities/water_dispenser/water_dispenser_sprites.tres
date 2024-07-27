@@ -1,17 +1,14 @@
-[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://ypvenxlrt12v"]
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://ypvenxlrt12v"]
 
-[ext_resource type="Texture2D" uid="uid://dtmghuxkbet1j" path="res://art/obscures/coffee_machine/coffeemachine-shoot-down.png" id="1_lupwm"]
-[ext_resource type="Texture2D" uid="uid://djfuqi5buw8da" path="res://art/obscures/coffee_machine/coffeemachine-shoot-side.png" id="2_da4wn"]
-[ext_resource type="Texture2D" uid="uid://dn6bpwp50t3re" path="res://art/obscures/coffee_machine/coffeemachine-shoot-up.png" id="3_25a37"]
-[ext_resource type="Texture2D" uid="uid://brenxgn3ytelq" path="res://art/obscures/coffee_machine/coffeemachine-down.png" id="4_y54y3"]
-[ext_resource type="Texture2D" uid="uid://b1hedwfn03ky2" path="res://art/obscures/coffee_machine/coffeemachine-side.png" id="5_8aujh"]
-[ext_resource type="Texture2D" uid="uid://7entw7ctj0te" path="res://art/obscures/coffee_machine/coffeemachine-up.png" id="6_5k5us"]
+[ext_resource type="Texture2D" uid="uid://cevl7sj6jbemt" path="res://art/obscures/water_dispenser/water-dispenser-down.png" id="1_fmsnt"]
+[ext_resource type="Texture2D" uid="uid://ba7554nc1ra0j" path="res://art/obscures/water_dispenser/water-dispenser-sides.png" id="2_mlfj8"]
+[ext_resource type="Texture2D" uid="uid://cs211vre3r5be" path="res://art/obscures/water_dispenser/water-dispenser-up.png" id="3_2f7vv"]
 
 [resource]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_lupwm")
+"texture": ExtResource("1_fmsnt")
 }],
 "loop": true,
 "name": &"ability_down",
@@ -19,7 +16,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_da4wn")
+"texture": ExtResource("2_mlfj8")
 }],
 "loop": true,
 "name": &"ability_side",
@@ -27,7 +24,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_25a37")
+"texture": ExtResource("3_2f7vv")
 }],
 "loop": true,
 "name": &"ability_up",
@@ -35,7 +32,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_y54y3")
+"texture": ExtResource("1_fmsnt")
 }],
 "loop": true,
 "name": &"default_down",
@@ -43,7 +40,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_8aujh")
+"texture": ExtResource("2_mlfj8")
 }],
 "loop": true,
 "name": &"default_side",
@@ -51,7 +48,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_5k5us")
+"texture": ExtResource("3_2f7vv")
 }],
 "loop": true,
 "name": &"default_up",
