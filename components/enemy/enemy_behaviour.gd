@@ -8,7 +8,7 @@ const LIGHT_POLY_COLOR : Color = Color(1,0,0,0.33)
 @export_group("Movement")
 @export var move_speed : float = BASE_SPEED
 @export var wall_turn_distance : float = 32.0
-@export var wait_time : float = 5.0
+@export var wait_time : float = 2.0
 
 @export_group("Player Detection")
 @export var detection_angle : float = 30.0
@@ -17,6 +17,7 @@ const LIGHT_POLY_COLOR : Color = Color(1,0,0,0.33)
 var player_check_rays : Array[RayCast2D]
 
 var stunned : bool = false
+var waiting : bool = false
 
 func _ready():
 	%WallCheck.target_position = Vector2(0, -wall_turn_distance)
@@ -83,15 +84,31 @@ func _physics_process(delta):
 	if stunned:
 		return
 	
-	velocity = transform.x.rotated(deg_to_rad(-90)) * move_speed
+	velocity = transform.x.rotated(deg_to_rad(-90)) * move_speed if not waiting else Vector2.ZERO
 	
-	if %WallCheck.get_collider() != null:
-		rotate(deg_to_rad(180))
+	if %WallCheck.get_collider() != null and not waiting:
+		print(%WallCheck.get_collider())
+		turn_around()
 	
 	if try_detect_player():
 		GameMan.level_loader.reload_level()
 	
 	move_and_slide()
+
+func turn_around():
+	if waiting:
+		return
+	
+	if wait_time > 0:
+		waiting = true
+		await get_tree().create_timer(wait_time).timeout
+	
+	rotate(deg_to_rad(180))
+	
+	for i in 2:
+		await get_tree().physics_frame
+	
+	waiting = false
 
 func process_animation():
 	var anim = "default"

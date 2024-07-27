@@ -37,7 +37,6 @@ folder_colors={
 "res://art/": "teal",
 "res://components/": "green",
 "res://components/abilities/": "orange",
-"res://components/enums/": "orange",
 "res://components/levels/": "orange",
 "res://components/main/": "orange",
 "res://components/scripts/": "orange"
