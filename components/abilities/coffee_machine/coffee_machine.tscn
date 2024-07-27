@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bkdppj4uf5c4w" path="res://components/abilities/ability_base.tscn" id="1_2nbpf"]
 [ext_resource type="PackedScene" uid="uid://5qn41iedtbcr" path="res://components/abilities/coffee_machine/ability_controller_coffee_machine.tscn" id="3_ox3l7"]
-[ext_resource type="Texture2D" uid="uid://ba0lkyf7womv7" path="res://art/obscures/coffeemachine_side.png" id="4_31weu"]
+[ext_resource type="Texture2D" uid="uid://b1hedwfn03ky2" path="res://art/obscures/coffee_machine/coffeemachine-side.png" id="4_31weu"]
 [ext_resource type="Script" path="res://components/scripts/y_sort.gd" id="5_cyr6f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jp1yi"]
