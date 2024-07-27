@@ -1,0 +1,109 @@
+[gd_resource type="SpriteFrames" load_steps=22 format=3 uid="uid://yek1hcdh84cp"]
+
+[ext_resource type="Texture2D" uid="uid://ch6u6rl6fcutv" path="res://art/obscures/water_dispenser/water_spill_7.png" id="1_rig22"]
+[ext_resource type="Texture2D" uid="uid://cph7kycllf3mr" path="res://art/obscures/water_dispenser/water_spill_8.png" id="2_70nul"]
+[ext_resource type="Texture2D" uid="uid://b11ly1mr2u0dk" path="res://art/obscures/water_dispenser/water_spill_9.png" id="3_vm0gd"]
+[ext_resource type="Texture2D" uid="uid://447pucewwtpa" path="res://art/obscures/water_dispenser/water_spill_10.png" id="4_t21un"]
+[ext_resource type="Texture2D" uid="uid://cyqvlowtadu24" path="res://art/obscures/water_dispenser/water_spill_11.png" id="5_mgva2"]
+[ext_resource type="Texture2D" uid="uid://bfkh5s36mbtei" path="res://art/obscures/water_dispenser/water_spill_12.png" id="6_2c5yn"]
+[ext_resource type="Texture2D" uid="uid://cudlux2rrp6js" path="res://art/obscures/water_dispenser/water_spill_13.png" id="7_n17ho"]
+[ext_resource type="Texture2D" uid="uid://cvl24n6scbn52" path="res://art/obscures/water_dispenser/water_spill_0.png" id="8_1c23n"]
+[ext_resource type="Texture2D" uid="uid://8jdbcyfokf53" path="res://art/obscures/water_dispenser/water_spill_1.png" id="9_kxa1c"]
+[ext_resource type="Texture2D" uid="uid://dmxeatwainomf" path="res://art/obscures/water_dispenser/water_spill_2.png" id="10_c1m02"]
+[ext_resource type="Texture2D" uid="uid://h4od1kic6645" path="res://art/obscures/water_dispenser/water_spill_3.png" id="11_ret13"]
+[ext_resource type="Texture2D" uid="uid://b6jtxtdct0nqp" path="res://art/obscures/water_dispenser/water_spill_4.png" id="12_oobwj"]
+[ext_resource type="Texture2D" uid="uid://bw3vasthct7tj" path="res://art/obscures/water_dispenser/water_spill_5.png" id="13_mfoib"]
+[ext_resource type="Texture2D" uid="uid://byvtuuroc48gh" path="res://art/obscures/water_dispenser/water_spill_6.png" id="14_nlgua"]
+[ext_resource type="Texture2D" uid="uid://cpwv8bymjpqii" path="res://art/obscures/water_dispenser/water_spill_14.png" id="15_t7jqe"]
+[ext_resource type="Texture2D" uid="uid://dhkwa31r3kn2j" path="res://art/obscures/water_dispenser/water_spill_15.png" id="16_50ujl"]
+[ext_resource type="Texture2D" uid="uid://musiu1buvnml" path="res://art/obscures/water_dispenser/water_spill_16.png" id="17_hdpio"]
+[ext_resource type="Texture2D" uid="uid://drmkcfha2bndm" path="res://art/obscures/water_dispenser/water_spill_17.png" id="18_lst7e"]
+[ext_resource type="Texture2D" uid="uid://buidmo6jiwc2q" path="res://art/obscures/water_dispenser/water_spill_18.png" id="19_v37yy"]
+[ext_resource type="Texture2D" uid="uid://l7ce1qvqnp5c" path="res://art/obscures/water_dispenser/water_spill_19.png" id="20_h3ve4"]
+[ext_resource type="Texture2D" uid="uid://cjo4l4p6td7jg" path="res://art/obscures/water_dispenser/water_spill_20.png" id="21_13tqx"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_rig22")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_70nul")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vm0gd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_t21un")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_mgva2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_2c5yn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_n17ho")
+}],
+"loop": false,
+"name": &"attack_down",
+"speed": 30.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_1c23n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_kxa1c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_c1m02")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ret13")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_oobwj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_mfoib")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_nlgua")
+}],
+"loop": false,
+"name": &"attack_side",
+"speed": 30.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_t7jqe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_50ujl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_hdpio")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_lst7e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_v37yy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_h3ve4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_13tqx")
+}],
+"loop": false,
+"name": &"attack_up",
+"speed": 30.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

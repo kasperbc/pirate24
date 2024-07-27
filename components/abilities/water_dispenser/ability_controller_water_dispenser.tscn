@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6eembodjij6o"]
+
+[ext_resource type="PackedScene" uid="uid://6lfdcwk5vl65" path="res://components/abilities/ability_controller_base.tscn" id="1_vqne6"]
+[ext_resource type="PackedScene" uid="uid://vwrvc3lt1uji" path="res://components/abilities/water_dispenser/water_splash.tscn" id="2_d7llr"]
+[ext_resource type="SpriteFrames" uid="uid://ypvenxlrt12v" path="res://components/abilities/water_dispenser/water_dispenser_sprites.tres" id="3_d5j0u"]
+
+[node name="AbilityController" instance=ExtResource("1_vqne6")]
+attack = ExtResource("2_d7llr")
+attack_spawn_pos_offset = 24.0
+sprite_frames = ExtResource("3_d5j0u")

@@ -81,7 +81,7 @@ func draw_light_poly():
 	%LightPoly.polygon = PackedVector2Array(vertices)
 
 func _physics_process(delta):
-	if stunned:
+	if stunned or GameMan.player.spotted:
 		return
 	
 	velocity = transform.x.rotated(deg_to_rad(-90)) * move_speed if not waiting else Vector2.ZERO
@@ -91,7 +91,7 @@ func _physics_process(delta):
 	
 	if try_detect_player():
 		GameMan.player.on_spotted()
-		queue_free()
+		%SpottedIcon._on_spot()
 	
 	move_and_slide()
 
@@ -130,20 +130,16 @@ func try_detect_player() -> bool:
 func stun(duration : float):
 	stunned = true
 	
-	var shaker = Shaker.new()
-	%Sprite2D.add_child(shaker)
-	shaker.start_shake(%Sprite2D, 1.0, duration * 0.75)
+	Utils.create_shaker_and_shake(%Sprite2D, 1.0, duration * 0.75)
 	
 	get_tree().create_tween().tween_property(%LightPoly, "color", Color(0,0,0,0), duration * 0.1)
 
-	
 	await get_tree().create_timer(duration * 0.75).timeout
 	
 	var t = get_tree().create_tween().set_trans(Tween.TRANS_EXPO)
 	t.tween_property(%LightPoly, "color", LIGHT_POLY_COLOR, duration * 0.2)
 	
-	await get_tree().create_timer(duration * 0.1).timeout
-	
-	await get_tree().create_timer(duration * 0.15).timeout
+	await get_tree().create_timer(duration * 0.25).timeout
 	
 	stunned = false
+	%DialogueText.show_forget_dialogue()

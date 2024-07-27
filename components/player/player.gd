@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name Player
 
+signal ability_charging_started
+
 const PLAYER_HEIGHT : int = 27
 const DEFAULT_ANIM : StringName = "default_side"
 
@@ -16,8 +18,9 @@ var transforming : bool = false
 var charging : bool = false
 
 var spotted : bool = false
-
 var direction : Vector2
+
+var debug_mode : bool = false
 
 func _ready():
 	set_controller(default_controller)
@@ -36,6 +39,10 @@ func _process(delta):
 	
 	if input_enabled():
 		controller.process_controller()
+	
+	if Input.is_action_just_pressed("toggle_debug") and OS.has_feature("editor"):
+		debug_mode = !debug_mode
+		%CollisionShape.disabled = debug_mode
 
 func get_direction(move_vector : Vector2) -> Vector2:
 	if abs(move_vector.x) > abs(move_vector.y):
@@ -95,8 +102,9 @@ func charge_ability(controller : PackedScene):
 	charging = true
 	velocity = Vector2.ZERO
 	
-	%Sprite2D.play("gain_ability_%s" % Utils.get_anim_suffix_based_on_dir(direction))
+	ability_charging_started.emit()
 	
+	%Sprite2D.play("gain_ability_%s" % Utils.get_anim_suffix_based_on_dir(direction))
 	
 	await get_tree().create_timer(0.2).timeout
 	
@@ -195,13 +203,16 @@ func on_spotted():
 	
 	var t = get_tree().create_tween().set_ease(Tween.EASE_OUT)
 	t.set_trans(Tween.TRANS_CIRC)
-	t.tween_property(GameMan.camera, "zoom", Vector2.ONE * 3, 0.75)
+	t.tween_property(GameMan.camera, "zoom", Vector2.ONE * 2.75, 0.75)
 	
-	%Sprite2D.play("spotted_side")
+	
+	%Sprite2D.play("spotted_%s" % Utils.get_anim_suffix_based_on_dir(direction))
+	if direction.y == 0:
+		%Sprite2D.flip_h = true if direction.x < 0 else false
 	
 	await get_tree().create_timer(1).timeout
 	
-	GameMan.level_loader.reload_level()
+	GameMan.level_loader.reload_level(true)
 
 func reset():
 	end_ability()

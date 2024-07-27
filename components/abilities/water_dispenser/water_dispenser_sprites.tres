@@ -1,0 +1,59 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://ypvenxlrt12v"]
+
+[ext_resource type="Texture2D" uid="uid://dtmghuxkbet1j" path="res://art/obscures/coffee_machine/coffeemachine-shoot-down.png" id="1_lupwm"]
+[ext_resource type="Texture2D" uid="uid://djfuqi5buw8da" path="res://art/obscures/coffee_machine/coffeemachine-shoot-side.png" id="2_da4wn"]
+[ext_resource type="Texture2D" uid="uid://dn6bpwp50t3re" path="res://art/obscures/coffee_machine/coffeemachine-shoot-up.png" id="3_25a37"]
+[ext_resource type="Texture2D" uid="uid://brenxgn3ytelq" path="res://art/obscures/coffee_machine/coffeemachine-down.png" id="4_y54y3"]
+[ext_resource type="Texture2D" uid="uid://b1hedwfn03ky2" path="res://art/obscures/coffee_machine/coffeemachine-side.png" id="5_8aujh"]
+[ext_resource type="Texture2D" uid="uid://7entw7ctj0te" path="res://art/obscures/coffee_machine/coffeemachine-up.png" id="6_5k5us"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_lupwm")
+}],
+"loop": true,
+"name": &"ability_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_da4wn")
+}],
+"loop": true,
+"name": &"ability_side",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_25a37")
+}],
+"loop": true,
+"name": &"ability_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_y54y3")
+}],
+"loop": true,
+"name": &"default_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_8aujh")
+}],
+"loop": true,
+"name": &"default_side",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_5k5us")
+}],
+"loop": true,
+"name": &"default_up",
+"speed": 5.0
+}]

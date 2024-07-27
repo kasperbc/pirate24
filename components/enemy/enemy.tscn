@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://bg1md3rc8cto0"]
+[gd_scene load_steps=8 format=3 uid="uid://bg1md3rc8cto0"]
 
 [ext_resource type="Script" path="res://components/enemy/enemy_behaviour.gd" id="1_ery85"]
 [ext_resource type="SpriteFrames" uid="uid://w4tfj2yjtydd" path="res://components/enemy/enemy_sprites.tres" id="1_u4apu"]
 [ext_resource type="Script" path="res://components/enemy/enemy_helper_tool.gd" id="3_m0o5n"]
+[ext_resource type="Texture2D" uid="uid://cuhsmek8br7a5" path="res://art/exclamationmark-spotted.png" id="4_woul6"]
+[ext_resource type="Script" path="res://components/enemy/spotted_icon.gd" id="5_kkgiw"]
+[ext_resource type="Script" path="res://components/enemy/dialogue_text.gd" id="6_6v5x5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2e1cs"]
 radius = 8.0
@@ -41,3 +44,23 @@ z_index = -99
 z_as_relative = false
 color = Color(1, 0, 0, 0.25098)
 invert_border = 0.1
+
+[node name="SpottedIcon" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+z_index = 1000
+position = Vector2(0, 20)
+texture = ExtResource("4_woul6")
+script = ExtResource("5_kkgiw")
+
+[node name="DialogueText" type="Label" parent="." node_paths=PackedStringArray("dialogue_pos")]
+unique_name_in_owner = true
+top_level = true
+z_index = 900
+z_as_relative = false
+offset_right = 170.0
+offset_bottom = 43.0
+scale = Vector2(0.325, 0.325)
+autowrap_mode = 2
+script = ExtResource("6_6v5x5")
+dialogue_pos = NodePath("..")
+forget_dialogues = Array[String](["Must have been my imagination", "I'm sure it's nothing", "I hate this job", "Guh..."])

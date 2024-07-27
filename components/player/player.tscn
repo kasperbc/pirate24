@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://b15lnd5i2umfm"]
+[gd_scene load_steps=10 format=3 uid="uid://b15lnd5i2umfm"]
 
 [ext_resource type="Script" path="res://components/player/player.gd" id="1_t6385"]
 [ext_resource type="SpriteFrames" uid="uid://bergdw84aflyp" path="res://components/player/player_sprites.res" id="2_m2g0d"]
 [ext_resource type="Script" path="res://components/player/base_player_controller.gd" id="3_andyc"]
+[ext_resource type="Texture2D" uid="uid://b7b1sn37qi7ic" path="res://art/player/player_shadow.png" id="3_owkwf"]
 [ext_resource type="Texture2D" uid="uid://bllcrp6rvhcud" path="res://art/particles/shadow_piece.png" id="4_axcjf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ln0a"]
@@ -41,8 +42,14 @@ shape = SubResource("RectangleShape2D_1ln0a")
 unique_name_in_owner = true
 position = Vector2(0, -9)
 sprite_frames = ExtResource("2_m2g0d")
-animation = &"walk_up"
+animation = &"spotted_up"
 autoplay = "default_side"
+
+[node name="PlayerShadow" type="Sprite2D" parent="Sprite2D"]
+modulate = Color(1, 1, 1, 0.392157)
+z_index = -1
+position = Vector2(0, 11)
+texture = ExtResource("3_owkwf")
 
 [node name="BaseController" type="Node" parent="."]
 script = ExtResource("3_andyc")

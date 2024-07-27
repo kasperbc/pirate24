@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://dkxh178enq0qb"]
+
+[ext_resource type="PackedScene" uid="uid://bkdppj4uf5c4w" path="res://components/abilities/ability_base.tscn" id="1_sxf48"]
+[ext_resource type="Texture2D" uid="uid://djfuqi5buw8da" path="res://art/obscures/coffee_machine/coffeemachine-shoot-side.png" id="2_l8cem"]
+[ext_resource type="PackedScene" uid="uid://c6eembodjij6o" path="res://components/abilities/water_dispenser/ability_controller_water_dispenser.tscn" id="2_pnby5"]
+[ext_resource type="Script" path="res://components/scripts/y_sort.gd" id="4_tu5gq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0myrb"]
+size = Vector2(14, 7)
+
+[node name="WaterDispenser" instance=ExtResource("1_sxf48")]
+ability_controller = ExtResource("2_pnby5")
+
+[node name="Sprite2D" parent="." index="0"]
+modulate = Color(0.31, 0.54, 1, 1)
+texture = ExtResource("2_l8cem")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(-1, 12.5)
+shape = SubResource("RectangleShape2D_0myrb")
+
+[node name="YSort" type="Node2D" parent="." index="3" node_paths=PackedStringArray("target")]
+position = Vector2(0, 10)
+script = ExtResource("4_tu5gq")
+target = NodePath("..")

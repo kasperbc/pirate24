@@ -1,0 +1,85 @@
+[gd_scene load_steps=10 format=3 uid="uid://cg7dqu620dv2i"]
+
+[ext_resource type="Script" path="res://components/level_seg_door/level_seg_door.gd" id="1_rkctn"]
+[ext_resource type="SpriteFrames" uid="uid://cepf4eplata6t" path="res://components/level_seg_door/level_seg_door_sprites.tres" id="1_vovts"]
+[ext_resource type="Script" path="res://components/scripts/y_sort.gd" id="2_f87ai"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vravr"]
+size = Vector2(32, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0osf3"]
+size = Vector2(32, 8.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ykujb"]
+size = Vector2(16, 8)
+
+[sub_resource type="Gradient" id="Gradient_dwbtp"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1jgkx"]
+gradient = SubResource("Gradient_dwbtp")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0f6em"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(10, 1, 1)
+direction = Vector3(0, 1, 0)
+spread = 15.0
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 0, 0)
+color_ramp = SubResource("GradientTexture1D_1jgkx")
+
+[node name="LevelSegmentDoor" type="StaticBody2D"]
+collision_layer = 2
+script = ExtResource("1_rkctn")
+
+[node name="YSort" type="Node2D" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("2_f87ai")
+target = NodePath("../Sprite2D")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+z_as_relative = false
+position = Vector2(0, -32)
+sprite_frames = ExtResource("1_vovts")
+animation = &"closed"
+autoplay = "open"
+
+[node name="FrontDoorCollider" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_vravr")
+disabled = true
+
+[node name="BackDoorCollider" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -43.75)
+shape = SubResource("RectangleShape2D_0osf3")
+
+[node name="DoorEnterTrigger" type="Area2D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorEnterTrigger"]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_ykujb")
+
+[node name="SteamParticleBack" type="GPUParticles2D" parent="."]
+unique_name_in_owner = true
+z_index = -1
+position = Vector2(0, -32)
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_0f6em")
+lifetime = 0.25
+
+[node name="SteamParticleFront" type="GPUParticles2D" parent="SteamParticleBack"]
+unique_name_in_owner = true
+z_index = 150
+z_as_relative = false
+position = Vector2(0, 5)
+emitting = false
+amount = 2
+process_material = SubResource("ParticleProcessMaterial_0f6em")
+lifetime = 0.25
+
+[connection signal="body_entered" from="DoorEnterTrigger" to="." method="_on_player_entered"]

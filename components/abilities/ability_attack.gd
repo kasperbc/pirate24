@@ -21,6 +21,8 @@ func start_attack():
 	
 	await get_tree().create_timer(fadeout_delay).timeout
 	
+	_on_fadeout()
+	
 	var fadeout_tween : Tween = get_tree().create_tween()
 	fadeout_tween.tween_property(self, "modulate", Color(1,1,1,0), 1.0)
 	await fadeout_tween.finished
@@ -42,4 +44,7 @@ func attack_guards():
 			_attack(n)
 
 func _attack(target : EnemyBehvaiour):
+	pass
+
+func _on_fadeout():
 	pass
