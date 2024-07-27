@@ -30,6 +30,8 @@ var spotted : bool = false
 func _ready():
 	%WallCheck.target_position = Vector2(0, -wall_turn_distance)
 	%LightPoly.color = LIGHT_POLY_COLOR
+	%Sprite2D.visible = true
+	%Sprite2D.play("default_side")
 	
 	create_player_check_rays()
 

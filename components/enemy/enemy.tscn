@@ -38,10 +38,10 @@ detection_angle = 15.0
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
+visible = false
 top_level = true
 position = Vector2(0, -8)
 sprite_frames = ExtResource("1_u4apu")
-animation = &"stunned_coffee_up"
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
