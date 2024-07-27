@@ -72,3 +72,7 @@ amount = 4
 amount_ratio = 0.0
 process_material = SubResource("ParticleProcessMaterial_533x2")
 texture = ExtResource("4_axcjf")
+
+[node name="InteractionWallCheck" type="RayCast2D" parent="."]
+unique_name_in_owner = true
+collision_mask = 8
