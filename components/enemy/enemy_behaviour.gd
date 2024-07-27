@@ -91,7 +91,8 @@ func _physics_process(delta):
 		turn_around()
 	
 	if try_detect_player():
-		GameMan.level_loader.reload_level()
+		GameMan.player.on_spotted()
+		queue_free()
 	
 	move_and_slide()
 

@@ -14,6 +14,8 @@ var charged_controller : PackedScene
 var transforming : bool = false
 var charging : bool = false
 
+var spotted : bool = false
+
 var direction : Vector2
 
 func _ready():
@@ -170,7 +172,7 @@ func has_ability_charged():
 #endregion
 
 func input_enabled() -> bool:
-	return not transforming and not charging
+	return not transforming and not charging and not spotted
 
 func set_controller(c : PlayerController):
 	velocity = Vector2.ZERO
@@ -183,7 +185,18 @@ func set_controller(c : PlayerController):
 	
 	controller.activate()
 
+func on_spotted():
+	spotted = true
+	velocity = Vector2.ZERO
+	
+	%Sprite2D.play("spotted_side")
+	
+	await get_tree().create_timer(1).timeout
+	
+	GameMan.level_loader.reload_level()
+
 func reset():
 	end_ability()
 	uncharge_ability()
 	charging = false
+	spotted = false

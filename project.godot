@@ -47,6 +47,7 @@ folder_colors={
 Player=""
 Interactable="Don't add to this group manually"
 LevelLoader=""
+Camera=""
 
 [input]
 

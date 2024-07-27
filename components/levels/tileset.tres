@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=10 format=3 uid="uid://dhph8na1ajow4"]
+[gd_resource type="TileSet" load_steps=10 format=3 uid="uid://tgudx4qv8jnw"]
 
 [ext_resource type="Texture2D" uid="uid://dawfc75qvju30" path="res://art/tilesets/TMS-tileset-template.png" id="1_m5dtj"]
 [ext_resource type="Texture2D" uid="uid://be4fwboipkljr" path="res://art/tilesets/TMS-tileset0-quarantine.png" id="2_opn4m"]
