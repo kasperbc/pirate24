@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://df8ucsd450mqr"
-path="res://.godot/imported/room_door_open2.png-8cf9b9554876044acc620cda97c1fd98.ctex"
+uid="uid://djfd6lmnge48f"
+path="res://.godot/imported/guard-stunned-down-coffee.png-46c0568fb02f1df8a41638c4feef3c3b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/objects/room_door_open2.png"
-dest_files=["res://.godot/imported/room_door_open2.png-8cf9b9554876044acc620cda97c1fd98.ctex"]
+source_file="res://art/enemy/guard-stunned-down-coffee.png"
+dest_files=["res://.godot/imported/guard-stunned-down-coffee.png-46c0568fb02f1df8a41638c4feef3c3b.ctex"]
 
 [params]
 

@@ -1,6 +1,11 @@
 extends CharacterBody2D
 class_name EnemyBehvaiour
 
+enum StunSource {
+	DEFAULT = 0,
+	COFFEE = 1
+}
+
 const BASE_SPEED : float = 60.0
 const PLAYER_CHECK_RAY_COUNT : int = 24 # it actually makes one more :3
 const LIGHT_POLY_COLOR : Color = Color(1,0,0,0.33)
@@ -17,6 +22,8 @@ const LIGHT_POLY_COLOR : Color = Color(1,0,0,0.33)
 var player_check_rays : Array[RayCast2D]
 
 var stunned : bool = false
+var stun_src : StunSource = 0
+
 var waiting : bool = false
 var spotted : bool = false
 
@@ -120,18 +127,26 @@ func process_animation():
 	if velocity.length() != 0:
 		anim = "walk"
 		%Sprite2D.speed_scale = move_speed / BASE_SPEED
+	if stunned:
+		anim = "stunned"
+		if stun_src == StunSource.COFFEE:
+			anim = "stunned_coffee"
 	if spotted:
 		anim = "spotted"
 	
 	var dir_vec2 = Vector2.UP.rotated(rotation)
-	
-	
 	var suffix = Utils.get_anim_suffix_based_on_dir(dir_vec2)
 	anim += "_%s" % suffix
 	
 	%Sprite2D.flip_h = dir_vec2.x < 0
-	
 	%Sprite2D.animation = anim
+	
+	if stunned and stun_src == StunSource.COFFEE:
+		%SmokeParticle.emitting = true
+		%SmokeParticle.z_index = -61 if dir_vec2.y < 0.1 else 0
+		%SmokeParticle.global_rotation = 0
+	else:
+		%SmokeParticle.emitting = false
 
 func try_detect_player() -> bool:
 	for r in player_check_rays:
@@ -142,8 +157,9 @@ func try_detect_player() -> bool:
 	
 	return false
 
-func stun(duration : float):
+func stun(duration : float, source : StunSource = StunSource.DEFAULT):
 	stunned = true
+	stun_src = source
 	
 	Utils.create_shaker_and_shake(%Sprite2D, 1.0, duration * 0.75)
 	
