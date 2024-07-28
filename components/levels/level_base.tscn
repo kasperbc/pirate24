@@ -13,6 +13,7 @@
 [node name="LevelExit" parent="." instance=ExtResource("2_06gur")]
 
 [node name="Floor" type="TileMapLayer" parent="."]
+z_index = -50
 tile_set = ExtResource("3_6fwhi")
 
 [node name="Wiring" type="TileMapLayer" parent="."]

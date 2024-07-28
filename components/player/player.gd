@@ -53,10 +53,10 @@ func _process(delta):
 		%CollisionShape.disabled = debug_mode
 
 func get_direction(move_vector : Vector2) -> Vector2:
-	if abs(move_vector.x) > abs(move_vector.y):
-		return Vector2.LEFT if move_vector.x < 0 else Vector2.RIGHT
-	else:
+	if abs(move_vector.y) > abs(move_vector.x):
 		return Vector2.UP if move_vector.y < 0 else Vector2.DOWN
+	else:
+		return Vector2.LEFT if move_vector.x < 0 else Vector2.RIGHT
 	
 
 func _physics_process(delta):
