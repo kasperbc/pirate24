@@ -8,6 +8,7 @@
 size = Vector2(16, 16)
 
 [node name="AbilityBase" type="StaticBody2D"]
+z_index = 51
 script = ExtResource("1_b5e0r")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

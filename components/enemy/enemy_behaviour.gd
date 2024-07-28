@@ -6,14 +6,29 @@ enum StunSource {
 	COFFEE = 1
 }
 
+enum MoveType {
+	BACK_AND_FORTH = 0,
+	TURN_IN_PLACE = 1,
+	SET_POSITIONS = 2
+}
+
 const BASE_SPEED : float = 60.0
 const PLAYER_CHECK_RAY_COUNT : int = 24 # it actually makes one more :3
 const LIGHT_POLY_COLOR : Color = Color(1,0,0,0.33)
 
-@export_group("Movement")
+@export var move_type : MoveType
+@export_group("General")
 @export var move_speed : float = BASE_SPEED
-@export var wall_turn_distance : float = 32.0
 @export var wait_time : float = 2.0
+
+@export_group("Back and forth")
+@export var wall_turn_distance : float = 32.0
+
+@export_group("Turning")
+@export var turn_positions : Array[float]
+
+@export_group("Set Positions")
+@export var move_positions : Array[Vector2]
 
 @export_group("Player Detection")
 @export var detection_angle : float = 30.0
@@ -27,11 +42,18 @@ var stun_src : StunSource = 0
 var waiting : bool = false
 var spotted : bool = false
 
+var curr_pos_index : int = 0
+
+var move_positions_local : Array[Vector2]
+
 func _ready():
 	%WallCheck.target_position = Vector2(0, -wall_turn_distance)
 	%LightPoly.color = LIGHT_POLY_COLOR
 	%Sprite2D.visible = true
 	%Sprite2D.play("default_side")
+	
+	for p in move_positions:
+		move_positions_local.append(to_global(p))
 	
 	create_player_check_rays()
 
@@ -94,10 +116,13 @@ func _physics_process(delta):
 	if stunned or GameMan.player.spotted:
 		return
 	
-	velocity = transform.x.rotated(deg_to_rad(-90)) * move_speed if not waiting else Vector2.ZERO
-	
-	if %WallCheck.get_collider() != null and not waiting:
-		turn_around()
+	match move_type:
+		0:
+			process_back_and_forth()
+		1:
+			process_turn_in_place()
+		2:
+			process_set_positions()
 	
 	if try_detect_player():
 		GameMan.player.on_spotted()
@@ -105,6 +130,14 @@ func _physics_process(delta):
 		%SpottedIcon._on_spot()
 	
 	move_and_slide()
+
+#region Back-and-forth
+
+func process_back_and_forth():
+	velocity = transform.x.rotated(deg_to_rad(-90)) * move_speed if not waiting else Vector2.ZERO
+	
+	if %WallCheck.get_collider() != null and not waiting:
+		turn_around()
 
 func turn_around():
 	if waiting:
@@ -118,6 +151,52 @@ func turn_around():
 	
 	for i in 2:
 		await get_tree().physics_frame
+	
+	waiting = false
+
+#endregion
+
+#region Turn in place
+
+func process_turn_in_place():
+	var target_angle = deg_to_rad(turn_positions[curr_pos_index])
+	
+	rotation = lerp_angle(rotation, target_angle, move_speed / 1000)
+	
+	if angle_difference(rotation, target_angle) < 0.1:
+		move_pos_index(turn_positions)
+
+#endregion
+
+#region Set Positions
+
+func process_set_positions():
+	var target_pos = move_positions[curr_pos_index]
+	
+	if not waiting:
+		var dir_to_target = global_position.direction_to(target_pos)
+		if dir_to_target != Vector2.ZERO:
+			rotation = dir_to_target.rotated(deg_to_rad(90)).angle()
+			velocity = dir_to_target * move_speed
+	else:
+		velocity = Vector2.ZERO
+	
+	if global_position.distance_to(target_pos) < 0.1:
+		move_pos_index(move_positions)
+
+#endregion
+
+func move_pos_index(array : Array):
+	if waiting:
+		return
+	
+	if wait_time > 0:
+		waiting = true
+		await get_tree().create_timer(wait_time).timeout
+	
+	curr_pos_index += 1
+	if curr_pos_index >= array.size():
+		curr_pos_index = 0
 	
 	waiting = false
 

@@ -4,10 +4,18 @@ class_name MainCamera
 signal transition_complete
 
 var transitioning : bool = false
+var zooming : bool = false
+
+@onready var target : Node2D = GameMan.player
+
+func _ready():
+	global_position = target.global_position
 
 func _process(delta):
 	if not transitioning:
-		position = GameMan.player.position
+		global_position = global_position.lerp(target.global_position, 0.1)
+
+#region Limits
 
 func set_limit_to_curr_segment_bounds():
 	set_limits(get_curr_segment_limits())
@@ -69,3 +77,18 @@ func get_closest_limit_pos(from : Vector2, limits : Vector4) -> Vector2:
 	from.y = clamp(from.y, limits.w, limits.z)
 	
 	return from
+
+#endregion
+
+func change_zoom_smooth(offset : float, duration : float):
+	if zooming:
+		return
+	zooming = true
+	
+	var t = get_tree().create_tween().set_ease(Tween.EASE_OUT)
+	t.set_trans(Tween.TRANS_CIRC)
+	t.tween_property(GameMan.camera, "zoom", Vector2.ONE * 2.5 + Vector2.ONE * offset, duration)
+	
+	await t.finished
+	
+	zooming = false

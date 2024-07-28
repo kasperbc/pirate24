@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b15lnd5i2umfm" path="res://components/player/player.tscn" id="1_0a0cp"]
 [ext_resource type="PackedScene" uid="uid://dcxxkda3te87x" path="res://components/main_camera/main_camera.tscn" id="2_b8wh4"]
 [ext_resource type="Script" path="res://components/main/level_loader.gd" id="4_5x8cr"]
-[ext_resource type="Resource" uid="uid://cktli1x2n5qu" path="res://components/levels/test/level_test.tres" id="5_7jsvp"]
+[ext_resource type="Resource" uid="uid://deqbw04lfc6di" path="res://components/levels/level_0_tutorial/level_0_tutorial.tres" id="4_nrhxr"]
 [ext_resource type="PackedScene" uid="uid://qj0hwwx0iarx" path="res://components/main/ui/main_ui.tscn" id="5_e6xr2"]
 
 [node name="Main" type="Node2D"]
@@ -30,6 +30,6 @@ color = Color(1, 1, 1, 0)
 
 [node name="LevelLoader" type="Node2D" parent="." groups=["LevelLoader"]]
 script = ExtResource("4_5x8cr")
-default_level = ExtResource("5_7jsvp")
+default_level = ExtResource("4_nrhxr")
 
 [node name="UI" parent="." instance=ExtResource("5_e6xr2")]

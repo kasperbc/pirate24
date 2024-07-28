@@ -37,6 +37,7 @@ folder_colors={
 "res://art/": "teal",
 "res://components/": "green",
 "res://components/abilities/": "orange",
+"res://components/enemy/": "orange",
 "res://components/entry/": "orange",
 "res://components/levels/": "orange",
 "res://components/main/": "orange",
@@ -53,6 +54,7 @@ Camera=""
 LevelSegment=""
 ScreenFade=""
 SegmentLabel=""
+TutorialLabel=""
 
 [gui]
 

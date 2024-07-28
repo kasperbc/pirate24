@@ -42,8 +42,10 @@ shape = SubResource("RectangleShape2D_1ln0a")
 unique_name_in_owner = true
 position = Vector2(0, -9)
 sprite_frames = ExtResource("2_m2g0d")
-animation = &"spotted_up"
+animation = &"transform_side"
 autoplay = "default_side"
+frame = 26
+frame_progress = 1.0
 
 [node name="PlayerShadow" type="Sprite2D" parent="Sprite2D"]
 modulate = Color(1, 1, 1, 0.392157)
@@ -76,3 +78,7 @@ texture = ExtResource("4_axcjf")
 [node name="InteractionWallCheck" type="RayCast2D" parent="."]
 unique_name_in_owner = true
 collision_mask = 8
+
+[node name="TransformPreviewSprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -9)

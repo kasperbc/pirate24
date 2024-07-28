@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://bqlyd80cnfyn4"]
+
+[ext_resource type="Texture2D" uid="uid://s1clvmqn7ojg" path="res://art/enemy/guard-idle-sides1.png" id="1_f76qr"]
+[ext_resource type="Texture2D" uid="uid://c7mt18e527552" path="res://art/enemy/guard-idle-sides2.png" id="2_k3uyv"]
+[ext_resource type="Texture2D" uid="uid://bcbf1slc8gjld" path="res://art/enemy/guard-walkcycle-up1.png" id="3_mc5p1"]
+[ext_resource type="Texture2D" uid="uid://bioydkfpdp7u1" path="res://art/enemy/guard-walkcycle-up2.png" id="4_lbkas"]
+[ext_resource type="Texture2D" uid="uid://bhj3cx1itlxel" path="res://art/enemy/guard-walkcycle-up3.png" id="5_w7jge"]
+[ext_resource type="Texture2D" uid="uid://dhp88nxga1s6u" path="res://art/enemy/guard-walkcycle-up4.png" id="6_4x6m4"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_f76qr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_k3uyv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_mc5p1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_lbkas")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_w7jge")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_4x6m4")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 2.0
+}]

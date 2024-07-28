@@ -2,21 +2,27 @@ extends CharacterBody2D
 class_name Player
 
 signal ability_charging_started
+signal charged
+signal transformed
 
 const PLAYER_HEIGHT : int = 27
 const DEFAULT_ANIM : StringName = "default_side"
 
 @export var default_controller : PlayerController
-@export var transform_duration : float = 2.0
 
 var controller : PlayerController
+var ability : AbilityData
+
 var move_input : Vector2
 var closest_interactable : Interactable
 
 var charged_controller : PackedScene
+var charged_ability : AbilityData
+
 var transforming : bool = false
 var charging : bool = false
 
+var able_to_move : bool = true
 var spotted : bool = false
 var direction : Vector2
 
@@ -98,10 +104,11 @@ func try_interact():
 
 #region Abilities
 
-func charge_ability(controller : PackedScene):
+func charge_ability(new_controller : PackedScene, new_ability : AbilityData):
 	if charged_controller == controller:
 		print("This ability is already charged!")
 		return
+	
 	
 	charging = true
 	velocity = Vector2.ZERO
@@ -130,10 +137,12 @@ func charge_ability(controller : PackedScene):
 	if not charging:
 		return
 	
-	charged_controller = controller
+	charged_controller = new_controller
+	charged_ability = new_ability
 	charging = false
 	%Sprite2D.play(DEFAULT_ANIM)
 	print("Charged ability!")
+	charged.emit()
 
 func uncharge_ability():
 	if not has_ability_charged():
@@ -141,6 +150,7 @@ func uncharge_ability():
 		return
 	
 	charged_controller = null
+	charged_ability = null
 
 func transform():
 	if has_ability():
@@ -153,7 +163,30 @@ func transform():
 	transforming = true
 	velocity = Vector2.ZERO
 	
-	await get_tree().create_timer(transform_duration).timeout
+	%Sprite2D.play("transform_side")
+	
+	GameMan.camera.change_zoom_smooth(0.25, 1.0)
+	
+	await get_tree().create_timer(1.2).timeout
+	
+	%TransformPreviewSprite.visible = true
+	%TransformPreviewSprite.texture = get_ability_sprite_from_dir(charged_ability)
+	%TransformPreviewSprite.flip_h = true if direction == Vector2.LEFT else false
+	%TransformPreviewSprite.offset = Vector2(0, (PLAYER_HEIGHT - charged_ability.height) / 2)
+	%TransformPreviewSprite.modulate = Color(0,0,0,1)
+	%TransformPreviewSprite.scale = Vector2(0,1)
+	
+	var sprite_t = get_tree().create_tween().set_ease(Tween.EASE_OUT)
+	sprite_t.set_trans(Tween.TRANS_CIRC)
+	sprite_t.tween_property(%TransformPreviewSprite, "scale", Vector2.ONE, 0.5)
+	
+	await get_tree().create_timer(0.5).timeout
+	
+	var sprite_t2 = get_tree().create_tween().set_ease(Tween.EASE_OUT)
+	sprite_t2.set_trans(Tween.TRANS_CIRC)
+	sprite_t2.tween_property(%TransformPreviewSprite, "modulate", Color(0,0,0,0), 1.0)
+	
+	GameMan.camera.change_zoom_smooth(0, 0.75)
 	
 	if not has_ability_charged():
 		end_transform()
@@ -162,10 +195,13 @@ func transform():
 	var new_controller = charged_controller.instantiate()
 	add_child(new_controller)
 	set_controller(new_controller)
+	ability = charged_ability
 	
 	charged_controller = null
+	charged_ability = null
 	
 	end_transform()
+	transformed.emit()
 
 func end_transform():
 	transforming = false
@@ -176,6 +212,7 @@ func end_ability():
 	
 	controller.queue_free()
 	set_controller(default_controller)
+	ability = null
 
 func has_ability() -> bool:
 	return controller is not BasePlayerController
@@ -183,10 +220,13 @@ func has_ability() -> bool:
 func has_ability_charged():
 	return charged_controller != null
 
+func get_ability_sprite_from_dir(ability : AbilityData) -> CompressedTexture2D:
+	return charged_ability.sprite_down if direction == Vector2.DOWN else charged_ability.sprite_up if direction == Vector2.UP else charged_ability.sprite_side
+
 #endregion
 
 func input_enabled() -> bool:
-	return not transforming and not charging and not spotted
+	return not transforming and not charging and not spotted and able_to_move
 
 func set_controller(c : PlayerController):
 	velocity = Vector2.ZERO
@@ -195,6 +235,7 @@ func set_controller(c : PlayerController):
 	c.player = self
 	%Sprite2D.sprite_frames = c.sprite_frames
 	%Sprite2D.offset = Vector2(0, (PLAYER_HEIGHT - c.height) / 2)
+	print(%Sprite2D.offset)
 	c.player_sprite = %Sprite2D
 	
 	controller.activate()
@@ -205,10 +246,7 @@ func on_spotted():
 	
 	%CollisionShape.disabled = true
 	
-	var t = get_tree().create_tween().set_ease(Tween.EASE_OUT)
-	t.set_trans(Tween.TRANS_CIRC)
-	t.tween_property(GameMan.camera, "zoom", Vector2.ONE * 2.75, 0.75)
-	
+	GameMan.camera.change_zoom_smooth(0.25, 0.75)
 	
 	%Sprite2D.play("spotted_%s" % Utils.get_anim_suffix_based_on_dir(direction))
 	if direction.y == 0:

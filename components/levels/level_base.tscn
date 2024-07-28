@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://4vqigtk166tx"]
+[gd_scene load_steps=8 format=3 uid="uid://4vqigtk166tx"]
 
 [ext_resource type="TileSet" uid="uid://tgudx4qv8jnw" path="res://components/levels/tileset.tres" id="1_82r68"]
 [ext_resource type="PackedScene" uid="uid://b8vsk0u1g10cg" path="res://components/level_exit/exit.tscn" id="2_06gur"]
 [ext_resource type="TileSet" uid="uid://bw820epf48338" path="res://components/levels/tileset_floor.tres" id="3_6fwhi"]
 [ext_resource type="TileSet" uid="uid://bbfqlsi0abm7i" path="res://components/levels/tileset_wiring.tres" id="3_vx4pv"]
+[ext_resource type="TileSet" uid="uid://dlhrfgys4dxyt" path="res://components/levels/tileset_decor.tres" id="4_3axtr"]
 [ext_resource type="Script" path="res://components/levels/level_segment.gd" id="5_5dmnh"]
 [ext_resource type="PackedScene" uid="uid://bfjlaw27xbb45" path="res://components/levels/level_bounds.tscn" id="6_dsmw1"]
 
@@ -16,6 +17,9 @@ tile_set = ExtResource("3_6fwhi")
 
 [node name="Wiring" type="TileMapLayer" parent="."]
 tile_set = ExtResource("3_vx4pv")
+
+[node name="Decor" type="TileMapLayer" parent="."]
+tile_set = ExtResource("4_3axtr")
 
 [node name="Walls" type="TileMapLayer" parent="."]
 z_index = 50
