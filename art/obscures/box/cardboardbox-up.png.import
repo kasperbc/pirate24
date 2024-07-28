@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvh6os7nxbtmo"
-path="res://.godot/imported/TMS-logo-actualpng.png-06e5eae7b73aed6ae686540e017a5432.ctex"
+uid="uid://djx6eeeotg4dh"
+path="res://.godot/imported/cardboardbox-up.png-d3bd9af407a0257ac87bc356b9bd59ee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/ui/logo/TMS-logo-actualpng.png"
-dest_files=["res://.godot/imported/TMS-logo-actualpng.png-06e5eae7b73aed6ae686540e017a5432.ctex"]
+source_file="res://art/obscures/box/cardboardbox-up.png"
+dest_files=["res://.godot/imported/cardboardbox-up.png-d3bd9af407a0257ac87bc356b9bd59ee.ctex"]
 
 [params]
 
