@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="AbilityData" load_steps=3 format=3 uid="uid://boymbcmlytuec"]
+
+[ext_resource type="Script" path="res://components/abilities/ability.gd" id="1_5a1p7"]
+[ext_resource type="Texture2D" uid="uid://bqpmdnrue0l4r" path="res://art/obscures/magnet/magnet-inactive-up.png" id="4_24leo"]
+
+[resource]
+script = ExtResource("1_5a1p7")
+height = 15.0
+sprite_down = ExtResource("4_24leo")
+sprite_side = ExtResource("4_24leo")
+sprite_up = ExtResource("4_24leo")

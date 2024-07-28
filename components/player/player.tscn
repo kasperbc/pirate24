@@ -29,7 +29,7 @@ color_ramp = SubResource("GradientTexture1D_j1ll8")
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("default_controller") groups=["Player"]]
 z_index = 100
-collision_mask = 3
+collision_mask = 19
 script = ExtResource("1_t6385")
 default_controller = NodePath("BaseController")
 
@@ -42,10 +42,8 @@ shape = SubResource("RectangleShape2D_1ln0a")
 unique_name_in_owner = true
 position = Vector2(0, -9)
 sprite_frames = ExtResource("2_m2g0d")
-animation = &"transform_side"
+animation = &"transform_up"
 autoplay = "default_side"
-frame = 26
-frame_progress = 1.0
 
 [node name="PlayerShadow" type="Sprite2D" parent="Sprite2D"]
 modulate = Color(1, 1, 1, 0.392157)

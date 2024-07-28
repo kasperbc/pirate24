@@ -1,0 +1,13 @@
+[gd_scene load_steps=5 format=3 uid="uid://ddxecuwavh666"]
+
+[ext_resource type="PackedScene" uid="uid://bkdppj4uf5c4w" path="res://components/abilities/ability_base.tscn" id="1_7nkrj"]
+[ext_resource type="Texture2D" uid="uid://bqpmdnrue0l4r" path="res://art/obscures/magnet/magnet-inactive-up.png" id="2_fulkh"]
+[ext_resource type="PackedScene" uid="uid://c4fyecspwqios" path="res://components/abilities/magnet/ability_controller_magnet.tscn" id="2_qv4gl"]
+[ext_resource type="Resource" uid="uid://boymbcmlytuec" path="res://components/abilities/magnet/magnet.tres" id="3_xv3av"]
+
+[node name="Magnet" instance=ExtResource("1_7nkrj")]
+ability_controller = ExtResource("2_qv4gl")
+ability = ExtResource("3_xv3av")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_fulkh")

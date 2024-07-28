@@ -12,6 +12,7 @@ class_name PlayerController
 var player : Player
 var player_sprite : AnimatedSprite2D
 var dt : float
+var pdt : float
 
 var anim_state : String
 var anim_suffix : String
@@ -58,3 +59,6 @@ func get_move_direction() -> Vector2:
 
 func is_use_just_pressed() -> bool:
 	return Input.is_action_just_pressed("use_ability") and cycle != 0
+
+func _physics_process(delta):
+	pdt = delta

@@ -4,6 +4,7 @@
 [ext_resource type="SpriteFrames" uid="uid://bmuqg18dt0whl" path="res://components/abilities/potted_plant/potted_plant_sprites.tres" id="2_a7v50"]
 
 [node name="AbilityController" instance=ExtResource("1_j1apx")]
+ability_end_delay = 0.5
 able_to_interact = false
 height = 49
 sprite_frames = ExtResource("2_a7v50")

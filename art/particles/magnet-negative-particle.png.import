@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bxvl0ay8u7iha"
-path="res://.godot/imported/magnet-negative-particle.png-68bcf1374cf65b127af3514cdbbfa928.ctex"
+path="res://.godot/imported/magnet-negative-particle.png-23b92a4084993af240458ce481037171.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/obscures/magnet/magnet-negative-particle.png"
-dest_files=["res://.godot/imported/magnet-negative-particle.png-68bcf1374cf65b127af3514cdbbfa928.ctex"]
+source_file="res://art/particles/magnet-negative-particle.png"
+dest_files=["res://.godot/imported/magnet-negative-particle.png-23b92a4084993af240458ce481037171.ctex"]
 
 [params]
 
