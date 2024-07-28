@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://components/abilities/ability_icon.gd" id="3_i84r5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_17l2o"]
-size = Vector2(16, 16)
+size = Vector2(16, 8)
 
 [node name="AbilityBase" type="StaticBody2D"]
 z_index = 51

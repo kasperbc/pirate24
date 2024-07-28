@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://boymbcmlytuec" path="res://components/abilities/magnet/magnet.tres" id="3_xv3av"]
 
 [node name="Magnet" instance=ExtResource("1_7nkrj")]
+z_index = 0
 ability_controller = ExtResource("2_qv4gl")
 ability = ExtResource("3_xv3av")
 

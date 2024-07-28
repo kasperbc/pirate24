@@ -75,5 +75,6 @@ one_shot = true
 explosiveness = 1.0
 
 [node name="YSort" type="Node2D" parent="." node_paths=PackedStringArray("target")]
+z_index = 51
 script = ExtResource("4_t5bjo")
 target = NodePath("../Particles")

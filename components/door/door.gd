@@ -1,9 +1,6 @@
 extends StaticBody2D
 class_name Door
 
-func _ready():
-	open()
-
 func open():
 	%Sprite2D.play("open")
 	

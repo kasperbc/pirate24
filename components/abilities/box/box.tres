@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="AbilityData" load_steps=5 format=3 uid="uid://0wy1a1le7taa"]
+
+[ext_resource type="Script" path="res://components/abilities/ability.gd" id="1_ivqgg"]
+[ext_resource type="Texture2D" uid="uid://d3x6redol25wm" path="res://art/obscures/box/cardboardbox.down.png" id="2_oyy25"]
+[ext_resource type="Texture2D" uid="uid://b1fmqoj6di4ey" path="res://art/obscures/box/cardboardbox-sides.png" id="3_mhsrv"]
+[ext_resource type="Texture2D" uid="uid://djx6eeeotg4dh" path="res://art/obscures/box/cardboardbox-up.png" id="4_lxqk6"]
+
+[resource]
+script = ExtResource("1_ivqgg")
+height = 24.0
+sprite_down = ExtResource("2_oyy25")
+sprite_side = ExtResource("3_mhsrv")
+sprite_up = ExtResource("4_lxqk6")

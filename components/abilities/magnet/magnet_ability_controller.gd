@@ -37,11 +37,15 @@ func _on_ability_activate():
 	Utils.create_shaker_and_shake(player_sprite, 0.5, 0.5)
 	await get_tree().create_timer(0.5).timeout
 	
+	var last_pos : Vector2 = player.global_position
 	while player.global_position.distance_to(target_panel.global_position) > 10.0:
 		_dir = player.global_position.direction_to(target_panel.global_position)
 		player.velocity = _dir * speed
 		
 		speed = clamp(speed + 500.0 * pdt, 0.0, 500.0)
+		
+		if player.global_position.distance_to(last_pos) < 16.0 and speed > 400.0:
+			break
 		
 		await get_tree().physics_frame
 	

@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://components/abilities/magnet/magnet_ability_controller.gd" id="2_cbc7p"]
 [ext_resource type="SpriteFrames" uid="uid://bvsk7esxtkl7u" path="res://components/abilities/magnet/magnet_sprites.tres" id="2_yn86k"]
 
-[node name="AbilityController" instance=ExtResource("1_pgibo")]
+[node name="AbilityControllerMagnet" instance=ExtResource("1_pgibo")]
 script = ExtResource("2_cbc7p")
 height = 15
 sprite_frames = ExtResource("2_yn86k")
