@@ -14,6 +14,10 @@ func _ready():
 	
 	load_level(level)
 
+func _process(delta):
+	if Input.is_action_just_pressed("restart"):
+		reload_level(true)
+
 func load_level(l : Level, segment : int = 0, reloading : bool = false):
 	if curr_level != null:
 		unload_current_level()
@@ -37,6 +41,9 @@ func load_level(l : Level, segment : int = 0, reloading : bool = false):
 	
 	GameMan.camera.zoom = Vector2.ONE * 2.5
 	GameMan.camera.set_limit_to_curr_segment_bounds()
+	
+	if not reloading or l.restart_music_on_reload:
+		SoundManager.play_music_at_volume(AudioLib.get_sound(l.music), l.music_vol, 1.0)
 
 func reload_level(fade_anim : bool = false):
 	if fade_anim:

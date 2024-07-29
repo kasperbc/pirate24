@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://b15lnd5i2umfm"]
+[gd_scene load_steps=11 format=3 uid="uid://b15lnd5i2umfm"]
 
 [ext_resource type="Script" path="res://components/player/player.gd" id="1_t6385"]
 [ext_resource type="SpriteFrames" uid="uid://bergdw84aflyp" path="res://components/player/player_sprites.res" id="2_m2g0d"]
 [ext_resource type="Script" path="res://components/player/base_player_controller.gd" id="3_andyc"]
 [ext_resource type="Texture2D" uid="uid://b7b1sn37qi7ic" path="res://art/player/player_shadow.png" id="3_owkwf"]
 [ext_resource type="Texture2D" uid="uid://bllcrp6rvhcud" path="res://art/particles/shadow_piece.png" id="4_axcjf"]
+[ext_resource type="Texture2D" uid="uid://cuhsmek8br7a5" path="res://art/exclamationmark-spotted.png" id="6_sp78x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ln0a"]
 size = Vector2(14, 6)
@@ -29,7 +30,7 @@ color_ramp = SubResource("GradientTexture1D_j1ll8")
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("default_controller") groups=["Player"]]
 z_index = 100
-collision_mask = 3
+collision_mask = 19
 script = ExtResource("1_t6385")
 default_controller = NodePath("BaseController")
 
@@ -42,10 +43,8 @@ shape = SubResource("RectangleShape2D_1ln0a")
 unique_name_in_owner = true
 position = Vector2(0, -9)
 sprite_frames = ExtResource("2_m2g0d")
-animation = &"transform_side"
+animation = &"transform_up"
 autoplay = "default_side"
-frame = 26
-frame_progress = 1.0
 
 [node name="PlayerShadow" type="Sprite2D" parent="Sprite2D"]
 modulate = Color(1, 1, 1, 0.392157)
@@ -82,3 +81,8 @@ collision_mask = 8
 [node name="TransformPreviewSprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(0, -9)
+
+[node name="Notice" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -34)
+texture = ExtResource("6_sp78x")

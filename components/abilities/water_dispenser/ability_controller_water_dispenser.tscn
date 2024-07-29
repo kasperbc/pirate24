@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://vwrvc3lt1uji" path="res://components/abilities/water_dispenser/water_splash.tscn" id="2_d7llr"]
 [ext_resource type="SpriteFrames" uid="uid://ypvenxlrt12v" path="res://components/abilities/water_dispenser/water_dispenser_sprites.tres" id="3_d5j0u"]
 
-[node name="AbilityController" instance=ExtResource("1_vqne6")]
+[node name="AbilityControllerWaterDispenser" instance=ExtResource("1_vqne6")]
 attack = ExtResource("2_d7llr")
 attack_spawn_pos_offset = 24.0
 sprite_frames = ExtResource("3_d5j0u")

@@ -6,6 +6,5 @@
 
 [node name="Entry" type="Node"]
 script = ExtResource("1_spttp")
-segment = 1.0
 main_scene = ExtResource("2_21tli")
 title_scene = ExtResource("3_p4eiv")

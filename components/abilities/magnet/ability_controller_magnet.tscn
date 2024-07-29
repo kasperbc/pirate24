@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4fyecspwqios"]
+
+[ext_resource type="PackedScene" uid="uid://6lfdcwk5vl65" path="res://components/abilities/ability_controller_base.tscn" id="1_pgibo"]
+[ext_resource type="Script" path="res://components/abilities/magnet/magnet_ability_controller.gd" id="2_cbc7p"]
+[ext_resource type="SpriteFrames" uid="uid://bvsk7esxtkl7u" path="res://components/abilities/magnet/magnet_sprites.tres" id="2_yn86k"]
+
+[node name="AbilityControllerMagnet" instance=ExtResource("1_pgibo")]
+script = ExtResource("2_cbc7p")
+height = 15
+sprite_frames = ExtResource("2_yn86k")
+
+[node name="PanelCast" type="RayCast2D" parent="." index="0"]
+unique_name_in_owner = true
+collision_mask = 2

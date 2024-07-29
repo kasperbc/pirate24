@@ -13,7 +13,6 @@ size = Vector2(15, 10)
 [node name="CoffeeMachine" instance=ExtResource("1_2nbpf")]
 ability_controller = ExtResource("3_ox3l7")
 ability = ExtResource("3_mer5f")
-interaction_range = null
 disable_after_interaction = null
 
 [node name="Sprite2D" parent="." index="0"]
@@ -31,3 +30,6 @@ target = NodePath("../Sprite2D")
 
 [node name="AbilityIcon" parent="." index="3"]
 icon = ExtResource("3_p6v0i")
+
+[node name="GPUParticles2D" parent="." index="4"]
+position = Vector2(0, -14)

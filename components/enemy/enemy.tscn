@@ -29,10 +29,10 @@ initial_velocity_max = 60.0
 gravity = Vector3(0, 0, 0)
 color_ramp = SubResource("GradientTexture1D_trnky")
 
-[node name="Enemy" type="CharacterBody2D"]
+[node name="Enemy" type="CharacterBody2D" groups=["Enemy"]]
 z_index = 60
 collision_layer = 4
-collision_mask = 2
+collision_mask = 18
 script = ExtResource("1_ery85")
 turn_positions = Array[float]([0.0, 90.0, 180.0, 270.0])
 detection_angle = 15.0
@@ -62,7 +62,7 @@ enemy = NodePath("..")
 
 [node name="LightPoly" type="Polygon2D" parent="."]
 unique_name_in_owner = true
-z_index = -99
+z_index = -40
 z_as_relative = false
 color = Color(1, 0, 0, 0.25098)
 invert_border = 0.1

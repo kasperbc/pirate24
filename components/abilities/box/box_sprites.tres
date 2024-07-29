@@ -1,0 +1,32 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://cnpvjcks6kh6e"]
+
+[ext_resource type="Texture2D" uid="uid://d3x6redol25wm" path="res://art/obscures/box/cardboardbox.down.png" id="1_xc33y"]
+[ext_resource type="Texture2D" uid="uid://b1fmqoj6di4ey" path="res://art/obscures/box/cardboardbox-sides.png" id="2_s3h7i"]
+[ext_resource type="Texture2D" uid="uid://djx6eeeotg4dh" path="res://art/obscures/box/cardboardbox-up.png" id="3_8nabi"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_xc33y")
+}],
+"loop": true,
+"name": &"default_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_s3h7i")
+}],
+"loop": true,
+"name": &"default_side",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_8nabi")
+}],
+"loop": true,
+"name": &"default_up",
+"speed": 5.0
+}]

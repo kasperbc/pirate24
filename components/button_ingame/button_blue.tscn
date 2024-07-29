@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bc0uxp3js3tqs" path="res://art/objects/button-blue.png" id="2_trsk3"]
 
 [node name="ButtonInteractable" type="Node2D"]
+z_index = 90
 script = ExtResource("1_grnc5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

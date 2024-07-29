@@ -24,3 +24,6 @@ shape = SubResource("RectangleShape2D_0myrb")
 position = Vector2(0, 10)
 script = ExtResource("4_tu5gq")
 target = NodePath("..")
+
+[node name="GPUParticles2D" parent="." index="4"]
+position = Vector2(0, -9)

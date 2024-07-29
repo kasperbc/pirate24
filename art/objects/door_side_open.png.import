@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxvl0ay8u7iha"
-path="res://.godot/imported/magnet-negative-particle.png-68bcf1374cf65b127af3514cdbbfa928.ctex"
+uid="uid://dx43c7j6qdpln"
+path="res://.godot/imported/door_side_open.png-576d0155704527204f1a9d7a9dffeff6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/obscures/magnet/magnet-negative-particle.png"
-dest_files=["res://.godot/imported/magnet-negative-particle.png-68bcf1374cf65b127af3514cdbbfa928.ctex"]
+source_file="res://art/objects/door_side_open.png"
+dest_files=["res://.godot/imported/door_side_open.png-576d0155704527204f1a9d7a9dffeff6.ctex"]
 
 [params]
 

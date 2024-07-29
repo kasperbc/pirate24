@@ -4,7 +4,15 @@ class_name BasePlayerController
 @export var move_speed = 75.0
 
 func _process_io():
-	player.velocity = get_move_direction() * move_speed
+	var _move_speed = move_speed
+	if Input.is_action_pressed("adjust_direction"):
+		if player.debug_mode:
+			_move_speed *= 5
+		else:
+			_move_speed /= 5
+			
+	
+	player.velocity = get_move_direction() * _move_speed
 
 func _process_animation():
 	if get_move_input() == Vector2.ZERO:

@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://bpg7qdnunn3w6"]
+
+[ext_resource type="PackedScene" uid="uid://bkdppj4uf5c4w" path="res://components/abilities/ability_base.tscn" id="1_t0cs2"]
+[ext_resource type="PackedScene" uid="uid://dxfjdibykmyky" path="res://components/abilities/box/ability_controller_cardboard_box.tscn" id="2_12qec"]
+[ext_resource type="Texture2D" uid="uid://b1fmqoj6di4ey" path="res://art/obscures/box/cardboardbox-sides.png" id="2_883el"]
+[ext_resource type="Resource" uid="uid://0wy1a1le7taa" path="res://components/abilities/box/box.tres" id="3_vmboh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oetm4"]
+size = Vector2(20, 8)
+
+[node name="CardboardBox" instance=ExtResource("1_t0cs2")]
+ability_controller = ExtResource("2_12qec")
+ability = ExtResource("3_vmboh")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_883el")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_oetm4")
+
+[node name="GPUParticles2D" parent="." index="3"]
+position = Vector2(0, -7)

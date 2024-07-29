@@ -4,9 +4,12 @@ class_name Player
 signal ability_charging_started
 signal charged
 signal transformed
+signal untransform_started
+signal untransformed
 
 const PLAYER_HEIGHT : int = 27
 const DEFAULT_ANIM : StringName = "default_side"
+const INTERACTION_RANGE : float = 32.0
 
 @export var default_controller : PlayerController
 
@@ -51,10 +54,10 @@ func _process(delta):
 		%CollisionShape.disabled = debug_mode
 
 func get_direction(move_vector : Vector2) -> Vector2:
-	if abs(move_vector.x) > abs(move_vector.y):
-		return Vector2.LEFT if move_vector.x < 0 else Vector2.RIGHT
-	else:
+	if abs(move_vector.y) > abs(move_vector.x):
 		return Vector2.UP if move_vector.y < 0 else Vector2.DOWN
+	else:
+		return Vector2.LEFT if move_vector.x < 0 else Vector2.RIGHT
 	
 
 func _physics_process(delta):
@@ -82,7 +85,7 @@ func get_closest_interactable() -> Interactable:
 		
 		var dist = global_position.distance_to(itr.global_position)
 		
-		if dist > closest_dist or dist > itr.interaction_range:
+		if dist > closest_dist or dist > INTERACTION_RANGE:
 			continue
 		
 		%InteractionWallCheck.target_position = to_local(itr.global_position)
@@ -117,6 +120,7 @@ func charge_ability(new_controller : PackedScene, new_ability : AbilityData):
 	
 	%Sprite2D.play("gain_ability_%s" % Utils.get_anim_suffix_based_on_dir(direction))
 	
+	SoundManager.play_sound(AudioLib.get_sound("short_boom"))
 	await get_tree().create_timer(0.2).timeout
 	
 	var shaker = Shaker.new()
@@ -131,6 +135,8 @@ func charge_ability(new_controller : PackedScene, new_ability : AbilityData):
 	
 	t1.tween_property(%ShadowParticlesBack, "amount_ratio", 0, 4)
 	t2.tween_property(%ShadowParticlesFront, "amount_ratio", 0, 4)
+	
+	SoundManager.play_sound_with_pitch(AudioLib.get_sound("expansion_collect"), 0.5)
 	
 	await get_tree().create_timer(1).timeout
 	
@@ -163,7 +169,10 @@ func transform():
 	transforming = true
 	velocity = Vector2.ZERO
 	
-	%Sprite2D.play("transform_side")
+	SoundManager.play_sound(AudioLib.get_sound("alien_sound"))
+	SoundManager.play_sound(AudioLib.get_sound("thud"))
+	
+	%Sprite2D.play("transform_%s" % Utils.get_anim_suffix_based_on_dir(direction))
 	
 	GameMan.camera.change_zoom_smooth(0.25, 1.0)
 	
@@ -179,6 +188,9 @@ func transform():
 	var sprite_t = get_tree().create_tween().set_ease(Tween.EASE_OUT)
 	sprite_t.set_trans(Tween.TRANS_CIRC)
 	sprite_t.tween_property(%TransformPreviewSprite, "scale", Vector2.ONE, 0.5)
+	
+	SoundManager.play_sound(AudioLib.get_sound("thud"))
+	SoundManager.play_sound(AudioLib.get_sound("transform_into"))
 	
 	await get_tree().create_timer(0.5).timeout
 	
@@ -210,9 +222,46 @@ func end_ability():
 	if not has_ability():
 		return
 	
+	transforming = true
+	
+	untransform_started.emit()
+	
 	controller.queue_free()
 	set_controller(default_controller)
+	
+	%Sprite2D.play_backwards("transform_%s" % Utils.get_anim_suffix_based_on_dir(direction))
+	
+	%TransformPreviewSprite.visible = true
+	%TransformPreviewSprite.texture = get_ability_sprite_from_dir(ability, false)
+	%TransformPreviewSprite.flip_h = true if direction == Vector2.LEFT else false
+	%TransformPreviewSprite.offset = Vector2(0, (PLAYER_HEIGHT - ability.height) / 2)
+	%TransformPreviewSprite.modulate = Color(1,1,1,1)
+	%TransformPreviewSprite.scale = Vector2(1,1)
+	
+	var sprite_t1 = get_tree().create_tween().set_ease(Tween.EASE_OUT)
+	sprite_t1.set_trans(Tween.TRANS_CIRC)
+	sprite_t1.tween_property(%TransformPreviewSprite, "modulate", Color(0,0,0,1), 0.3)
+	
+	SoundManager.play_sound(AudioLib.get_sound("short_boom"))
+	
+	await get_tree().create_timer(0.45).timeout
+	
+	
+	var sprite_t2 = get_tree().create_tween().set_ease(Tween.EASE_OUT)
+	sprite_t2.set_trans(Tween.TRANS_CIRC)
+	sprite_t2.tween_property(%TransformPreviewSprite, "scale", Vector2(0,1), 0.45)
+	
+	SoundManager.play_sound(AudioLib.get_sound("thud"))
+	SoundManager.play_sound(AudioLib.get_sound("transform_outof"))
+	
+	%TransformPreviewSprite.modulate = Color(0,0,0,1)
+	
+	await get_tree().create_timer(1.2).timeout
+	
+	transforming = false
 	ability = null
+	
+	untransformed.emit()
 
 func has_ability() -> bool:
 	return controller is not BasePlayerController
@@ -220,8 +269,10 @@ func has_ability() -> bool:
 func has_ability_charged():
 	return charged_controller != null
 
-func get_ability_sprite_from_dir(ability : AbilityData) -> CompressedTexture2D:
-	return charged_ability.sprite_down if direction == Vector2.DOWN else charged_ability.sprite_up if direction == Vector2.UP else charged_ability.sprite_side
+func get_ability_sprite_from_dir(ability : AbilityData, from_charged : bool = true) -> CompressedTexture2D:
+	var ab = charged_ability if from_charged else ability
+	
+	return ab.sprite_down if direction == Vector2.DOWN else ab.sprite_up if direction == Vector2.UP else ab.sprite_side
 
 #endregion
 
@@ -235,7 +286,6 @@ func set_controller(c : PlayerController):
 	c.player = self
 	%Sprite2D.sprite_frames = c.sprite_frames
 	%Sprite2D.offset = Vector2(0, (PLAYER_HEIGHT - c.height) / 2)
-	print(%Sprite2D.offset)
 	c.player_sprite = %Sprite2D
 	
 	controller.activate()

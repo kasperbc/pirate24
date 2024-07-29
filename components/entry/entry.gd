@@ -1,5 +1,5 @@
 extends Node
-
+class_name Entry
 
 @export var load_title : bool = false
 @export_group("Overrides")

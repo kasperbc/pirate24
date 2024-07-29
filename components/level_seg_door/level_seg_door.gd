@@ -8,7 +8,7 @@ var activated : bool = false
 func _ready():
 	await Engine.get_main_loop().process_frame
 	
-	if GameMan.level_loader.curr_level_seg.segment_id >= next_segment.segment_id:
+	if next_segment != null and GameMan.level_loader.curr_level_seg.segment_id >= next_segment.segment_id:
 		%FrontDoorCollider.set_deferred("disabled", false)
 		%BackDoorCollider.set_deferred("disabled", true)
 		%DoorEnterTrigger.monitoring = false
