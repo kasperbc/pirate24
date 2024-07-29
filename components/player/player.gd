@@ -120,6 +120,7 @@ func charge_ability(new_controller : PackedScene, new_ability : AbilityData):
 	
 	%Sprite2D.play("gain_ability_%s" % Utils.get_anim_suffix_based_on_dir(direction))
 	
+	SoundManager.play_sound(AudioLib.get_sound("short_boom"))
 	await get_tree().create_timer(0.2).timeout
 	
 	var shaker = Shaker.new()
@@ -134,6 +135,8 @@ func charge_ability(new_controller : PackedScene, new_ability : AbilityData):
 	
 	t1.tween_property(%ShadowParticlesBack, "amount_ratio", 0, 4)
 	t2.tween_property(%ShadowParticlesFront, "amount_ratio", 0, 4)
+	
+	SoundManager.play_sound_with_pitch(AudioLib.get_sound("expansion_collect"), 0.5)
 	
 	await get_tree().create_timer(1).timeout
 	
@@ -166,6 +169,9 @@ func transform():
 	transforming = true
 	velocity = Vector2.ZERO
 	
+	SoundManager.play_sound(AudioLib.get_sound("alien_sound"))
+	SoundManager.play_sound(AudioLib.get_sound("thud"))
+	
 	%Sprite2D.play("transform_%s" % Utils.get_anim_suffix_based_on_dir(direction))
 	
 	GameMan.camera.change_zoom_smooth(0.25, 1.0)
@@ -182,6 +188,9 @@ func transform():
 	var sprite_t = get_tree().create_tween().set_ease(Tween.EASE_OUT)
 	sprite_t.set_trans(Tween.TRANS_CIRC)
 	sprite_t.tween_property(%TransformPreviewSprite, "scale", Vector2.ONE, 0.5)
+	
+	SoundManager.play_sound(AudioLib.get_sound("thud"))
+	SoundManager.play_sound(AudioLib.get_sound("transform_into"))
 	
 	await get_tree().create_timer(0.5).timeout
 	
@@ -233,12 +242,17 @@ func end_ability():
 	sprite_t1.set_trans(Tween.TRANS_CIRC)
 	sprite_t1.tween_property(%TransformPreviewSprite, "modulate", Color(0,0,0,1), 0.3)
 	
+	SoundManager.play_sound(AudioLib.get_sound("short_boom"))
+	
 	await get_tree().create_timer(0.45).timeout
 	
 	
 	var sprite_t2 = get_tree().create_tween().set_ease(Tween.EASE_OUT)
 	sprite_t2.set_trans(Tween.TRANS_CIRC)
 	sprite_t2.tween_property(%TransformPreviewSprite, "scale", Vector2(0,1), 0.45)
+	
+	SoundManager.play_sound(AudioLib.get_sound("thud"))
+	SoundManager.play_sound(AudioLib.get_sound("transform_outof"))
 	
 	%TransformPreviewSprite.modulate = Color(0,0,0,1)
 	

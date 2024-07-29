@@ -73,7 +73,7 @@ script = ExtResource("7_kumag")
 shape = SubResource("RectangleShape2D_m8ji2")
 
 [node name="TutorialEscapeTrigger" type="Area2D" parent="Segment1" index="6"]
-position = Vector2(568, -136)
+position = Vector2(600, -136)
 script = ExtResource("8_gsuft")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Segment1/TutorialEscapeTrigger" index="0"]
@@ -126,9 +126,8 @@ texture = ExtResource("9_nc5gn")
 position = Vector2(56, 16)
 play_cutscene = false
 
-[node name="ButtonInteractable" parent="." index="6" node_paths=PackedStringArray("door") instance=ExtResource("11_egvqf")]
+[node name="ButtonInteractable" parent="." index="6" instance=ExtResource("11_egvqf")]
 position = Vector2(168, -144)
-door = NodePath("")
 
 [connection signal="body_entered" from="Segment1/TutorialTrigger" to="Segment1/TutorialTrigger" method="_on_body_entered"]
 [connection signal="body_entered" from="Segment1/TutorialEscapeTrigger" to="Segment1/TutorialEscapeTrigger" method="_on_body_entered"]

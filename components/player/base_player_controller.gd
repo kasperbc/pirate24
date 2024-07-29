@@ -6,7 +6,11 @@ class_name BasePlayerController
 func _process_io():
 	var _move_speed = move_speed
 	if Input.is_action_pressed("adjust_direction"):
-		_move_speed /= 5
+		if player.debug_mode:
+			_move_speed *= 5
+		else:
+			_move_speed /= 5
+			
 	
 	player.velocity = get_move_direction() * _move_speed
 

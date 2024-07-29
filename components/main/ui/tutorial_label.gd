@@ -31,6 +31,8 @@ func activate():
 	get_tree().create_tween().tween_property(self, "modulate", Color.TRANSPARENT, 1.0)
 	GameMan.player.able_to_move = false
 	
+	SoundManager.stop_music(3.0)
+	
 	await get_tree().create_timer(5).timeout
 	
 	GameMan.player.able_to_move = true
@@ -40,9 +42,17 @@ func activate():
 	get_tree().create_tween().tween_property(%GameLogo, "modulate", Color.WHITE, 5.0)
 	get_tree().create_tween().tween_property(self, "modulate", Color.WHITE, 5.0)
 	
+	SoundManager.play_music_at_volume(AudioLib.get_sound("the-last-revenant-title-theme-demo"))
+	
 	text = "Press [SPACE] to play"
 	
 	await GameMan.player.untransform_started
 	
 	get_tree().create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CIRC).tween_property(%GameLogo, "self_modulate", Color.TRANSPARENT, 0.5)
 	get_tree().create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CIRC).tween_property(self, "self_modulate", Color.TRANSPARENT, 0.5)
+	
+	SoundManager.stop_music(1.0)
+	
+	await get_tree().create_timer(5).timeout
+	
+	SoundManager.play_music_at_volume(AudioLib.get_sound("spawn_room"), 0.0, 5.0)
