@@ -1,7 +1,7 @@
 extends StaticBody2D
 class_name Door
 
-var broken : bool = false
+@export var broken : bool = false
 
 func open():
 	%Sprite2D.play("open")

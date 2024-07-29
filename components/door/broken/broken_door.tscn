@@ -3,3 +3,4 @@
 [ext_resource type="PackedScene" uid="uid://d3xidpedpjxwe" path="res://components/door/door.tscn" id="1_vpqxo"]
 
 [node name="Door" groups=["BrokenDoor"] instance=ExtResource("1_vpqxo")]
+broken = true

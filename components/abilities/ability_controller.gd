@@ -19,7 +19,7 @@ func _process_io():
 		activate_ability()
 
 func _process_animation():
-	anim_state = "default" if ability_active else "ability"
+	anim_state = "default" if not ability_active else "ability"
 	
 	anim_suffix = Utils.get_anim_suffix_based_on_dir(dir)
 	player_sprite.flip_h = true if anim_suffix == "side" and dir.x < 0 else false

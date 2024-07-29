@@ -36,6 +36,8 @@ func _on_player_entered(body):
 	%SteamParticleBack.emitting = true
 	%SteamParticleFront.emitting = true
 	
+	GameMan.player.uncharge_ability()
+	
 	Utils.create_shaker_and_shake(%Sprite2D, 1.0, 3.5)
 	
 	await get_tree().create_timer(3.5).timeout

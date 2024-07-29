@@ -1,7 +1,13 @@
-[gd_resource type="Resource" script_class="AbilityData" load_steps=2 format=3 uid="uid://bgktep2ukbkf5"]
+[gd_resource type="Resource" script_class="AbilityData" load_steps=5 format=3 uid="uid://bgktep2ukbkf5"]
 
 [ext_resource type="Script" path="res://components/abilities/ability.gd" id="1_26q85"]
+[ext_resource type="Texture2D" uid="uid://dpj28jkjpeoon" path="res://art/obscures/toaster/toaster-down.png" id="2_310jx"]
+[ext_resource type="Texture2D" uid="uid://3yax4g7qd2hc" path="res://art/obscures/toaster/toaster-sides.png" id="3_07h0s"]
+[ext_resource type="Texture2D" uid="uid://1fg6hb8al32v" path="res://art/obscures/toaster/toaster-up.png" id="4_lc8lq"]
 
 [resource]
 script = ExtResource("1_26q85")
-height = 0.0
+height = 16.0
+sprite_down = ExtResource("2_310jx")
+sprite_side = ExtResource("3_07h0s")
+sprite_up = ExtResource("4_lc8lq")

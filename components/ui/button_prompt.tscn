@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bp51cwyi4e5oh"]
+
+[ext_resource type="Texture2D" uid="uid://dd2or71wvxbmg" path="res://art/ui/button_prompt_2.png" id="1_55g86"]
+[ext_resource type="Script" path="res://components/ui/button_prompt.gd" id="2_7q7k2"]
+
+[node name="ButtonPrompt" type="Sprite2D"]
+z_index = 1000
+texture = ExtResource("1_55g86")
+script = ExtResource("2_7q7k2")
