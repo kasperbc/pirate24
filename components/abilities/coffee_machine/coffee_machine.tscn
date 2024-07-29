@@ -30,6 +30,3 @@ target = NodePath("../Sprite2D")
 
 [node name="AbilityIcon" parent="." index="3"]
 icon = ExtResource("3_p6v0i")
-
-[node name="GPUParticles2D" parent="." index="4"]
-position = Vector2(0, -14)
