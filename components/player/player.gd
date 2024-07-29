@@ -9,6 +9,7 @@ signal untransformed
 
 const PLAYER_HEIGHT : int = 27
 const DEFAULT_ANIM : StringName = "default_side"
+const INTERACTION_RANGE : float = 32.0
 
 @export var default_controller : PlayerController
 
@@ -84,7 +85,7 @@ func get_closest_interactable() -> Interactable:
 		
 		var dist = global_position.distance_to(itr.global_position)
 		
-		if dist > closest_dist or dist > itr.interaction_range:
+		if dist > closest_dist or dist > INTERACTION_RANGE:
 			continue
 		
 		%InteractionWallCheck.target_position = to_local(itr.global_position)

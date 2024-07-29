@@ -1,7 +1,6 @@
 extends Node2D
 class_name Interactable
 
-@export var interaction_range : float = 100.0
 @export var disable_after_interaction : bool = false
 
 var enabled = true
