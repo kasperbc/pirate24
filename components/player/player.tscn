@@ -43,7 +43,7 @@ shape = SubResource("RectangleShape2D_1ln0a")
 unique_name_in_owner = true
 position = Vector2(0, -9)
 sprite_frames = ExtResource("2_m2g0d")
-animation = &"transform_up"
+animation = &"transform_down"
 autoplay = "default_side"
 
 [node name="PlayerShadow" type="Sprite2D" parent="Sprite2D"]

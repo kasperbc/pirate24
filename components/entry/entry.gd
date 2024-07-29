@@ -17,4 +17,4 @@ func _ready():
 		
 		get_tree().call_deferred("change_scene_to_packed", main_scene if not load_title else title_scene)
 	else:
-		get_tree().change_scene_to_packed(title_scene)
+		get_tree().change_scene_to_packed(main_scene)

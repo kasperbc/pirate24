@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://c660udm76cm8m" path="res://components/button_ingame/button_blue.tscn" id="11_egvqf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m8ji2"]
-size = Vector2(20, 80)
+size = Vector2(20, 88)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qc1kv"]
 size = Vector2(20, 72)
@@ -70,6 +70,7 @@ position = Vector2(392, -144)
 script = ExtResource("7_kumag")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Segment1/TutorialTrigger" index="0"]
+position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_m8ji2")
 
 [node name="TutorialEscapeTrigger" type="Area2D" parent="Segment1" index="6"]
@@ -127,7 +128,7 @@ position = Vector2(56, 16)
 play_cutscene = false
 
 [node name="ButtonInteractable" parent="." index="6" instance=ExtResource("11_egvqf")]
-position = Vector2(168, -144)
+position = Vector2(168, -136)
 
 [connection signal="body_entered" from="Segment1/TutorialTrigger" to="Segment1/TutorialTrigger" method="_on_body_entered"]
 [connection signal="body_entered" from="Segment1/TutorialEscapeTrigger" to="Segment1/TutorialEscapeTrigger" method="_on_body_entered"]

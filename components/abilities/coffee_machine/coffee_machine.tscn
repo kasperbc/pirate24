@@ -3,9 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://bkdppj4uf5c4w" path="res://components/abilities/ability_base.tscn" id="1_2nbpf"]
 [ext_resource type="Resource" uid="uid://crwv5ipyvaj5g" path="res://components/abilities/coffee_machine/coffee_machine.tres" id="3_mer5f"]
 [ext_resource type="PackedScene" uid="uid://5qn41iedtbcr" path="res://components/abilities/coffee_machine/ability_controller_coffee_machine.tscn" id="3_ox3l7"]
-[ext_resource type="Texture2D" uid="uid://b1voddmwvu6bk" path="res://art/ui/icons/coffee-icon.png" id="3_p6v0i"]
 [ext_resource type="Texture2D" uid="uid://b1hedwfn03ky2" path="res://art/obscures/coffee_machine/coffeemachine-side.png" id="4_31weu"]
 [ext_resource type="Script" path="res://components/scripts/y_sort.gd" id="5_cyr6f"]
+[ext_resource type="Texture2D" uid="uid://d1d0ia5f51brh" path="res://art/ui/icons/coffee-icon-outlined.png" id="6_f58u4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jp1yi"]
 size = Vector2(15, 10)
@@ -29,7 +29,4 @@ script = ExtResource("5_cyr6f")
 target = NodePath("../Sprite2D")
 
 [node name="AbilityIcon" parent="." index="3"]
-icon = ExtResource("3_p6v0i")
-
-[node name="GPUParticles2D" parent="." index="4"]
-position = Vector2(0, -14)
+icon = ExtResource("6_f58u4")
