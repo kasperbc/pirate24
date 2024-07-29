@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b15lnd5i2umfm"]
+[gd_scene load_steps=12 format=3 uid="uid://b15lnd5i2umfm"]
 
 [ext_resource type="Script" path="res://components/player/player.gd" id="1_t6385"]
 [ext_resource type="SpriteFrames" uid="uid://bergdw84aflyp" path="res://components/player/player_sprites.res" id="2_m2g0d"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b7b1sn37qi7ic" path="res://art/player/player_shadow.png" id="3_owkwf"]
 [ext_resource type="Texture2D" uid="uid://bllcrp6rvhcud" path="res://art/particles/shadow_piece.png" id="4_axcjf"]
 [ext_resource type="Texture2D" uid="uid://cuhsmek8br7a5" path="res://art/exclamationmark-spotted.png" id="6_sp78x"]
+[ext_resource type="PackedScene" uid="uid://bp51cwyi4e5oh" path="res://components/ui/button_prompt.tscn" id="7_wy6iq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ln0a"]
 size = Vector2(14, 6)
@@ -43,7 +44,7 @@ shape = SubResource("RectangleShape2D_1ln0a")
 unique_name_in_owner = true
 position = Vector2(0, -9)
 sprite_frames = ExtResource("2_m2g0d")
-animation = &"transform_up"
+animation = &"transform_down"
 autoplay = "default_side"
 
 [node name="PlayerShadow" type="Sprite2D" parent="Sprite2D"]
@@ -86,3 +87,6 @@ position = Vector2(0, -9)
 visible = false
 position = Vector2(0, -34)
 texture = ExtResource("6_sp78x")
+
+[node name="ButtonPrompt" parent="." instance=ExtResource("7_wy6iq")]
+top_level = true

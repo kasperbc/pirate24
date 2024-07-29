@@ -17,7 +17,7 @@ sprite_frames = ExtResource("2_fhs61")
 frame = 0
 frame_progress = 0.0
 
-[node name="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D" parent="." index="1" groups=["WaterPuddle"]]
 shape = SubResource("RectangleShape2D_78rh2")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

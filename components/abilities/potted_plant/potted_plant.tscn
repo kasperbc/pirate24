@@ -1,12 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://b4wvq5jl7y5tj"]
+[gd_scene load_steps=8 format=3 uid="uid://b4wvq5jl7y5tj"]
 
 [ext_resource type="PackedScene" uid="uid://bkdppj4uf5c4w" path="res://components/abilities/ability_base.tscn" id="1_l6y1d"]
 [ext_resource type="Texture2D" uid="uid://cg2sfcdp7f143" path="res://art/obscures/potted_plant/potted-plant-side.png" id="2_m8goa"]
 [ext_resource type="PackedScene" uid="uid://6irmu5xhpt3o" path="res://components/abilities/potted_plant/ability_controller_potted_plant.tscn" id="2_vtdwh"]
 [ext_resource type="Resource" uid="uid://ohapj2ldpjxx" path="res://components/abilities/potted_plant/potted_plant.tres" id="3_pah3f"]
 [ext_resource type="Script" path="res://components/scripts/y_sort.gd" id="4_ik0xj"]
-[ext_resource type="Texture2D" uid="uid://d1d0ia5f51brh" path="res://art/ui/icons/coffee-icon-outlined.png" id="5_4gbdo"]
-[ext_resource type="Texture2D" uid="uid://4urwn37ven2u" path="res://art/particles/shadow.png" id="7_lu1c0"]
+[ext_resource type="Texture2D" uid="uid://vltfbhairq6h" path="res://art/ui/icons/houseplant-icon-outlined.png" id="6_guftg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h7fyc"]
 size = Vector2(15, 7.5)
@@ -28,8 +27,4 @@ script = ExtResource("4_ik0xj")
 target = NodePath("../Sprite2D")
 
 [node name="AbilityIcon" parent="." index="3"]
-icon = ExtResource("5_4gbdo")
-
-[node name="GPUParticles2D" parent="." index="4"]
-position = Vector2(0, -22)
-texture = ExtResource("7_lu1c0")
+icon = ExtResource("6_guftg")

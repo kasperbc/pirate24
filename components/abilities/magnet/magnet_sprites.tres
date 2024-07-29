@@ -1,6 +1,7 @@
-[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://bvsk7esxtkl7u"]
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://bvsk7esxtkl7u"]
 
 [ext_resource type="Texture2D" uid="uid://bqpmdnrue0l4r" path="res://art/obscures/magnet/magnet-inactive-up.png" id="1_ujegn"]
+[ext_resource type="Texture2D" uid="uid://3lhfhpqhhfu4" path="res://art/obscures/magnet/magnet-active-down.png" id="1_y7peo"]
 [ext_resource type="Texture2D" uid="uid://b4y4gqohciq6q" path="res://art/obscures/magnet/magnet-active-sides.png" id="2_1tudn"]
 [ext_resource type="Texture2D" uid="uid://ck4h13mjgkj60" path="res://art/obscures/magnet/magnet-active-up.png" id="3_jxjlc"]
 [ext_resource type="Texture2D" uid="uid://bq4od7sl0ohlp" path="res://art/obscures/magnet/magnet-inactive-down.png" id="4_1sd06"]
@@ -10,7 +11,7 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_1sd06")
+"texture": ExtResource("1_y7peo")
 }],
 "loop": true,
 "name": &"ability_down",
@@ -18,7 +19,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_aqoyk")
+"texture": ExtResource("2_1tudn")
 }],
 "loop": true,
 "name": &"ability_side",
@@ -26,20 +27,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_ujegn")
+"texture": ExtResource("3_jxjlc")
 }],
 "loop": true,
 "name": &"ability_up",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_1sd06")
+}],
 "loop": true,
 "name": &"default_down",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_1tudn")
+"texture": ExtResource("5_aqoyk")
 }],
 "loop": true,
 "name": &"default_side",
@@ -47,7 +51,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_jxjlc")
+"texture": ExtResource("1_ujegn")
 }],
 "loop": true,
 "name": &"default_up",

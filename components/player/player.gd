@@ -89,7 +89,7 @@ func get_closest_interactable() -> Interactable:
 			continue
 		
 		%InteractionWallCheck.target_position = to_local(itr.global_position)
-		if %InteractionWallCheck.is_colliding():
+		if %InteractionWallCheck.is_colliding() and not itr.interactable_through_wall:
 			continue
 		
 		closest_dist = dist
@@ -293,6 +293,7 @@ func set_controller(c : PlayerController):
 func on_spotted():
 	spotted = true
 	velocity = Vector2.ZERO
+	SoundManager.play_sound(AudioLib.get_sound("notice2"))
 	
 	%CollisionShape.disabled = true
 	

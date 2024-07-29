@@ -2,6 +2,7 @@ extends Node2D
 class_name Interactable
 
 @export var disable_after_interaction : bool = false
+@export var interactable_through_wall : bool = false
 
 var enabled = true
 
