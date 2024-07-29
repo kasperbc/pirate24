@@ -12,3 +12,6 @@ ability = ExtResource("3_xv3av")
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_fulkh")
+
+[node name="GPUParticles2D" parent="." index="3"]
+position = Vector2(0, -8)
