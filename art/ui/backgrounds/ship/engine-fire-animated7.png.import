@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< Updated upstream
 uid="uid://b8ses7xl1smb7"
+=======
+uid="uid://dh2p35rlrvt07"
+>>>>>>> Stashed changes
 path="res://.godot/imported/engine-fire-animated7.png-bfd7bdf12d15a9314d03086e5e53b92b.ctex"
 metadata={
 "vram_texture": false
