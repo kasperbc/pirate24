@@ -3,4 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://byvtuuroc48gh" path="res://art/obscures/water_dispenser/water_spill_6.png" id="1_fix2t"]
 
 [node name="WaterPuddle" type="Sprite2D" groups=["WaterPuddle"]]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
 texture = ExtResource("1_fix2t")

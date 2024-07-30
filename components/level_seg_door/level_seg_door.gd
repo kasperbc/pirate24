@@ -24,7 +24,8 @@ func _on_player_entered(body):
 	
 	activated = true
 	%FrontDoorCollider.set_deferred("disabled", false)
-	
+	GameMan.level_loader.spawn_pos_override = Vector2.ZERO
+	GameMan.segement_override = -1
 	GameMan.level_loader.change_segment(next_segment, true, true)
 	
 	Utils.create_shaker_and_shake(%Sprite2D, 0.75, 0.5)
