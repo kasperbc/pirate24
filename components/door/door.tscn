@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://d3xidpedpjxwe"]
+[gd_scene load_steps=7 format=3 uid="uid://d3xidpedpjxwe"]
 
 [ext_resource type="Script" path="res://components/door/door.gd" id="1_o4645"]
 [ext_resource type="Texture2D" uid="uid://dvgxrantsfovs" path="res://art/objects/door_closed.png" id="2_foqn5"]
 [ext_resource type="Texture2D" uid="uid://dcwby5iuyds05" path="res://art/objects/door_open.png" id="3_ctb2i"]
+[ext_resource type="Script" path="res://components/scripts/y_sort.gd" id="4_jcuju"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_aswmm"]
 animations = [{
@@ -39,3 +40,8 @@ autoplay = "default"
 unique_name_in_owner = true
 position = Vector2(0.5, 15)
 shape = SubResource("RectangleShape2D_hqstt")
+
+[node name="YSort" type="Node2D" parent="." node_paths=PackedStringArray("target")]
+position = Vector2(0, 13)
+script = ExtResource("4_jcuju")
+target = NodePath("..")

@@ -181,7 +181,7 @@ func process_set_positions():
 	else:
 		velocity = Vector2.ZERO
 	
-	if global_position.distance_to(target_pos) < 0.1:
+	if global_position.distance_to(target_pos) < 2:
 		move_pos_index(move_positions)
 
 #endregion
@@ -233,7 +233,7 @@ func try_detect_player() -> bool:
 	for r in player_check_rays:
 		var collider = r.get_collider()
 		
-		if collider != null and collider.is_in_group("Player") and not collider.has_ability():
+		if collider != null and collider.is_in_group("Player") and not collider.has_ability() and not collider.transforming_end:
 			return true
 	
 	return false

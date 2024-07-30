@@ -7,8 +7,8 @@
 [ext_resource type="Script" path="res://components/scripts/y_sort.gd" id="4_tu5gq"]
 [ext_resource type="Texture2D" uid="uid://dvpmy04batre0" path="res://art/ui/icons/waterdispenser-icon-outlined.png" id="5_6fc4n"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0myrb"]
-size = Vector2(14, 7)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_viw4y"]
+size = Vector2(14, 6)
 
 [node name="WaterDispenser" instance=ExtResource("1_sxf48")]
 ability_controller = ExtResource("2_pnby5")
@@ -18,8 +18,8 @@ ability = ExtResource("3_0cq7h")
 texture = ExtResource("3_v6trh")
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(-1, 12.5)
-shape = SubResource("RectangleShape2D_0myrb")
+position = Vector2(0, 13)
+shape = SubResource("RectangleShape2D_viw4y")
 
 [node name="AbilityIcon" parent="." index="2"]
 icon = ExtResource("5_6fc4n")

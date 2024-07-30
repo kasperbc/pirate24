@@ -23,6 +23,7 @@ var charged_controller : PackedScene
 var charged_ability : AbilityData
 
 var transforming : bool = false
+var transforming_end : bool = false
 var charging : bool = false
 
 var able_to_move : bool = true
@@ -189,6 +190,8 @@ func transform():
 	sprite_t.set_trans(Tween.TRANS_CIRC)
 	sprite_t.tween_property(%TransformPreviewSprite, "scale", Vector2.ONE, 0.5)
 	
+	transforming_end = true
+	
 	SoundManager.play_sound(AudioLib.get_sound("thud"))
 	SoundManager.play_sound(AudioLib.get_sound("transform_into"))
 	
@@ -211,6 +214,8 @@ func transform():
 	
 	charged_controller = null
 	charged_ability = null
+	
+	transforming_end = false
 	
 	end_transform()
 	transformed.emit()

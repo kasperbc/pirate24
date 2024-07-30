@@ -3,8 +3,14 @@ class_name MainCamera
 
 signal transition_complete
 
+const CAM_PAN_SPEED : float = 300.0
+
 var transitioning : bool = false
 var zooming : bool = false
+
+var time_since_start : float = 0.0
+
+var cam_offset : Vector2 = Vector2.ZERO
 
 @onready var target : Node2D = GameMan.player
 
@@ -12,8 +18,23 @@ func _ready():
 	global_position = target.global_position
 
 func _process(delta):
+	time_since_start += delta
+	
 	if not transitioning:
-		global_position = global_position.lerp(target.global_position, 0.1)
+		global_position = global_position.lerp(target.global_position + cam_offset, 0.1)
+		if time_since_start < 1.0:
+			global_position = target.global_position + cam_offset
+	
+	if GameMan.player.velocity == Vector2.ZERO:
+		var cam_input_dir = Input.get_vector("pan_camera_left", "pan_camera_right", "pan_camera_up", "pan_camera_down")
+		cam_offset += cam_input_dir * CAM_PAN_SPEED * delta
+		
+		var _target_pos = target.global_position + cam_offset
+		var target_pos_diff = _target_pos - get_closest_limit_pos(_target_pos, get_curr_segment_limits())
+		if target_pos_diff != Vector2.ZERO:
+			cam_offset -= target_pos_diff
+	else:
+		cam_offset = Vector2.ZERO
 
 #region Limits
 
