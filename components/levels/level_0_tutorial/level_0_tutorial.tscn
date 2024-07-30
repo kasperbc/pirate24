@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://po5ybttecov5"]
+[gd_scene load_steps=21 format=4 uid="uid://po5ybttecov5"]
 
 [ext_resource type="PackedScene" uid="uid://4vqigtk166tx" path="res://components/levels/level_base.tscn" id="1_ikaiy"]
 [ext_resource type="PackedScene" uid="uid://b4wvq5jl7y5tj" path="res://components/abilities/potted_plant/potted_plant.tscn" id="2_po47b"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://uul7bt2k5cls" path="res://art/ui/logo/TMS-logo-actualpng-simple.png" id="9_nc5gn"]
 [ext_resource type="PackedScene" uid="uid://bptnw51iqv2lt" path="res://components/cutscene_guard/cutscene_guard.tscn" id="10_vulg2"]
 [ext_resource type="Script" path="res://components/levels/level_segment.gd" id="11_65tti"]
+[ext_resource type="PackedScene" uid="uid://biiesval3nm7m" path="res://components/checkpoint/checkpoint.tscn" id="11_eful4"]
 [ext_resource type="PackedScene" uid="uid://c660udm76cm8m" path="res://components/button_ingame/button_blue.tscn" id="11_egvqf"]
 [ext_resource type="PackedScene" uid="uid://bpfwlp8kckv26" path="res://components/abilities/coffee_machine/coffee_machine.tscn" id="12_8mfgl"]
 [ext_resource type="PackedScene" uid="uid://bfjlaw27xbb45" path="res://components/levels/level_bounds.tscn" id="12_h7r13"]
@@ -66,6 +67,7 @@ position = Vector2(176, -176)
 [node name="TutorialEnemy" parent="Segment1" index="4" instance=ExtResource("3_2ypf0")]
 unique_name_in_owner = true
 process_mode = 4
+visible = false
 position = Vector2(816, -136)
 rotation = -1.57079
 collision_mask = 0
@@ -133,10 +135,11 @@ pivot_offset = Vector2(485, 205)
 texture = ExtResource("9_nc5gn")
 
 [node name="CutsceneGuard" parent="Segment1" index="9" instance=ExtResource("10_vulg2")]
-process_mode = 4
-visible = false
 position = Vector2(56, 16)
-play_cutscene = false
+
+[node name="Checkpoint" parent="Segment1" index="10" instance=ExtResource("11_eful4")]
+position = Vector2(848, -400)
+scale = Vector2(2, 1)
 
 [node name="Segment2" type="Node2D" parent="." index="6" node_paths=PackedStringArray("level", "bounds", "player_start_point")]
 position = Vector2(440, -272)

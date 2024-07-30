@@ -44,4 +44,5 @@ var segment_label : SegmentLabel :
 #endregion
 
 var segement_override : int = -1
+var cutscene_seen : bool = false
 var level_override : Level = null

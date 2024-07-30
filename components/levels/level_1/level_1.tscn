@@ -59,7 +59,7 @@ position = Vector2(302, 32)
 rotation = 4.71238
 
 [node name="MagnetPanel2" parent="Segment1" index="5" instance=ExtResource("3_ufnad")]
-position = Vector2(496, 32)
+position = Vector2(494, 32)
 rotation = 4.71239
 
 [node name="Enemy" parent="Segment1" index="6" instance=ExtResource("4_gs6lv")]
