@@ -17,7 +17,10 @@ func _on_interact():
 	SoundManager.play_sound(AudioLib.get_sound("click"))
 	
 	if door != null:
-		door.open()
+		if door.opened_on_start:
+			door.close()
+		else:
+			door.open()
 		
 	if timed:
 		time_left = time
@@ -33,6 +36,9 @@ func _process(delta):
 
 func _on_time_out():
 	if door != null:
-		door.close()
+		if door.opened_on_start:
+			door.open()
+		else:
+			door.close()
 	
 	timeout.emit()

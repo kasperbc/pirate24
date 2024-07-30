@@ -7,4 +7,5 @@
 [node name="Entry" type="Node"]
 script = ExtResource("1_spttp")
 level = ExtResource("2_t5lvp")
+segment = 1.0
 main_scene = ExtResource("2_21tli")
