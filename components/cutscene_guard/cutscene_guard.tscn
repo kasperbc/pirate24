@@ -1,8 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://bptnw51iqv2lt"]
+[gd_scene load_steps=6 format=3 uid="uid://bptnw51iqv2lt"]
 
 [ext_resource type="SpriteFrames" uid="uid://bqlyd80cnfyn4" path="res://components/cutscene_guard/cutscene_guard_sprites.tres" id="1_5baeu"]
 [ext_resource type="Script" path="res://components/cutscene_guard/cutscene_guard.gd" id="1_mtua6"]
-[ext_resource type="Script" path="res://components/enemy/dialogue_text.gd" id="2_hlkou"]
+[ext_resource type="Script" path="res://components/cutscene_guard/dialogue_text.gd" id="3_058jr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xf7bv"]
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5b0u8"]
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
 
 [node name="CutsceneGuard" type="CharacterBody2D"]
 collision_layer = 0
@@ -16,19 +24,29 @@ autoplay = "default"
 frame_progress = 0.423936
 flip_h = true
 
-[node name="DialogueText" type="Label" parent="." node_paths=PackedStringArray("dialogue_pos")]
-unique_name_in_owner = true
-top_level = true
-z_index = 900
-z_as_relative = false
-offset_left = -72.0
-offset_right = 98.0
-offset_bottom = 43.0
-scale = Vector2(0.4, 0.4)
-horizontal_alignment = 2
-autowrap_mode = 2
-script = ExtResource("2_hlkou")
-dialogue_pos = NodePath("../DialoguePos")
-
 [node name="DialoguePos" type="Node2D" parent="."]
 position = Vector2(-56, 0)
+
+[node name="DialogueText" type="Label" parent="."]
+unique_name_in_owner = true
+z_index = 2000
+offset_left = -64.0
+offset_top = -40.0
+offset_right = 236.0
+offset_bottom = 371.0
+scale = Vector2(0.4, 0.4)
+label_settings = SubResource("LabelSettings_xf7bv")
+autowrap_mode = 2
+script = ExtResource("3_058jr")
+
+[node name="GubeDialogueText" type="Label" parent="."]
+unique_name_in_owner = true
+modulate = Color(0, 0.72, 0.0840001, 1)
+offset_left = -136.0
+offset_top = -24.0
+offset_right = 64.0
+offset_bottom = -4.0
+scale = Vector2(0.4, 0.4)
+label_settings = SubResource("LabelSettings_5b0u8")
+autowrap_mode = 2
+script = ExtResource("3_058jr")

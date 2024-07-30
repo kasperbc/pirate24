@@ -7,3 +7,6 @@
 script = ExtResource("1_jcskn")
 level_name = "Level2"
 scene = ExtResource("1_md03b")
+music = "obsv"
+music_vol = 0.0
+restart_music_on_reload = false

@@ -37,6 +37,8 @@ func _on_ability_activate():
 	Utils.create_shaker_and_shake(player_sprite, 0.5, 0.5)
 	await get_tree().create_timer(0.5).timeout
 	
+	player.collision_mask = 0x3
+	
 	var last_pos : Vector2 = player.global_position
 	while player.global_position.distance_to(target_panel.global_position) > 10.0:
 		_dir = player.global_position.direction_to(target_panel.global_position)
@@ -51,6 +53,8 @@ func _on_ability_activate():
 	
 	player.velocity = Vector2.ZERO
 	Utils.create_shaker_and_shake(player_sprite, 2.0, 0.75)
+	
+	player.collision_mask = 0x13
 	
 	target_panel.get_node("Particles/PosParticleBurst").emitting = true
 	target_panel.get_node("Particles/NegParticleBurst").emitting = true

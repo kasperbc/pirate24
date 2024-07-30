@@ -9,6 +9,6 @@ script = ExtResource("1_ney6l")
 level_name = "Tutorial"
 scene = ExtResource("1_i55sd")
 next_level = ExtResource("1_1wub5")
-music = "spawn_room"
+music = "revenant_lab"
 music_vol = 0.0
 restart_music_on_reload = true

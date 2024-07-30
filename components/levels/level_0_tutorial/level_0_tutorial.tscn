@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://po5ybttecov5"]
+[gd_scene load_steps=21 format=4 uid="uid://po5ybttecov5"]
 
 [ext_resource type="PackedScene" uid="uid://4vqigtk166tx" path="res://components/levels/level_base.tscn" id="1_ikaiy"]
 [ext_resource type="PackedScene" uid="uid://b4wvq5jl7y5tj" path="res://components/abilities/potted_plant/potted_plant.tscn" id="2_po47b"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://uul7bt2k5cls" path="res://art/ui/logo/TMS-logo-actualpng-simple.png" id="9_nc5gn"]
 [ext_resource type="PackedScene" uid="uid://bptnw51iqv2lt" path="res://components/cutscene_guard/cutscene_guard.tscn" id="10_vulg2"]
 [ext_resource type="Script" path="res://components/levels/level_segment.gd" id="11_65tti"]
+[ext_resource type="PackedScene" uid="uid://biiesval3nm7m" path="res://components/checkpoint/checkpoint.tscn" id="11_eful4"]
 [ext_resource type="PackedScene" uid="uid://c660udm76cm8m" path="res://components/button_ingame/button_blue.tscn" id="11_egvqf"]
 [ext_resource type="PackedScene" uid="uid://bpfwlp8kckv26" path="res://components/abilities/coffee_machine/coffee_machine.tscn" id="12_8mfgl"]
 [ext_resource type="PackedScene" uid="uid://bfjlaw27xbb45" path="res://components/levels/level_bounds.tscn" id="12_h7r13"]
@@ -66,6 +67,7 @@ position = Vector2(176, -176)
 [node name="TutorialEnemy" parent="Segment1" index="4" instance=ExtResource("3_2ypf0")]
 unique_name_in_owner = true
 process_mode = 4
+visible = false
 position = Vector2(816, -136)
 rotation = -1.57079
 collision_mask = 0
@@ -133,10 +135,11 @@ pivot_offset = Vector2(485, 205)
 texture = ExtResource("9_nc5gn")
 
 [node name="CutsceneGuard" parent="Segment1" index="9" instance=ExtResource("10_vulg2")]
-process_mode = 4
-visible = false
 position = Vector2(56, 16)
-play_cutscene = false
+
+[node name="Checkpoint" parent="Segment1" index="10" instance=ExtResource("11_eful4")]
+position = Vector2(848, -400)
+scale = Vector2(2, 1)
 
 [node name="Segment2" type="Node2D" parent="." index="6" node_paths=PackedStringArray("level", "bounds", "player_start_point")]
 position = Vector2(440, -272)
@@ -148,12 +151,12 @@ bounds = NodePath("LevelBounds")
 player_start_point = NodePath("PlayerStartPoint")
 
 [node name="Enemy" parent="Segment2" index="0" instance=ExtResource("3_2ypf0")]
-position = Vector2(616, -56)
+position = Vector2(616, -52)
 rotation = -1.57079
 move_speed = 45.0
 wait_time = 1.5
 wall_turn_distance = 64.0
-detection_angle = 25.0
+detection_angle = 20.0
 
 [node name="PottedPlant" parent="Segment2" index="1" instance=ExtResource("2_po47b")]
 position = Vector2(384, -32)
@@ -220,14 +223,24 @@ position = Vector2(800, -712)
 position = Vector2(656, -752)
 
 [node name="Enemy" parent="Segment3" index="3" instance=ExtResource("3_2ypf0")]
-position = Vector2(464, -704)
+position = Vector2(464, -736)
 rotation = 1.5708
 move_type = 2
 move_speed = 30.0
-move_positions = Array[Vector2]([Vector2(464, -704), Vector2(576, -704)])
-detection_angle = 35.0
+move_positions = Array[Vector2]([Vector2(464, -736), Vector2(576, -736)])
+detection_angle = 70.0
+detection_distance = 40.0
 
-[node name="Enemy2" parent="Segment3" index="4" instance=ExtResource("3_2ypf0")]
+[node name="Enemy5" parent="Segment3" index="4" instance=ExtResource("3_2ypf0")]
+position = Vector2(464, -688)
+rotation = 1.5708
+move_type = 2
+move_speed = 30.0
+move_positions = Array[Vector2]([Vector2(464, -688), Vector2(576, -688)])
+detection_angle = 70.0
+detection_distance = 40.0
+
+[node name="Enemy2" parent="Segment3" index="5" instance=ExtResource("3_2ypf0")]
 position = Vector2(320, -800)
 rotation = 3.14159
 move_speed = 30.0
@@ -236,7 +249,7 @@ wall_turn_distance = 128.0
 detection_angle = 35.0
 detection_distance = 60.0
 
-[node name="Enemy3" parent="Segment3" index="5" instance=ExtResource("3_2ypf0")]
+[node name="Enemy3" parent="Segment3" index="6" instance=ExtResource("3_2ypf0")]
 position = Vector2(272, -800)
 rotation = 3.14159
 move_speed = 30.0
@@ -245,32 +258,32 @@ wall_turn_distance = 128.0
 detection_angle = 35.0
 detection_distance = 60.0
 
-[node name="WaterDispenser" parent="Segment3" index="6" instance=ExtResource("15_vs2ve")]
+[node name="WaterDispenser" parent="Segment3" index="7" instance=ExtResource("15_vs2ve")]
 position = Vector2(728, -752)
 
-[node name="WaterDispenser2" parent="Segment3" index="7" instance=ExtResource("15_vs2ve")]
+[node name="WaterDispenser2" parent="Segment3" index="8" instance=ExtResource("15_vs2ve")]
 position = Vector2(232, -736)
 
-[node name="ButtonInteractable" parent="Segment3" index="8" node_paths=PackedStringArray("door") instance=ExtResource("11_egvqf")]
+[node name="ButtonInteractable" parent="Segment3" index="9" node_paths=PackedStringArray("door") instance=ExtResource("11_egvqf")]
 position = Vector2(648, -872)
 rotation = -3.14159
 door = NodePath("../Door2")
 
-[node name="ButtonInteractable2" parent="Segment3" index="9" node_paths=PackedStringArray("door") instance=ExtResource("15_08ynn")]
+[node name="ButtonInteractable2" parent="Segment3" index="10" node_paths=PackedStringArray("door") instance=ExtResource("15_08ynn")]
 position = Vector2(440, -840)
 door = NodePath("../Door")
 
-[node name="Door2" parent="Segment3" index="10" instance=ExtResource("6_n8wnw")]
+[node name="Door2" parent="Segment3" index="11" instance=ExtResource("6_n8wnw")]
 position = Vector2(752, -800)
 
-[node name="Enemy4" parent="Segment3" index="11" instance=ExtResource("3_2ypf0")]
+[node name="Enemy4" parent="Segment3" index="12" instance=ExtResource("3_2ypf0")]
 position = Vector2(488, -840)
 move_type = 1
 turn_positions = Array[float]([0.0, 90.0])
 detection_angle = 10.0
 detection_distance = 110.0
 
-[node name="LevelSegmentDoor" parent="Segment3" index="12" node_paths=PackedStringArray("next_segment") instance=ExtResource("3_461c4")]
+[node name="LevelSegmentDoor" parent="Segment3" index="13" node_paths=PackedStringArray("next_segment") instance=ExtResource("3_461c4")]
 position = Vector2(784, -944)
 next_segment = NodePath("../../Segment4")
 
@@ -296,7 +309,7 @@ position = Vector2(872, -1064)
 position = Vector2(1224, -968)
 
 [node name="Enemy" parent="Segment4" index="4" instance=ExtResource("3_2ypf0")]
-position = Vector2(1072, -1072)
+position = Vector2(1072, -1080)
 rotation = -1.5708
 move_speed = 0.0
 wall_turn_distance = 0.0
@@ -317,8 +330,8 @@ move_type = 2
 move_speed = 90.0
 wait_time = 0.1
 move_positions = Array[Vector2]([Vector2(936, -928), Vector2(1144, -928), Vector2(1144, -1160), Vector2(936, -1160)])
-detection_angle = 25.0
-detection_distance = 70.0
+detection_angle = 40.0
+detection_distance = 40.0
 
 [node name="Enemy3" parent="Segment4" index="8" instance=ExtResource("3_2ypf0")]
 position = Vector2(1048, -928)
@@ -327,8 +340,8 @@ move_type = 2
 move_speed = 90.0
 wait_time = 0.1
 move_positions = Array[Vector2]([Vector2(1144, -928), Vector2(1144, -1160), Vector2(936, -1160), Vector2(936, -928)])
-detection_angle = 25.0
-detection_distance = 70.0
+detection_angle = 40.0
+detection_distance = 40.0
 
 [node name="Enemy4" parent="Segment4" index="9" instance=ExtResource("3_2ypf0")]
 position = Vector2(1144, -1040)
@@ -336,8 +349,8 @@ move_type = 2
 move_speed = 90.0
 wait_time = 0.1
 move_positions = Array[Vector2]([Vector2(1144, -1160), Vector2(936, -1160), Vector2(936, -928), Vector2(1144, -928)])
-detection_angle = 25.0
-detection_distance = 70.0
+detection_angle = 40.0
+detection_distance = 40.0
 
 [node name="Enemy5" parent="Segment4" index="10" instance=ExtResource("3_2ypf0")]
 position = Vector2(1048, -1168)
@@ -346,8 +359,8 @@ move_type = 2
 move_speed = 90.0
 wait_time = 0.1
 move_positions = Array[Vector2]([Vector2(936, -1160), Vector2(936, -928), Vector2(1144, -928), Vector2(1144, -1160)])
-detection_angle = 25.0
-detection_distance = 70.0
+detection_angle = 40.0
+detection_distance = 40.0
 
 [connection signal="body_entered" from="Segment1/TutorialTrigger" to="Segment1/TutorialTrigger" method="_on_body_entered"]
 [connection signal="body_entered" from="Segment1/TutorialEscapeTrigger" to="Segment1/TutorialEscapeTrigger" method="_on_body_entered"]

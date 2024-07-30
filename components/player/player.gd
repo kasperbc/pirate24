@@ -128,18 +128,19 @@ func charge_ability(new_controller : PackedScene, new_ability : AbilityData):
 	%Sprite2D.add_child(shaker)
 	shaker.start_shake(%Sprite2D, 0.65)
 	
-	%ShadowParticlesBack.amount_ratio = 1
-	%ShadowParticlesFront.amount_ratio = 1
+	%ShadowParticlesBack.emitting = true
+	%ShadowParticlesFront.emitting = true
 	
 	var t1 = get_tree().create_tween().set_trans(Tween.TRANS_CIRC)
 	var t2 = get_tree().create_tween().set_trans(Tween.TRANS_CIRC)
 	
-	t1.tween_property(%ShadowParticlesBack, "amount_ratio", 0, 4)
-	t2.tween_property(%ShadowParticlesFront, "amount_ratio", 0, 4)
 	
 	SoundManager.play_sound_with_pitch(AudioLib.get_sound("expansion_collect"), 0.5)
 	
 	await get_tree().create_timer(1).timeout
+	
+	%ShadowParticlesBack.emitting = false
+	%ShadowParticlesFront.emitting = false
 	
 	if not charging:
 		return

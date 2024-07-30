@@ -17,6 +17,7 @@ func _on_body_entered(body):
 	
 	await get_tree().create_timer(1).timeout
 	
+	%TutorialEnemy.visible = true
 	GameMan.camera.target = %TutorialEnemy
 	%TutorialEnemy.process_mode = Node.PROCESS_MODE_INHERIT
 	

@@ -46,6 +46,9 @@ var curr_pos_index : int = 0
 
 var move_positions_local : Array[Vector2]
 
+var pdt : float
+
+
 func _ready():
 	%WallCheck.target_position = Vector2(0, -wall_turn_distance)
 	%LightPoly.color = LIGHT_POLY_COLOR
@@ -143,14 +146,20 @@ func turn_around():
 	if waiting:
 		return
 	
+	waiting = true
 	if wait_time > 0:
-		waiting = true
 		await get_tree().create_timer(wait_time).timeout
 	
-	rotate(deg_to_rad(180))
+	var target_rotation = rotation + PI
 	
-	for i in 2:
+	
+	while abs(angle_difference(rotation, target_rotation)) > 0.01:
+		rotation = lerp_angle(rotation, target_rotation, 0.1)
 		await get_tree().physics_frame
+	
+	rotation = target_rotation
+	#for x in 2:
+	# 	await get_tree().process_frame
 	
 	waiting = false
 
@@ -176,7 +185,7 @@ func process_set_positions():
 	if not waiting:
 		var dir_to_target = global_position.direction_to(target_pos)
 		if dir_to_target != Vector2.ZERO:
-			rotation = dir_to_target.rotated(deg_to_rad(90)).angle()
+			rotation = lerp_angle(rotation, dir_to_target.rotated(deg_to_rad(90)).angle(), 0.1)
 			velocity = dir_to_target * move_speed
 	else:
 		velocity = Vector2.ZERO

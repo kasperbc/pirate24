@@ -14,7 +14,10 @@ func _on_ability_activate():
 	
 	for d : Door in get_tree().get_nodes_in_group("BrokenDoor"):
 		if d.global_position.distance_to(player.global_position) <= broken_door_min_distance:
-			d.open()
+			if d.opened_on_start:
+				d.close()
+			else:
+				d.open()
 
 func in_puddle() -> bool:
 	for p : Node2D in get_tree().get_nodes_in_group("WaterPuddle"):

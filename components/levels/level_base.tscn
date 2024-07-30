@@ -25,6 +25,7 @@ tile_set = ExtResource("4_3axtr")
 
 [node name="Walls" type="TileMapLayer" parent="."]
 z_index = 50
+z_as_relative = false
 tile_set = ExtResource("1_82r68")
 
 [node name="Segment1" type="Node2D" parent="." node_paths=PackedStringArray("level", "bounds", "player_start_point")]

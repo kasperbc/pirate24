@@ -6,6 +6,7 @@ class_name LevelLoader
 var curr_level : Node2D
 var curr_level_res : Level
 var curr_level_seg : LevelSegment
+var spawn_pos_override : Vector2
 
 func _ready():
 	var level : Level = default_level
@@ -24,7 +25,6 @@ func load_level(l : Level, segment : int = 0, reloading : bool = false):
 	
 	if GameMan.segement_override != -1:
 		segment = GameMan.segement_override
-		GameMan.segement_override == 1
 	
 	var loaded_level = l.scene.instantiate()
 	add_child(loaded_level)
@@ -33,7 +33,15 @@ func load_level(l : Level, segment : int = 0, reloading : bool = false):
 	curr_level_res = l
 	change_segment(get_level_segment(segment), false, not reloading)
 	
-	GameMan.player.global_position = curr_level_seg.player_start_point.global_position
+	if not reloading:
+		spawn_pos_override = Vector2.ZERO
+	
+	if spawn_pos_override != Vector2.ZERO:
+		#GameMan.player.global_position = spawn_pos_override
+		pass
+	else:
+		GameMan.player.global_position = curr_level_seg.player_start_point.global_position
+	
 	GameMan.player.reset()
 	# GameMan.camera.get_node("Background").color = l.background_color
 	

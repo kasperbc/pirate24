@@ -55,4 +55,4 @@ func activate():
 	
 	await get_tree().create_timer(5).timeout
 	
-	SoundManager.play_music_at_volume(AudioLib.get_sound("spawn_room"), 0.0, 5.0)
+	SoundManager.play_music_at_volume(AudioLib.get_sound("revenant_lab"), 0.0, 5.0)
