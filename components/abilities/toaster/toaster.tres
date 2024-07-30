@@ -7,7 +7,9 @@
 
 [resource]
 script = ExtResource("1_26q85")
+type = 5
 height = 24.0
 sprite_down = ExtResource("2_310jx")
 sprite_side = ExtResource("3_07h0s")
 sprite_up = ExtResource("4_lc8lq")
+enemy_dialogues = Array[String](["I am feeling hungry..."])

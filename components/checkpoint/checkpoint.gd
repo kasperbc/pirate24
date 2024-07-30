@@ -5,3 +5,4 @@ func _on_body_entered(body):
 		return
 	
 	GameMan.level_loader.spawn_pos_override = global_position
+	print("Checkpoint activated!")

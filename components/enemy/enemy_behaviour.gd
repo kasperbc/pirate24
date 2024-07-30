@@ -47,7 +47,7 @@ var curr_pos_index : int = 0
 var move_positions_local : Array[Vector2]
 
 var pdt : float
-
+@onready var last_ability_dialogue_time : float = 0
 
 func _ready():
 	%WallCheck.target_position = Vector2(0, -wall_turn_distance)
@@ -133,6 +133,17 @@ func _physics_process(delta):
 		%SpottedIcon._on_spot()
 	
 	move_and_slide()
+	
+	try_play_ability_dialogue()
+
+func try_play_ability_dialogue():
+	if not GameMan.player.has_ability() or GameMan.player.global_position.distance_to(global_position) > 100.0:
+		return
+	
+	if Time.get_unix_time_from_system() - last_ability_dialogue_time < 10:
+		return
+	
+	%DialogueText.show_dialogue(GameMan.player.ability.enemy_dialogues.pick_random())
 
 #region Back-and-forth
 

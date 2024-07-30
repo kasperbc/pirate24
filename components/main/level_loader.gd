@@ -37,8 +37,7 @@ func load_level(l : Level, segment : int = 0, reloading : bool = false):
 		spawn_pos_override = Vector2.ZERO
 	
 	if spawn_pos_override != Vector2.ZERO:
-		#GameMan.player.global_position = spawn_pos_override
-		pass
+		GameMan.player.global_position = spawn_pos_override
 	else:
 		GameMan.player.global_position = curr_level_seg.player_start_point.global_position
 	
