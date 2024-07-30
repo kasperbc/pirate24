@@ -9,3 +9,4 @@ height = 15.0
 sprite_down = ExtResource("4_24leo")
 sprite_side = ExtResource("4_24leo")
 sprite_up = ExtResource("4_24leo")
+detectable_by_laser = false
