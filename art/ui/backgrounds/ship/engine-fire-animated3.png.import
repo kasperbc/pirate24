@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://yyqa54rcrhm4"
-path="res://.godot/imported/spaceship.png-48a65d1d6608b0beb2a9f28c1c06fcf1.ctex"
+uid="uid://bop20nts6djq0"
+path="res://.godot/imported/engine-fire-animated3.png-78406d063c6a3c2a60903382d975ac20.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/ui/backgrounds/ship/spaceship.png"
-dest_files=["res://.godot/imported/spaceship.png-48a65d1d6608b0beb2a9f28c1c06fcf1.ctex"]
+source_file="res://art/ui/backgrounds/ship/engine-fire-animated3.png"
+dest_files=["res://.godot/imported/engine-fire-animated3.png-78406d063c6a3c2a60903382d975ac20.ctex"]
 
 [params]
 
