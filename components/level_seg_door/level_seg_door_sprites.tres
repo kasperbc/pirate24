@@ -1,0 +1,23 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://cepf4eplata6t"]
+
+[ext_resource type="Texture2D" uid="uid://d4l5y6nnv7153" path="res://art/objects/airlock_door2.png" id="1_bvbu0"]
+[ext_resource type="Texture2D" uid="uid://cocgvrepctokv" path="res://art/objects/airlock_door1.png" id="2_guyeo"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_bvbu0")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_guyeo")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]

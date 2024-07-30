@@ -1,0 +1,32 @@
+[gd_scene load_steps=8 format=3 uid="uid://bpfwlp8kckv26"]
+
+[ext_resource type="PackedScene" uid="uid://bkdppj4uf5c4w" path="res://components/abilities/ability_base.tscn" id="1_2nbpf"]
+[ext_resource type="Resource" uid="uid://crwv5ipyvaj5g" path="res://components/abilities/coffee_machine/coffee_machine.tres" id="3_mer5f"]
+[ext_resource type="PackedScene" uid="uid://5qn41iedtbcr" path="res://components/abilities/coffee_machine/ability_controller_coffee_machine.tscn" id="3_ox3l7"]
+[ext_resource type="Texture2D" uid="uid://b1hedwfn03ky2" path="res://art/obscures/coffee_machine/coffeemachine-side.png" id="4_31weu"]
+[ext_resource type="Script" path="res://components/scripts/y_sort.gd" id="5_cyr6f"]
+[ext_resource type="Texture2D" uid="uid://d1d0ia5f51brh" path="res://art/ui/icons/coffee-icon-outlined.png" id="6_f58u4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jp1yi"]
+size = Vector2(15, 10)
+
+[node name="CoffeeMachine" instance=ExtResource("1_2nbpf")]
+ability_controller = ExtResource("3_ox3l7")
+ability = ExtResource("3_mer5f")
+disable_after_interaction = null
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, -8)
+texture = ExtResource("4_31weu")
+
+[node name="CollisionShape2D" parent="." index="1"]
+y_sort_enabled = true
+position = Vector2(-0.5, 3)
+shape = SubResource("RectangleShape2D_jp1yi")
+
+[node name="YSort" type="Node2D" parent="." index="2" node_paths=PackedStringArray("target")]
+script = ExtResource("5_cyr6f")
+target = NodePath("../Sprite2D")
+
+[node name="AbilityIcon" parent="." index="3"]
+icon = ExtResource("6_f58u4")

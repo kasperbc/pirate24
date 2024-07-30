@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://bvwd3sc0ixp76"]
+
+[ext_resource type="PackedScene" uid="uid://cdwruxyoclqc4" path="res://components/ability_clearer/ability_clearer.tscn" id="1_wi2kh"]
+[ext_resource type="Texture2D" uid="uid://n1wab25svhvj" path="res://art/objects/ability_clearer_side.png" id="2_iyw8w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0wmkr"]
+size = Vector2(16, 32)
+
+[sub_resource type="Gradient" id="Gradient_nmlqo"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1lqw0"]
+gradient = SubResource("Gradient_nmlqo")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cqpc8"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(8, 16, 1)
+direction = Vector3(0, -1, 0)
+spread = 10.0
+initial_velocity_min = 183.33
+initial_velocity_max = 183.33
+gravity = Vector3(0, 98, 0)
+color_ramp = SubResource("GradientTexture1D_1lqw0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_s5k4w"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(8, 16, 1)
+direction = Vector3(0, -1, 0)
+spread = 10.0
+initial_velocity_min = 183.33
+initial_velocity_max = 183.33
+gravity = Vector3(0, 98, 0)
+color_ramp = SubResource("GradientTexture1D_1lqw0")
+
+[node name="AbilityClearer" instance=ExtResource("1_wi2kh")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("RectangleShape2D_0wmkr")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_iyw8w")
+
+[node name="ParticlesBack" parent="." index="2"]
+process_material = SubResource("ParticleProcessMaterial_cqpc8")
+
+[node name="ParticlesFront" parent="." index="3"]
+process_material = SubResource("ParticleProcessMaterial_s5k4w")

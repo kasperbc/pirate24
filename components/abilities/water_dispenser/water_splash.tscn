@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://vwrvc3lt1uji"]
+
+[ext_resource type="PackedScene" uid="uid://bdjnwx0s1ewwx" path="res://components/abilities/coffee_machine/coffee_splash.tscn" id="1_3txff"]
+[ext_resource type="SpriteFrames" uid="uid://yek1hcdh84cp" path="res://components/abilities/water_dispenser/water_splash_sprites.tres" id="2_fhs61"]
+[ext_resource type="Script" path="res://components/abilities/water_dispenser/water_splash.gd" id="2_uqrg4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_78rh2"]
+size = Vector2(24, 24)
+
+[node name="WaterSplash" instance=ExtResource("1_3txff")]
+modulate = Color(1, 1, 1, 0.501961)
+script = ExtResource("2_uqrg4")
+fadeout_delay = 20.0
+
+[node name="Sprite2D" parent="." index="0"]
+sprite_frames = ExtResource("2_fhs61")
+frame = 0
+frame_progress = 0.0
+
+[node name="CollisionShape2D" parent="." index="1" groups=["WaterPuddle"]]
+shape = SubResource("RectangleShape2D_78rh2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

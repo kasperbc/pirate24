@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdjnwx0s1ewwx"]
+
+[ext_resource type="Script" path="res://components/abilities/coffee_machine/coffee_splash_attack.gd" id="1_2bef1"]
+[ext_resource type="SpriteFrames" uid="uid://dlhhlgsmk28cy" path="res://components/abilities/coffee_machine/coffee_splash_sprites.tres" id="1_tllwl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5bigt"]
+size = Vector2(32, 32)
+
+[node name="CoffeeSplash" type="Area2D"]
+collision_layer = 0
+collision_mask = 4
+priority = 1
+script = ExtResource("1_2bef1")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+sprite_frames = ExtResource("1_tllwl")
+animation = &"attack_down"
+autoplay = "default"
+frame = 6
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_5bigt")

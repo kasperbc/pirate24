@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfjlaw27xbb45"]
+
+[ext_resource type="Script" path="res://components/levels/level_bounds.gd" id="1_fymsp"]
+[ext_resource type="Script" path="res://components/levels/level_bounds_helper_tool.gd" id="2_qnsm6"]
+
+[node name="LevelBounds" type="Node2D"]
+script = ExtResource("1_fymsp")
+
+[node name="BoundsTool" type="Node2D" parent="." node_paths=PackedStringArray("bounds")]
+z_index = 1000
+z_as_relative = false
+script = ExtResource("2_qnsm6")
+bounds = NodePath("..")

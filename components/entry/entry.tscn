@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cldnqkqxlbtnd"]
+
+[ext_resource type="Script" path="res://components/entry/entry.gd" id="1_spttp"]
+[ext_resource type="PackedScene" uid="uid://2h4xghhte6jp" path="res://components/main/main.tscn" id="2_21tli"]
+
+[node name="Entry" type="Node"]
+script = ExtResource("1_spttp")
+main_scene = ExtResource("2_21tli")

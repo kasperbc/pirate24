@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://2h4xghhte6jp"]
+
+[ext_resource type="PackedScene" uid="uid://b15lnd5i2umfm" path="res://components/player/player.tscn" id="1_0a0cp"]
+[ext_resource type="PackedScene" uid="uid://dcxxkda3te87x" path="res://components/main_camera/main_camera.tscn" id="2_b8wh4"]
+[ext_resource type="Script" path="res://components/main/level_loader.gd" id="4_5x8cr"]
+[ext_resource type="Resource" uid="uid://deqbw04lfc6di" path="res://components/levels/level_0_tutorial/level_0_tutorial.tres" id="4_nrhxr"]
+[ext_resource type="PackedScene" uid="uid://qj0hwwx0iarx" path="res://components/main/ui/main_ui.tscn" id="5_e6xr2"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_0a0cp")]
+
+[node name="Camera" parent="." groups=["Camera"] instance=ExtResource("2_b8wh4")]
+zoom = Vector2(2.5, 2.5)
+
+[node name="Background" type="ColorRect" parent="Camera"]
+z_index = -1000
+z_as_relative = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -480.0
+offset_top = -270.0
+offset_right = 480.0
+offset_bottom = 270.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(480, 270)
+color = Color(1, 1, 1, 0)
+
+[node name="LevelLoader" type="Node2D" parent="." groups=["LevelLoader"]]
+script = ExtResource("4_5x8cr")
+default_level = ExtResource("4_nrhxr")
+
+[node name="UI" parent="." instance=ExtResource("5_e6xr2")]

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://6irmu5xhpt3o"]
+
+[ext_resource type="PackedScene" uid="uid://6lfdcwk5vl65" path="res://components/abilities/ability_controller_base.tscn" id="1_j1apx"]
+[ext_resource type="SpriteFrames" uid="uid://bmuqg18dt0whl" path="res://components/abilities/potted_plant/potted_plant_sprites.tres" id="2_a7v50"]
+
+[node name="AbilityControllerPlant" instance=ExtResource("1_j1apx")]
+ability_end_delay = 0.5
+able_to_interact = false
+height = 49
+sprite_frames = ExtResource("2_a7v50")

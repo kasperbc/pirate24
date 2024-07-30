@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cn46wjed2tjju"]
+
+[ext_resource type="Texture2D" uid="uid://byvtuuroc48gh" path="res://art/obscures/water_dispenser/water_spill_6.png" id="1_fix2t"]
+
+[node name="WaterPuddle" type="Sprite2D" groups=["WaterPuddle"]]
+texture = ExtResource("1_fix2t")

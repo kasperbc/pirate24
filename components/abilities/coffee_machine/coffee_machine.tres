@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="AbilityData" load_steps=5 format=3 uid="uid://crwv5ipyvaj5g"]
+
+[ext_resource type="Script" path="res://components/abilities/ability.gd" id="1_sp0vg"]
+[ext_resource type="Texture2D" uid="uid://brenxgn3ytelq" path="res://art/obscures/coffee_machine/coffeemachine-down.png" id="2_t17ew"]
+[ext_resource type="Texture2D" uid="uid://b1hedwfn03ky2" path="res://art/obscures/coffee_machine/coffeemachine-side.png" id="3_2f7jh"]
+[ext_resource type="Texture2D" uid="uid://7entw7ctj0te" path="res://art/obscures/coffee_machine/coffeemachine-up.png" id="4_rynlq"]
+
+[resource]
+script = ExtResource("1_sp0vg")
+height = 32.0
+sprite_down = ExtResource("2_t17ew")
+sprite_side = ExtResource("3_2f7jh")
+sprite_up = ExtResource("4_rynlq")

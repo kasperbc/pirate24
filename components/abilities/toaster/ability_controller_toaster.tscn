@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://l8xcmpkdqbo5"]
+
+[ext_resource type="PackedScene" uid="uid://6lfdcwk5vl65" path="res://components/abilities/ability_controller_base.tscn" id="1_apqm4"]
+[ext_resource type="Script" path="res://components/abilities/toaster/ability_controller_toaster.gd" id="2_0kmcr"]
+[ext_resource type="SpriteFrames" uid="uid://c7df8gg8tkfpx" path="res://components/abilities/toaster/toaster_sprites.tres" id="2_53gss"]
+
+[node name="AbilityControllerToaster" instance=ExtResource("1_apqm4")]
+script = ExtResource("2_0kmcr")
+puddle_min_distance = 24.0
+broken_door_min_distance = 80.0
+sprite_frames = ExtResource("2_53gss")

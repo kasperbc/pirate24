@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://vca4oad3eytr"]
+
+[ext_resource type="PackedScene" uid="uid://c660udm76cm8m" path="res://components/button_ingame/button_blue.tscn" id="1_0kfda"]
+[ext_resource type="Texture2D" uid="uid://iu8yugv1pbwg" path="res://art/objects/button-red.png" id="2_q5s8b"]
+
+[node name="ButtonInteractable" instance=ExtResource("1_0kfda")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_q5s8b")

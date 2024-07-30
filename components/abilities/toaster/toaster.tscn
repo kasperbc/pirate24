@@ -1,0 +1,18 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8tg3tte81ex4"]
+
+[ext_resource type="PackedScene" uid="uid://bkdppj4uf5c4w" path="res://components/abilities/ability_base.tscn" id="1_00fy4"]
+[ext_resource type="PackedScene" uid="uid://l8xcmpkdqbo5" path="res://components/abilities/toaster/ability_controller_toaster.tscn" id="2_nlwmd"]
+[ext_resource type="Resource" uid="uid://bgktep2ukbkf5" path="res://components/abilities/toaster/toaster.tres" id="3_oggfw"]
+[ext_resource type="Texture2D" uid="uid://3yax4g7qd2hc" path="res://art/obscures/toaster/toaster-sides.png" id="4_g3hio"]
+[ext_resource type="Texture2D" uid="uid://byk8r5t1j87uw" path="res://art/ui/icons/toaster_icon_outlines.png" id="5_3e0ap"]
+
+[node name="Toaster" instance=ExtResource("1_00fy4")]
+ability_controller = ExtResource("2_nlwmd")
+ability = ExtResource("3_oggfw")
+interactable_through_wall = true
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("4_g3hio")
+
+[node name="AbilityIcon" parent="." index="2"]
+icon = ExtResource("5_3e0ap")
