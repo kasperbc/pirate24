@@ -317,8 +317,8 @@ move_type = 2
 move_speed = 90.0
 wait_time = 0.1
 move_positions = Array[Vector2]([Vector2(936, -928), Vector2(1144, -928), Vector2(1144, -1160), Vector2(936, -1160)])
-detection_angle = 25.0
-detection_distance = 70.0
+detection_angle = 40.0
+detection_distance = 40.0
 
 [node name="Enemy3" parent="Segment4" index="8" instance=ExtResource("3_2ypf0")]
 position = Vector2(1048, -928)
@@ -327,8 +327,8 @@ move_type = 2
 move_speed = 90.0
 wait_time = 0.1
 move_positions = Array[Vector2]([Vector2(1144, -928), Vector2(1144, -1160), Vector2(936, -1160), Vector2(936, -928)])
-detection_angle = 25.0
-detection_distance = 70.0
+detection_angle = 40.0
+detection_distance = 40.0
 
 [node name="Enemy4" parent="Segment4" index="9" instance=ExtResource("3_2ypf0")]
 position = Vector2(1144, -1040)
@@ -336,8 +336,8 @@ move_type = 2
 move_speed = 90.0
 wait_time = 0.1
 move_positions = Array[Vector2]([Vector2(1144, -1160), Vector2(936, -1160), Vector2(936, -928), Vector2(1144, -928)])
-detection_angle = 25.0
-detection_distance = 70.0
+detection_angle = 40.0
+detection_distance = 40.0
 
 [node name="Enemy5" parent="Segment4" index="10" instance=ExtResource("3_2ypf0")]
 position = Vector2(1048, -1168)
@@ -346,8 +346,8 @@ move_type = 2
 move_speed = 90.0
 wait_time = 0.1
 move_positions = Array[Vector2]([Vector2(936, -1160), Vector2(936, -928), Vector2(1144, -928), Vector2(1144, -1160)])
-detection_angle = 25.0
-detection_distance = 70.0
+detection_angle = 40.0
+detection_distance = 40.0
 
 [connection signal="body_entered" from="Segment1/TutorialTrigger" to="Segment1/TutorialTrigger" method="_on_body_entered"]
 [connection signal="body_entered" from="Segment1/TutorialEscapeTrigger" to="Segment1/TutorialEscapeTrigger" method="_on_body_entered"]
