@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://bg1md3rc8cto0"]
+[gd_scene load_steps=11 format=3 uid="uid://bg1md3rc8cto0"]
 
 [ext_resource type="Script" path="res://components/enemy/enemy_behaviour.gd" id="1_ery85"]
 [ext_resource type="SpriteFrames" uid="uid://w4tfj2yjtydd" path="res://components/enemy/enemy_sprites.tres" id="1_u4apu"]
 [ext_resource type="Script" path="res://components/enemy/enemy_helper_tool.gd" id="3_m0o5n"]
+[ext_resource type="Script" path="res://components/scripts/y_sort.gd" id="3_rphul"]
 [ext_resource type="Texture2D" uid="uid://cuhsmek8br7a5" path="res://art/exclamationmark-spotted.png" id="4_woul6"]
 [ext_resource type="Script" path="res://components/enemy/spotted_icon.gd" id="5_kkgiw"]
 [ext_resource type="Script" path="res://components/enemy/dialogue_text.gd" id="6_6v5x5"]
@@ -14,23 +15,9 @@ radius = 8.0
 [sub_resource type="Gradient" id="Gradient_f8hxe"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_trnky"]
-gradient = SubResource("Gradient_f8hxe")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_stos1"]
-particle_flag_disable_z = true
-emission_shape = 3
-emission_box_extents = Vector3(4, 5, 1)
-angle_min = -465.2
-angle_max = 1.07288e-05
-direction = Vector3(0, -1, 0)
-initial_velocity_min = 40.0
-initial_velocity_max = 60.0
-gravity = Vector3(0, 0, 0)
-color_ramp = SubResource("GradientTexture1D_trnky")
-
 [node name="Enemy" type="CharacterBody2D" groups=["Enemy"]]
 z_index = 60
+z_as_relative = false
 collision_layer = 4
 collision_mask = 18
 script = ExtResource("1_ery85")
@@ -41,9 +28,16 @@ detection_angle = 15.0
 unique_name_in_owner = true
 visible = false
 top_level = true
+z_index = 60
+z_as_relative = false
 position = Vector2(0, -8)
 sprite_frames = ExtResource("1_u4apu")
 autoplay = "default"
+
+[node name="YSort" type="Node2D" parent="Sprite2D" node_paths=PackedStringArray("target")]
+position = Vector2(0, 4)
+script = ExtResource("3_rphul")
+target = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_2e1cs")
@@ -51,7 +45,7 @@ shape = SubResource("CircleShape2D_2e1cs")
 [node name="WallCheck" type="RayCast2D" parent="."]
 unique_name_in_owner = true
 target_position = Vector2(0, -40)
-collision_mask = 2
+collision_mask = 18
 
 [node name="PlayerCheckGroup" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -87,12 +81,22 @@ script = ExtResource("6_6v5x5")
 dialogue_pos = NodePath("..")
 forget_dialogues = Array[String](["Must have been my imagination", "I'm sure it's nothing", "I hate this job", "Guh..."])
 
-[node name="SmokeParticle" type="GPUParticles2D" parent="."]
+[node name="SmokeParticle" type="CPUParticles2D" parent="."]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0.392157)
 z_index = -61
 emitting = false
 amount = 4
-process_material = SubResource("ParticleProcessMaterial_stos1")
-texture = ExtResource("7_4xj31")
 lifetime = 0.5
+fixed_fps = 30
+draw_order = 1
+texture = ExtResource("7_4xj31")
+emission_shape = 3
+emission_rect_extents = Vector2(4, 5)
+direction = Vector2(0, -1)
+gravity = Vector2(0, 0)
+initial_velocity_min = 40.0
+initial_velocity_max = 60.0
+angle_min = -465.2
+angle_max = 1.07288e-05
+color_ramp = SubResource("Gradient_f8hxe")

@@ -48,8 +48,7 @@ folder_colors={
 "res://components/entry/": "orange",
 "res://components/levels/": "orange",
 "res://components/main/": "orange",
-"res://components/scripts/": "orange",
-"res://components/title/": "orange"
+"res://components/scripts/": "orange"
 }
 
 [global_group]

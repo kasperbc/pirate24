@@ -148,12 +148,12 @@ bounds = NodePath("LevelBounds")
 player_start_point = NodePath("PlayerStartPoint")
 
 [node name="Enemy" parent="Segment2" index="0" instance=ExtResource("3_2ypf0")]
-position = Vector2(616, -56)
+position = Vector2(616, -52)
 rotation = -1.57079
 move_speed = 45.0
 wait_time = 1.5
 wall_turn_distance = 64.0
-detection_angle = 25.0
+detection_angle = 20.0
 
 [node name="PottedPlant" parent="Segment2" index="1" instance=ExtResource("2_po47b")]
 position = Vector2(384, -32)
@@ -220,14 +220,24 @@ position = Vector2(800, -712)
 position = Vector2(656, -752)
 
 [node name="Enemy" parent="Segment3" index="3" instance=ExtResource("3_2ypf0")]
-position = Vector2(464, -704)
+position = Vector2(464, -736)
 rotation = 1.5708
 move_type = 2
 move_speed = 30.0
-move_positions = Array[Vector2]([Vector2(464, -704), Vector2(576, -704)])
-detection_angle = 35.0
+move_positions = Array[Vector2]([Vector2(464, -736), Vector2(576, -736)])
+detection_angle = 70.0
+detection_distance = 40.0
 
-[node name="Enemy2" parent="Segment3" index="4" instance=ExtResource("3_2ypf0")]
+[node name="Enemy5" parent="Segment3" index="4" instance=ExtResource("3_2ypf0")]
+position = Vector2(464, -688)
+rotation = 1.5708
+move_type = 2
+move_speed = 30.0
+move_positions = Array[Vector2]([Vector2(464, -688), Vector2(576, -688)])
+detection_angle = 70.0
+detection_distance = 40.0
+
+[node name="Enemy2" parent="Segment3" index="5" instance=ExtResource("3_2ypf0")]
 position = Vector2(320, -800)
 rotation = 3.14159
 move_speed = 30.0
@@ -236,7 +246,7 @@ wall_turn_distance = 128.0
 detection_angle = 35.0
 detection_distance = 60.0
 
-[node name="Enemy3" parent="Segment3" index="5" instance=ExtResource("3_2ypf0")]
+[node name="Enemy3" parent="Segment3" index="6" instance=ExtResource("3_2ypf0")]
 position = Vector2(272, -800)
 rotation = 3.14159
 move_speed = 30.0
@@ -245,32 +255,32 @@ wall_turn_distance = 128.0
 detection_angle = 35.0
 detection_distance = 60.0
 
-[node name="WaterDispenser" parent="Segment3" index="6" instance=ExtResource("15_vs2ve")]
+[node name="WaterDispenser" parent="Segment3" index="7" instance=ExtResource("15_vs2ve")]
 position = Vector2(728, -752)
 
-[node name="WaterDispenser2" parent="Segment3" index="7" instance=ExtResource("15_vs2ve")]
+[node name="WaterDispenser2" parent="Segment3" index="8" instance=ExtResource("15_vs2ve")]
 position = Vector2(232, -736)
 
-[node name="ButtonInteractable" parent="Segment3" index="8" node_paths=PackedStringArray("door") instance=ExtResource("11_egvqf")]
+[node name="ButtonInteractable" parent="Segment3" index="9" node_paths=PackedStringArray("door") instance=ExtResource("11_egvqf")]
 position = Vector2(648, -872)
 rotation = -3.14159
 door = NodePath("../Door2")
 
-[node name="ButtonInteractable2" parent="Segment3" index="9" node_paths=PackedStringArray("door") instance=ExtResource("15_08ynn")]
+[node name="ButtonInteractable2" parent="Segment3" index="10" node_paths=PackedStringArray("door") instance=ExtResource("15_08ynn")]
 position = Vector2(440, -840)
 door = NodePath("../Door")
 
-[node name="Door2" parent="Segment3" index="10" instance=ExtResource("6_n8wnw")]
+[node name="Door2" parent="Segment3" index="11" instance=ExtResource("6_n8wnw")]
 position = Vector2(752, -800)
 
-[node name="Enemy4" parent="Segment3" index="11" instance=ExtResource("3_2ypf0")]
+[node name="Enemy4" parent="Segment3" index="12" instance=ExtResource("3_2ypf0")]
 position = Vector2(488, -840)
 move_type = 1
 turn_positions = Array[float]([0.0, 90.0])
 detection_angle = 10.0
 detection_distance = 110.0
 
-[node name="LevelSegmentDoor" parent="Segment3" index="12" node_paths=PackedStringArray("next_segment") instance=ExtResource("3_461c4")]
+[node name="LevelSegmentDoor" parent="Segment3" index="13" node_paths=PackedStringArray("next_segment") instance=ExtResource("3_461c4")]
 position = Vector2(784, -944)
 next_segment = NodePath("../../Segment4")
 
@@ -296,7 +306,7 @@ position = Vector2(872, -1064)
 position = Vector2(1224, -968)
 
 [node name="Enemy" parent="Segment4" index="4" instance=ExtResource("3_2ypf0")]
-position = Vector2(1072, -1072)
+position = Vector2(1072, -1080)
 rotation = -1.5708
 move_speed = 0.0
 wall_turn_distance = 0.0
