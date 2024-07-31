@@ -8,6 +8,5 @@
 [node name="Entry" type="Node"]
 script = ExtResource("1_spttp")
 level = ExtResource("2_wm072")
-segment = 2.0
 main_scene = ExtResource("2_21tli")
 opening_scene = ExtResource("3_pvn50")
