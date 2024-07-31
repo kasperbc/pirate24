@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bb3tjn2050m02"
+path="res://.godot/imported/sharedreaction-hasthatalwaysbeenthere.wav-2615bf20335f5c9182cd85442b3aa560.sample"
+
+[deps]
+
+source_file="res://audio/voice lines/sharedreaction-hasthatalwaysbeenthere.wav"
+dest_files=["res://.godot/imported/sharedreaction-hasthatalwaysbeenthere.wav-2615bf20335f5c9182cd85442b3aa560.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

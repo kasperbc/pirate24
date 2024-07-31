@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c0absd8ywcetg"
+path="res://.godot/imported/box2-whyarewestillusingcardboard.wav-64654f5dd2ab459dfb3050bc00f02867.sample"
+
+[deps]
+
+source_file="res://audio/voice lines/box2-whyarewestillusingcardboard.wav"
+dest_files=["res://.godot/imported/box2-whyarewestillusingcardboard.wav-64654f5dd2ab459dfb3050bc00f02867.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cnaoxo5dr7nob"
+path="res://.godot/imported/plant1-whatfoolplacedaplanthere.wav-acabcce0096ea1997b9ad7d89a34e52f.sample"
+
+[deps]
+
+source_file="res://audio/voice lines/plant1-whatfoolplacedaplanthere.wav"
+dest_files=["res://.godot/imported/plant1-whatfoolplacedaplanthere.wav-acabcce0096ea1997b9ad7d89a34e52f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

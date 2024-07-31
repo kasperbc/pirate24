@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dmrvqjgj7t8qn"
+path="res://.godot/imported/coffee2-iwantsomebutigotnocup.wav-480b006ded3f9770fd812f54556969d1.sample"
+
+[deps]
+
+source_file="res://audio/voice lines/coffee2-iwantsomebutigotnocup.wav"
+dest_files=["res://.godot/imported/coffee2-iwantsomebutigotnocup.wav-480b006ded3f9770fd812f54556969d1.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
