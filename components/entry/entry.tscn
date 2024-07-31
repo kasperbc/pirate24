@@ -1,12 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://cldnqkqxlbtnd"]
+[gd_scene load_steps=5 format=3 uid="uid://cldnqkqxlbtnd"]
 
 [ext_resource type="Script" path="res://components/entry/entry.gd" id="1_spttp"]
 [ext_resource type="PackedScene" uid="uid://2h4xghhte6jp" path="res://components/main/main.tscn" id="2_21tli"]
+[ext_resource type="Resource" uid="uid://cgccnceust4ww" path="res://components/levels/level_2/level_2.tres" id="2_wm072"]
 [ext_resource type="PackedScene" uid="uid://fi82rqr5j4" path="res://components/opening/opening.tscn" id="3_pvn50"]
 
 [node name="Entry" type="Node"]
 script = ExtResource("1_spttp")
-segment = 3.0
+level = ExtResource("2_wm072")
+segment = 1.0
 skip_beginning_cutscene = true
 main_scene = ExtResource("2_21tli")
 opening_scene = ExtResource("3_pvn50")

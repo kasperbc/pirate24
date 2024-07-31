@@ -44,6 +44,8 @@ var spotted : bool = false
 
 var curr_pos_index : int = 0
 
+var commented = false
+
 var move_positions_local : Array[Vector2]
 
 var pdt : float
@@ -140,7 +142,7 @@ func try_play_ability_dialogue():
 	if not GameMan.player.has_ability() or GameMan.player.global_position.distance_to(global_position) > 100.0:
 		return
 	
-	if Time.get_unix_time_from_system() - last_ability_dialogue_time < 10:
+	if Time.get_unix_time_from_system() - last_ability_dialogue_time < 1000:
 		return
 	
 	if not GameMan.player.ability.enemy_dialogues.is_empty():

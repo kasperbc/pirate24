@@ -102,9 +102,7 @@ grow_vertical = 0
 text = "Game made by:
 * kekis
 * Francca
-* Irina
-
-With additional help from H.T"
+* Irina"
 label_settings = SubResource("LabelSettings_7q0sw")
 vertical_alignment = 2
 
