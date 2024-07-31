@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://cg7dqu620dv2i"]
+[gd_scene load_steps=11 format=3 uid="uid://cg7dqu620dv2i"]
 
 [ext_resource type="Script" path="res://components/level_seg_door/level_seg_door.gd" id="1_rkctn"]
 [ext_resource type="SpriteFrames" uid="uid://cepf4eplata6t" path="res://components/level_seg_door/level_seg_door_sprites.tres" id="1_vovts"]
 [ext_resource type="Script" path="res://components/scripts/y_sort.gd" id="2_f87ai"]
+[ext_resource type="AudioStream" uid="uid://kfve6tpeai5n" path="res://audio/sfx/fans.wav" id="4_tl54d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vravr"]
 size = Vector2(32, 9)
@@ -81,5 +82,9 @@ emitting = false
 amount = 2
 process_material = SubResource("ParticleProcessMaterial_0f6em")
 lifetime = 0.25
+
+[node name="SteamSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_tl54d")
+pitch_scale = 1.1
 
 [connection signal="body_entered" from="DoorEnterTrigger" to="." method="_on_player_entered"]

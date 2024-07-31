@@ -53,6 +53,8 @@ func _on_ability_activate():
 	
 	player.velocity = Vector2.ZERO
 	Utils.create_shaker_and_shake(player_sprite, 2.0, 0.75)
+	SoundManager.play_sound(AudioLib.get_sound("thud"))
+	SoundManager.play_sound(AudioLib.get_sound("clang"))
 	
 	player.collision_mask = 0x13
 	

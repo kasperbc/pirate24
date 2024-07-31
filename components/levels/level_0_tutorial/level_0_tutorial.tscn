@@ -185,8 +185,8 @@ position = Vector2(752, -800)
 [node name="Enemy4" parent="Segment3" index="12" instance=ExtResource("3_2ypf0")]
 position = Vector2(488, -840)
 move_type = 1
+wait_time = 1.5
 turn_positions = Array[float]([0.0, 90.0])
-detection_angle = 10.0
 detection_distance = 110.0
 
 [node name="LevelSegmentDoor" parent="Segment3" index="13" node_paths=PackedStringArray("next_segment") instance=ExtResource("3_461c4")]

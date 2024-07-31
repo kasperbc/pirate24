@@ -143,7 +143,8 @@ func try_play_ability_dialogue():
 	if Time.get_unix_time_from_system() - last_ability_dialogue_time < 10:
 		return
 	
-	%DialogueText.show_dialogue(GameMan.player.ability.enemy_dialogues.pick_random())
+	if not GameMan.player.ability.enemy_dialogues.is_empty():
+		%DialogueText.show_dialogue(GameMan.player.ability.enemy_dialogues.pick_random())
 
 #region Back-and-forth
 
@@ -263,6 +264,8 @@ func stun(duration : float, source : StunSource = StunSource.DEFAULT):
 	stun_src = source
 	
 	Utils.create_shaker_and_shake(%Sprite2D, 1.0, duration * 0.75)
+	
+	SoundManager.play_sound(AudioLib.get_sound("playerhurt"))
 	
 	get_tree().create_tween().tween_property(%LightPoly, "color", Color(0,0,0,0), duration * 0.1)
 

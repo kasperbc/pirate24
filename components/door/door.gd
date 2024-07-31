@@ -26,5 +26,5 @@ func _on_door_change():
 	
 	var sound = "shock"
 	if not broken:
-		sound = "thud"
+		sound = "door"
 	SoundManager.play_sound(AudioLib.get_sound(sound))
