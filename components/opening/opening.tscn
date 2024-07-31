@@ -1,6 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://fi82rqr5j4"]
+[gd_scene load_steps=7 format=3 uid="uid://fi82rqr5j4"]
 
+[ext_resource type="Script" path="res://components/opening/opening.gd" id="1_i3jnf"]
 [ext_resource type="Texture2D" uid="uid://dwhhqshc8woqa" path="res://art/ui/backgrounds/nebulous-space-itch-io.png" id="1_qfpbt"]
+[ext_resource type="PackedScene" uid="uid://2h4xghhte6jp" path="res://components/main/main.tscn" id="2_yvs5g"]
+[ext_resource type="PackedScene" uid="uid://d3v2df36rx43p" path="res://components/ending/spaceship.tscn" id="3_wxpwo"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1cixc"]
+font_size = 32
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_msj27"]
+font_size = 24
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Opening" type="Control"]
 layout_mode = 3
@@ -9,6 +22,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_i3jnf")
+main_scene = ExtResource("2_yvs5g")
 
 [node name="Space" type="TextureRect" parent="."]
 layout_mode = 1
@@ -19,3 +34,49 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_qfpbt")
 expand_mode = 2
+
+[node name="Spaceship" parent="." instance=ExtResource("3_wxpwo")]
+position = Vector2(371, 283)
+scale = Vector2(2, 2)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="YearLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -202.0
+offset_top = 32.0
+offset_right = 202.0
+offset_bottom = 72.0
+grow_horizontal = 2
+text = "November 19, 2254"
+label_settings = SubResource("LabelSettings_1cixc")
+horizontal_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="LocationLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -152.0
+offset_top = 87.0
+offset_right = 152.0
+offset_bottom = 127.0
+grow_horizontal = 2
+text = "S.C.F Larus, Unit 18U"
+label_settings = SubResource("LabelSettings_msj27")
+horizontal_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
