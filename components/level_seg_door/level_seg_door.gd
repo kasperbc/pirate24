@@ -31,6 +31,8 @@ func _on_player_entered(body):
 	
 	Utils.create_shaker_and_shake(%Sprite2D, 0.75, 0.5)
 	
+	SoundManager.play_sound(AudioLib.get_sound("door"))
+	
 	%Sprite2D.animation = "closed"
 	
 	if not _music_override.is_empty():
@@ -45,6 +47,7 @@ func _on_player_entered(body):
 	GameMan.player.uncharge_ability()
 	
 	Utils.create_shaker_and_shake(%Sprite2D, 1.0, 3.5)
+	$SteamSound.play()
 	
 	await get_tree().create_timer(3.5).timeout
 	
@@ -53,6 +56,7 @@ func _on_player_entered(body):
 	
 	await get_tree().create_timer(0.5).timeout
 	
+	SoundManager.play_sound(AudioLib.get_sound("small_explosion"))
 	Utils.create_shaker_and_shake(%Sprite2D, 0.75, 0.5)
 	
 	%BackDoorCollider.set_deferred("disabled", true)

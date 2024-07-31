@@ -47,6 +47,7 @@ var segement_override : int = -1
 var cutscene_seen : bool = false
 var level_override : Level = null
 var music_override : String = ""
+var dont_play_music_override : bool = false
 
 func change_to_end_scene(end_scene : PackedScene):
 	get_tree().root.get_node("/root/Main").free()

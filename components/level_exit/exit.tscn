@@ -1,18 +1,40 @@
-[gd_scene load_steps=4 format=3 uid="uid://b8vsk0u1g10cg"]
+[gd_scene load_steps=7 format=3 uid="uid://b8vsk0u1g10cg"]
 
 [ext_resource type="Script" path="res://components/level_exit/exit.gd" id="1_lhe8l"]
-[ext_resource type="Texture2D" uid="uid://csuc30b3mt5wo" path="res://art/objects/exit_placeholder.png" id="1_pud3c"]
+[ext_resource type="Texture2D" uid="uid://bxpctukgimqho" path="res://art/objects/funikulaari-lvl-2.png" id="2_lxvqa"]
+[ext_resource type="Texture2D" uid="uid://cnx7ujjp6i3wo" path="res://art/objects/funikulaari-rail.png" id="3_d7jpc"]
+[ext_resource type="Texture2D" uid="uid://cocgvrepctokv" path="res://art/objects/airlock_door1.png" id="3_ho6l4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4f1qp"]
-size = Vector2(16, 16)
+size = Vector2(32, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_41xqn"]
+size = Vector2(32, 6)
 
 [node name="LevelExit" type="Area2D"]
+z_index = 70
 script = ExtResource("1_lhe8l")
+sprite = ExtResource("2_lxvqa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 16)
 shape = SubResource("RectangleShape2D_4f1qp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_pud3c")
+texture = ExtResource("3_ho6l4")
+
+[node name="Rail" type="Sprite2D" parent="Sprite2D"]
+z_index = -1
+position = Vector2(0, -64)
+texture = ExtResource("3_d7jpc")
+
+[node name="FrontCollider" type="CollisionShape2D" parent="."]
+position = Vector2(0, 32)
+shape = SubResource("RectangleShape2D_41xqn")
+disabled = true
+
+[node name="BackCollider" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_41xqn")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
