@@ -1,5 +1,5 @@
 extends AbilityController
-class_name CustomPlayerController
+class_name BoxController
 
 @export var enemy_distance_req : float = 16.0
 @export var push_force : float = 100.0
@@ -31,3 +31,5 @@ func on_push(origin : EnemyBehvaiour):
 	var _dir = Vector2.UP.rotated(origin.rotation)
 	
 	player.velocity = _dir * push_force
+	
+	SoundManager.play_sound_with_pitch(AudioLib.get_sound("hook_hit"), 1.0 + randf_range(-0.1, 0.1))

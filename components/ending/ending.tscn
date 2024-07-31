@@ -1,0 +1,95 @@
+[gd_scene load_steps=9 format=3 uid="uid://b4tp0pssyvdun"]
+
+[ext_resource type="Script" path="res://components/ending/ending.gd" id="1_l6i6k"]
+[ext_resource type="Texture2D" uid="uid://dc7t0qf25kft" path="res://art/ui/backgrounds/nebulous-space.png" id="1_ndosw"]
+[ext_resource type="PackedScene" uid="uid://d3v2df36rx43p" path="res://components/ending/spaceship.tscn" id="2_e4t6e"]
+[ext_resource type="AudioStream" uid="uid://by24u5haegtpo" path="res://audio/sfx/transform_into_ending.wav" id="4_752mf"]
+[ext_resource type="AudioStream" uid="uid://h4beo46lxc0k" path="res://audio/sfx/accelerate.wav" id="5_hpppi"]
+[ext_resource type="Texture2D" uid="uid://cvh6os7nxbtmo" path="res://art/ui/logo/TMS-logo-actualpng.png" id="6_tio8d"]
+[ext_resource type="FontFile" uid="uid://cv0ew5ainfyv4" path="res://Kenney Mini.ttf" id="7_kwusk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hfo1j"]
+font = ExtResource("7_kwusk")
+font_size = 32
+
+[node name="Ending" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l6i6k")
+
+[node name="Space" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ndosw")
+
+[node name="Spaceship" parent="." instance=ExtResource("2_e4t6e")]
+position = Vector2(396, 289)
+scale = Vector2(2, 2)
+
+[node name="TransformSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_752mf")
+bus = &"SFX"
+
+[node name="MoveSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_hpppi")
+volume_db = -4.0
+
+[node name="EndScreen" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.392157)
+
+[node name="Logo" type="TextureRect" parent="EndScreen"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -48.5
+offset_top = 120.0
+offset_right = 48.5
+offset_bottom = 161.0
+grow_horizontal = 2
+scale = Vector2(4.5, 4.5)
+pivot_offset = Vector2(48, 20)
+texture = ExtResource("6_tio8d")
+
+[node name="End" type="Label" parent="EndScreen"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -192.0
+offset_top = -238.0
+offset_right = 192.0
+offset_bottom = -112.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "The end
+
+Thank you for playing :)"
+label_settings = SubResource("LabelSettings_hfo1j")
+horizontal_alignment = 1
+
+[node name="ScreenFade" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)

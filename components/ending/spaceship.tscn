@@ -1,0 +1,97 @@
+[gd_scene load_steps=18 format=3 uid="uid://d3v2df36rx43p"]
+
+[ext_resource type="Texture2D" uid="uid://yyqa54rcrhm4" path="res://art/ui/backgrounds/ship/spaceship.png" id="1_n3t7k"]
+[ext_resource type="Texture2D" uid="uid://dwc87e4f8emox" path="res://art/ui/backgrounds/ship/engine-fire-animated1.png" id="2_f55j6"]
+[ext_resource type="Script" path="res://components/ending/spaceship.gd" id="2_mniyg"]
+[ext_resource type="Script" path="res://components/ending/spaceship_sprite.gd" id="3_ewfdm"]
+[ext_resource type="Texture2D" uid="uid://daf4vn4y13xcj" path="res://art/ui/backgrounds/ship/engine-fire-animated2.png" id="3_toibc"]
+[ext_resource type="Texture2D" uid="uid://bq2n1odokkgl4" path="res://art/ui/backgrounds/ship/engine-fire-animated3.png" id="4_avoli"]
+[ext_resource type="Texture2D" uid="uid://bod2k6xmhvh37" path="res://art/ui/backgrounds/ship/engine-fire-animated4.png" id="5_nhfsj"]
+[ext_resource type="Texture2D" uid="uid://dkaa435xhmoo7" path="res://art/ui/backgrounds/ship/engine-fire-animated5.png" id="6_dp384"]
+[ext_resource type="Texture2D" uid="uid://de08lo2tqnkjj" path="res://art/ui/backgrounds/ship/engine-fire-animated6.png" id="7_yxrd0"]
+[ext_resource type="Texture2D" uid="uid://cc02iuxrv7ov4" path="res://art/ui/backgrounds/ship/engine-fire-animated7.png" id="8_yw41i"]
+[ext_resource type="Texture2D" uid="uid://c0ateugxfn0mo" path="res://art/ui/backgrounds/ship/engine-fire-animated8.png" id="9_mqrea"]
+[ext_resource type="Texture2D" uid="uid://x12ekx0x3e26" path="res://art/ui/backgrounds/ship/engine-fire-animated9.png" id="10_3rm0k"]
+[ext_resource type="Texture2D" uid="uid://d2u1idyv0h43p" path="res://art/ui/backgrounds/ship/engine-fire-animated10.png" id="11_msr51"]
+[ext_resource type="Texture2D" uid="uid://5p6ohmf4a5bw" path="res://art/ui/backgrounds/ship/engine-fire-animated11.png" id="12_8s2fj"]
+[ext_resource type="Texture2D" uid="uid://dkbek4e3niwo2" path="res://art/ui/backgrounds/ship/engine-fire-animated12.png" id="13_gryaq"]
+[ext_resource type="Script" path="res://components/ending/fire.gd" id="14_pcs11"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1cfr3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_f55j6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_toibc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_avoli")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_nhfsj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_dp384")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_yxrd0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_yw41i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_mqrea")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_3rm0k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_msr51")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_8s2fj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_gryaq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="Spaceship" type="CharacterBody2D"]
+script = ExtResource("2_mniyg")
+
+[node name="SpaceshipSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_n3t7k")
+script = ExtResource("3_ewfdm")
+
+[node name="Fire" type="AnimatedSprite2D" parent="SpaceshipSprite"]
+position = Vector2(-144, -1)
+sprite_frames = SubResource("SpriteFrames_1cfr3")
+frame_progress = 0.185
+flip_h = true
+script = ExtResource("14_pcs11")
+
+[node name="Fire2" type="AnimatedSprite2D" parent="SpaceshipSprite"]
+position = Vector2(-139, 13)
+sprite_frames = SubResource("SpriteFrames_1cfr3")
+frame_progress = 0.727978
+flip_h = true
+script = ExtResource("14_pcs11")
+
+[node name="Fire3" type="AnimatedSprite2D" parent="SpaceshipSprite"]
+position = Vector2(-121, 33)
+sprite_frames = SubResource("SpriteFrames_1cfr3")
+frame_progress = 0.727978
+flip_h = true
+script = ExtResource("14_pcs11")
+
+[node name="Fire4" type="AnimatedSprite2D" parent="SpaceshipSprite"]
+position = Vector2(55, 33)
+sprite_frames = SubResource("SpriteFrames_1cfr3")
+frame_progress = 0.727978
+flip_h = true
+script = ExtResource("14_pcs11")

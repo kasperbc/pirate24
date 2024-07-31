@@ -1,10 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://c660udm76cm8m"]
+[gd_scene load_steps=6 format=3 uid="uid://c660udm76cm8m"]
 
 [ext_resource type="Script" path="res://components/button_ingame/button_interactable.gd" id="1_grnc5"]
 [ext_resource type="Texture2D" uid="uid://bc0uxp3js3tqs" path="res://art/objects/button-blue.png" id="2_trsk3"]
 [ext_resource type="Script" path="res://components/button_ingame/button_timer.gd" id="3_b7vtp"]
+[ext_resource type="FontFile" uid="uid://cv0ew5ainfyv4" path="res://Kenney Mini.ttf" id="3_vmrxs"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_t4n62"]
+font = ExtResource("3_vmrxs")
 font_size = 8
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
@@ -19,11 +21,11 @@ texture = ExtResource("2_trsk3")
 
 [node name="Timer" type="Label" parent="." node_paths=PackedStringArray("button")]
 z_index = 1000
-offset_left = -8.0
+offset_left = -16.0
 offset_top = -8.0
-offset_right = 8.0
+offset_right = 16.0
 offset_bottom = 8.0
-pivot_offset = Vector2(8, 8)
+pivot_offset = Vector2(16, 8)
 text = "1.0"
 label_settings = SubResource("LabelSettings_t4n62")
 horizontal_alignment = 1

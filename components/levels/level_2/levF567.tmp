@@ -455,7 +455,7 @@ move_speed = 0.0
 wall_turn_distance = 0.0
 
 [node name="ControlPanel" parent="Segment3" index="30" instance=ExtResource("14_vm16t")]
-position = Vector2(17, -1055)
+position = Vector2(17, -1056)
 
 [node name="Segment1" parent="." index="8"]
 segment_name = "Computation 1"
@@ -470,58 +470,64 @@ rotation = 9.42476
 blink = true
 
 [node name="LaserShooter2" parent="Segment1" index="3" instance=ExtResource("2_gbs45")]
-position = Vector2(240, 88)
+position = Vector2(240, 56)
 rotation = 9.42476
 blink = true
 
 [node name="LaserShooter3" parent="Segment1" index="4" instance=ExtResource("2_gbs45")]
-position = Vector2(128, 48)
+position = Vector2(128, 32)
 rotation = -1.77701e-05
 blink = true
 blink_offset = 1.0
 
-[node name="LaserShooter6" parent="Segment1" index="5" instance=ExtResource("2_gbs45")]
+[node name="LaserShooter4" parent="Segment1" index="5" instance=ExtResource("2_gbs45")]
+position = Vector2(128, 80)
+rotation = 12.5664
+blink = true
+blink_offset = 1.0
+
+[node name="LaserShooter6" parent="Segment1" index="6" instance=ExtResource("2_gbs45")]
 position = Vector2(352, 112)
 rotation = 14.1371
 blink_offset = 1.0
 
-[node name="LaserShooter7" parent="Segment1" index="6" instance=ExtResource("2_gbs45")]
+[node name="LaserShooter7" parent="Segment1" index="7" instance=ExtResource("2_gbs45")]
 position = Vector2(592, 112)
 rotation = 14.1371
 blink_offset = 1.0
 
-[node name="LaserShooter8" parent="Segment1" index="7" instance=ExtResource("2_gbs45")]
+[node name="LaserShooter8" parent="Segment1" index="8" instance=ExtResource("2_gbs45")]
 position = Vector2(472, 112)
 rotation = 14.1371
 blink_offset = 1.0
 
-[node name="Door" parent="Segment1" index="8" instance=ExtResource("4_5vh2x")]
+[node name="Door" parent="Segment1" index="9" instance=ExtResource("4_5vh2x")]
 position = Vector2(304, 96)
 
-[node name="LevelSegmentDoor" parent="Segment1" index="9" node_paths=PackedStringArray("next_segment") instance=ExtResource("3_4jm3q")]
+[node name="LevelSegmentDoor" parent="Segment1" index="10" node_paths=PackedStringArray("next_segment") instance=ExtResource("3_4jm3q")]
 position = Vector2(304, 64)
 next_segment = NodePath("../../Segment2")
 
-[node name="CardboardBox" parent="Segment1" index="10" instance=ExtResource("6_4f4op")]
+[node name="CardboardBox" parent="Segment1" index="11" instance=ExtResource("6_4f4op")]
 position = Vector2(56, -40)
 
-[node name="ButtonDoor" parent="Segment1" index="11" node_paths=PackedStringArray("door") instance=ExtResource("7_m6ybb")]
+[node name="ButtonDoor" parent="Segment1" index="12" node_paths=PackedStringArray("door") instance=ExtResource("7_m6ybb")]
 position = Vector2(680, 88)
 door = NodePath("../Door")
 
-[node name="ButtonLaser" parent="Segment1" index="12" instance=ExtResource("7_2ixk4")]
+[node name="ButtonLaser" parent="Segment1" index="13" instance=ExtResource("7_2ixk4")]
 position = Vector2(256, 104)
 rotation = 1.57079
 timed = true
 
-[node name="Magnet" parent="Segment1" index="13" instance=ExtResource("5_foppq")]
+[node name="Magnet" parent="Segment1" index="14" instance=ExtResource("5_foppq")]
 position = Vector2(88, 152)
 
-[node name="MagnetPanel2" parent="Segment1" index="14" instance=ExtResource("8_3yp7a")]
+[node name="MagnetPanel2" parent="Segment1" index="15" instance=ExtResource("8_3yp7a")]
 position = Vector2(238, -64)
 rotation = 4.71238
 
-[node name="Enemy" parent="Segment1" index="15" instance=ExtResource("10_8520h")]
+[node name="Enemy" parent="Segment1" index="16" instance=ExtResource("10_8520h")]
 position = Vector2(264, 160)
 rotation = 1.57079
 move_speed = 90.0
