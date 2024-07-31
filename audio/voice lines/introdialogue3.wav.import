@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://doe84f1gy0l0k"
+path="res://.godot/imported/introdialogue3.wav-c0d9bb9abe56035a2bfdd5767fc57a7f.sample"
+
+[deps]
+
+source_file="res://audio/voice lines/introdialogue3.wav"
+dest_files=["res://.godot/imported/introdialogue3.wav-c0d9bb9abe56035a2bfdd5767fc57a7f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
