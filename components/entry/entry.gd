@@ -18,4 +18,4 @@ func _ready():
 			GameMan.level_override = level
 		get_tree().call_deferred("change_scene_to_packed", main_scene if not load_opening else opening_scene)
 	else:
-		get_tree().change_scene_to_packed(main_scene)
+		get_tree().change_scene_to_packed(opening_scene)
