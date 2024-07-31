@@ -12,4 +12,4 @@ height = 27.0
 sprite_down = ExtResource("2_eb6n8")
 sprite_side = ExtResource("3_ul3ie")
 sprite_up = ExtResource("4_qkh8s")
-detectable_by_laser = false
+enemy_dialogues = Array[String]([])

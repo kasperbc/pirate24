@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://x12ekx0x3e26"
-path="res://.godot/imported/engine-fire-animated9.png-7acca583c8ca4780703d91a510902aae.ctex"
+uid="uid://52lbpxlusdwv"
+path="res://.godot/imported/control-panel-blinking3.png-14fb750e5db28cde11d4e7be15751320.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/ui/backgrounds/ship/engine-fire-animated9.png"
-dest_files=["res://.godot/imported/engine-fire-animated9.png-7acca583c8ca4780703d91a510902aae.ctex"]
+source_file="res://art/obscures/control_panel/control-panel-blinking3.png"
+dest_files=["res://.godot/imported/control-panel-blinking3.png-14fb750e5db28cde11d4e7be15751320.ctex"]
 
 [params]
 

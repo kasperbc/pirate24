@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://x12ekx0x3e26"
-path="res://.godot/imported/engine-fire-animated9.png-7acca583c8ca4780703d91a510902aae.ctex"
+uid="uid://b73w2cm57ug4t"
+path="res://.godot/imported/control-panel.png-66ae28a3234546e70e91bda30d38d980.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/ui/backgrounds/ship/engine-fire-animated9.png"
-dest_files=["res://.godot/imported/engine-fire-animated9.png-7acca583c8ca4780703d91a510902aae.ctex"]
+source_file="res://art/obscures/control_panel/control-panel.png"
+dest_files=["res://.godot/imported/control-panel.png-66ae28a3234546e70e91bda30d38d980.ctex"]
 
 [params]
 
