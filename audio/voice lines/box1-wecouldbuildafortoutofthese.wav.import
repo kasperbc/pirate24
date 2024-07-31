@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cqwor0u8ew342"
+path="res://.godot/imported/box1-wecouldbuildafortoutofthese.wav-8d3313a943bdc374cf5ceea691dde960.sample"
+
+[deps]
+
+source_file="res://audio/voice lines/box1-wecouldbuildafortoutofthese.wav"
+dest_files=["res://.godot/imported/box1-wecouldbuildafortoutofthese.wav-8d3313a943bdc374cf5ceea691dde960.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

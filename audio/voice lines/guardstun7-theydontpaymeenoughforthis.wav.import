@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://2vud1waekxyl"
+path="res://.godot/imported/guardstun7-theydontpaymeenoughforthis.wav-a2e7d39e4a1f5ec4168aa476d1071fec.sample"
+
+[deps]
+
+source_file="res://audio/voice lines/guardstun7-theydontpaymeenoughforthis.wav"
+dest_files=["res://.godot/imported/guardstun7-theydontpaymeenoughforthis.wav-a2e7d39e4a1f5ec4168aa476d1071fec.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
