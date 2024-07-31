@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://btrkmgftelm12"
-path="res://.godot/imported/alarm.wav-0e4f36b3df2be6c5f06cdd5a725b2a8f.sample"
+path="res://.godot/imported/alarm.wav-b47dd632bae671ef85c6bc87056ce498.sample"
 
 [deps]
 
-source_file="res://audio/music/alarm.wav"
-dest_files=["res://.godot/imported/alarm.wav-0e4f36b3df2be6c5f06cdd5a725b2a8f.sample"]
+source_file="res://audio/sfx/alarm.wav"
+dest_files=["res://.godot/imported/alarm.wav-b47dd632bae671ef85c6bc87056ce498.sample"]
 
 [params]
 

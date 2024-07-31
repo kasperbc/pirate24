@@ -35,6 +35,7 @@ func _on_player_entered(body):
 	
 	if not _music_override.is_empty():
 		GameMan.music_override = _music_override
+		SoundManager.play_music(AudioLib.get_sound(_music_override), 2.0)
 	
 	await get_tree().create_timer(1).timeout
 	

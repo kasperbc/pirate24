@@ -47,3 +47,10 @@ var segement_override : int = -1
 var cutscene_seen : bool = false
 var level_override : Level = null
 var music_override : String = ""
+
+func change_to_end_scene(end_scene : PackedScene):
+	get_tree().root.get_node("/root/Main").free()
+	
+	await get_tree().process_frame
+	
+	get_tree().change_scene_to_packed(end_scene)

@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://cmct8bi0podun"]
+
+[ext_resource type="Script" path="res://components/levels/level_2/control_panel.gd" id="1_cjxg8"]
+[ext_resource type="Texture2D" uid="uid://b73w2cm57ug4t" path="res://art/obscures/control_panel/control-panel.png" id="2_54t4k"]
+[ext_resource type="PackedScene" uid="uid://b4tp0pssyvdun" path="res://components/ending/ending.tscn" id="2_avrrk"]
+[ext_resource type="Texture2D" uid="uid://b4jr661if6aum" path="res://art/obscures/control_panel/control-panel-blinking1.png" id="3_6uw0r"]
+[ext_resource type="Texture2D" uid="uid://flcefces8c84" path="res://art/obscures/control_panel/control-panel-blinking2.png" id="4_nsejd"]
+[ext_resource type="Texture2D" uid="uid://52lbpxlusdwv" path="res://art/obscures/control_panel/control-panel-blinking3.png" id="5_pm6xn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h745j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_54t4k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_6uw0r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_nsejd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_pm6xn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="ControlPanel" type="Node2D"]
+script = ExtResource("1_cjxg8")
+end_scene = ExtResource("2_avrrk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 50
+position = Vector2(0, -14)
+sprite_frames = SubResource("SpriteFrames_h745j")
+autoplay = "default"
+
+[node name="Collider" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collider"]
+z_index = 52
+polygon = PackedVector2Array(7, 0, 23, 15, 23, -44, -23, -44, -23, 15, -8, 0)
