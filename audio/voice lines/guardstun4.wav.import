@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://yvdkiaapakr"
+path="res://.godot/imported/guardstun4.wav-4e49afa160f4888201f24a80e5776549.sample"
+
+[deps]
+
+source_file="res://audio/voice lines/guardstun4.wav"
+dest_files=["res://.godot/imported/guardstun4.wav-4e49afa160f4888201f24a80e5776549.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

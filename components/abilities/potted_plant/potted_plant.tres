@@ -1,9 +1,20 @@
-[gd_resource type="Resource" script_class="AbilityData" load_steps=5 format=3 uid="uid://ohapj2ldpjxx"]
+[gd_resource type="Resource" script_class="AbilityData" load_steps=8 format=3 uid="uid://ohapj2ldpjxx"]
 
 [ext_resource type="Script" path="res://components/abilities/ability.gd" id="1_6tu0l"]
+[ext_resource type="Script" path="res://components/enemy/dialogue.gd" id="1_gh0ur"]
 [ext_resource type="Texture2D" uid="uid://b2ineomlbjiwk" path="res://art/obscures/potted_plant/potted-plant-down.png" id="2_4b3mq"]
 [ext_resource type="Texture2D" uid="uid://cg2sfcdp7f143" path="res://art/obscures/potted_plant/potted-plant-side.png" id="3_buw50"]
 [ext_resource type="Texture2D" uid="uid://bl3f4v7gschl3" path="res://art/obscures/potted_plant/potted-plant-up.png" id="4_i2dyx"]
+
+[sub_resource type="Resource" id="Resource_nxotq"]
+script = ExtResource("1_gh0ur")
+dialogue = "What fool placed a plant there"
+voice_line = "plant1"
+
+[sub_resource type="Resource" id="Resource_7mynu"]
+script = ExtResource("1_gh0ur")
+dialogue = "How are those leaves still green"
+voice_line = "plant2"
 
 [resource]
 script = ExtResource("1_6tu0l")
@@ -13,3 +24,4 @@ sprite_down = ExtResource("2_4b3mq")
 sprite_side = ExtResource("3_buw50")
 sprite_up = ExtResource("4_i2dyx")
 enemy_dialogues = Array[String](["What a nice plant"])
+dialogues = Array[ExtResource("1_gh0ur")]([SubResource("Resource_nxotq"), SubResource("Resource_7mynu")])

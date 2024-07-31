@@ -18,6 +18,7 @@ func _process(delta):
 func activate():
 	
 	text = "Press [E] near the plant !!!"
+	GameMan.dont_play_ability_track = true
 	
 	await GameMan.player.charged
 	
@@ -56,3 +57,5 @@ func activate():
 	await get_tree().create_timer(5).timeout
 	
 	SoundManager.play_music_at_volume(AudioLib.get_sound("quarantine"), 0.0, 5.0)
+	
+	GameMan.dont_play_ability_track = false

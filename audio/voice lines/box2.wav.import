@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ctywdih3dq581"
+path="res://.godot/imported/box2.wav-78ab42c5af97dc2079468a18744f522d.sample"
+
+[deps]
+
+source_file="res://audio/voice lines/box2.wav"
+dest_files=["res://.godot/imported/box2.wav-78ab42c5af97dc2079468a18744f522d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

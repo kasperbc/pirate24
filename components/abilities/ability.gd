@@ -17,3 +17,4 @@ enum AbilityType {
 @export var sprite_side : CompressedTexture2D = null
 @export var sprite_up : CompressedTexture2D = null
 @export_multiline var enemy_dialogues : Array[String]
+@export var dialogues : Array[Dialogue]

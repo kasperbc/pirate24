@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bg1md3rc8cto0"]
+[gd_scene load_steps=19 format=3 uid="uid://bg1md3rc8cto0"]
 
 [ext_resource type="Script" path="res://components/enemy/enemy_behaviour.gd" id="1_ery85"]
 [ext_resource type="SpriteFrames" uid="uid://w4tfj2yjtydd" path="res://components/enemy/enemy_sprites.tres" id="1_u4apu"]
@@ -8,9 +8,45 @@
 [ext_resource type="Script" path="res://components/enemy/spotted_icon.gd" id="5_kkgiw"]
 [ext_resource type="Script" path="res://components/enemy/dialogue_text.gd" id="6_6v5x5"]
 [ext_resource type="Texture2D" uid="uid://dft7ra5h375xm" path="res://art/particles/steam.png" id="7_4xj31"]
+[ext_resource type="Script" path="res://components/enemy/dialogue.gd" id="8_l6exa"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2e1cs"]
 radius = 8.0
+
+[sub_resource type="Resource" id="Resource_uk1fp"]
+script = ExtResource("8_l6exa")
+dialogue = "Must've been my imagination"
+voice_line = "guardstun1"
+
+[sub_resource type="Resource" id="Resource_xolpa"]
+script = ExtResource("8_l6exa")
+dialogue = "Must've been the wind"
+voice_line = "guardstun2"
+
+[sub_resource type="Resource" id="Resource_pvt45"]
+script = ExtResource("8_l6exa")
+dialogue = "I'm sure it's nothing"
+voice_line = "guardstun3"
+
+[sub_resource type="Resource" id="Resource_40g62"]
+script = ExtResource("8_l6exa")
+dialogue = "I hate this job"
+voice_line = "guardstun4"
+
+[sub_resource type="Resource" id="Resource_7v60a"]
+script = ExtResource("8_l6exa")
+dialogue = "Guh..."
+voice_line = "guardstun5"
+
+[sub_resource type="Resource" id="Resource_ggimg"]
+script = ExtResource("8_l6exa")
+dialogue = "Guh..."
+voice_line = "guardstun6"
+
+[sub_resource type="Resource" id="Resource_q73og"]
+script = ExtResource("8_l6exa")
+dialogue = "They don't pay me enough for this..."
+voice_line = "guardstun7"
 
 [sub_resource type="Gradient" id="Gradient_f8hxe"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -80,6 +116,7 @@ autowrap_mode = 2
 script = ExtResource("6_6v5x5")
 dialogue_pos = NodePath("..")
 forget_dialogues = Array[String](["Must have been my imagination", "I'm sure it's nothing", "I hate this job", "Guh..."])
+forget_dialogue = Array[ExtResource("8_l6exa")]([SubResource("Resource_uk1fp"), SubResource("Resource_xolpa"), SubResource("Resource_pvt45"), SubResource("Resource_40g62"), SubResource("Resource_7v60a"), SubResource("Resource_ggimg"), SubResource("Resource_q73og")])
 
 [node name="SmokeParticle" type="CPUParticles2D" parent="."]
 unique_name_in_owner = true

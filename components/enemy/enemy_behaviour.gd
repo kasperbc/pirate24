@@ -144,7 +144,7 @@ func try_play_ability_dialogue():
 		return
 	
 	if not GameMan.player.ability.enemy_dialogues.is_empty():
-		%DialogueText.show_dialogue(GameMan.player.ability.enemy_dialogues.pick_random())
+		%DialogueText.show_dialogue(GameMan.player.ability.dialogues.pick_random())
 
 #region Back-and-forth
 
@@ -278,3 +278,4 @@ func stun(duration : float, source : StunSource = StunSource.DEFAULT):
 	
 	stunned = false
 	%DialogueText.show_forget_dialogue()
+	SoundManager.play_sound(AudioLib.get_sound("guardstun%s" % str(randi_range(1,7))), "Voice")

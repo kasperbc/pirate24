@@ -1,9 +1,20 @@
-[gd_resource type="Resource" script_class="AbilityData" load_steps=5 format=3 uid="uid://b301r0h3n0g31"]
+[gd_resource type="Resource" script_class="AbilityData" load_steps=8 format=3 uid="uid://b301r0h3n0g31"]
 
 [ext_resource type="Script" path="res://components/abilities/ability.gd" id="1_tq3qs"]
+[ext_resource type="Script" path="res://components/enemy/dialogue.gd" id="1_yb7g0"]
 [ext_resource type="Texture2D" uid="uid://cevl7sj6jbemt" path="res://art/obscures/water_dispenser/water-dispenser-down.png" id="2_eb6n8"]
 [ext_resource type="Texture2D" uid="uid://ba7554nc1ra0j" path="res://art/obscures/water_dispenser/water-dispenser-sides.png" id="3_ul3ie"]
 [ext_resource type="Texture2D" uid="uid://cs211vre3r5be" path="res://art/obscures/water_dispenser/water-dispenser-up.png" id="4_qkh8s"]
+
+[sub_resource type="Resource" id="Resource_m60xa"]
+script = ExtResource("1_yb7g0")
+dialogue = "I've been quite thirsty indeed"
+voice_line = "water1"
+
+[sub_resource type="Resource" id="Resource_7eu05"]
+script = ExtResource("1_yb7g0")
+dialogue = "Water tastes best at 3am"
+voice_line = "water2"
 
 [resource]
 script = ExtResource("1_tq3qs")
@@ -13,3 +24,4 @@ sprite_down = ExtResource("2_eb6n8")
 sprite_side = ExtResource("3_ul3ie")
 sprite_up = ExtResource("4_qkh8s")
 enemy_dialogues = Array[String]([])
+dialogues = Array[ExtResource("1_yb7g0")]([SubResource("Resource_m60xa"), SubResource("Resource_7eu05")])

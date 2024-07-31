@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://2c0rfu4cuwxc"
+path="res://.godot/imported/magnet2.wav-1eead51bc2aaf0d6e49ee144f51b3ca5.sample"
+
+[deps]
+
+source_file="res://audio/voice lines/magnet2.wav"
+dest_files=["res://.godot/imported/magnet2.wav-1eead51bc2aaf0d6e49ee144f51b3ca5.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

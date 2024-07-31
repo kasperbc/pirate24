@@ -1,7 +1,18 @@
-[gd_resource type="Resource" script_class="AbilityData" load_steps=3 format=3 uid="uid://boymbcmlytuec"]
+[gd_resource type="Resource" script_class="AbilityData" load_steps=6 format=3 uid="uid://boymbcmlytuec"]
 
 [ext_resource type="Script" path="res://components/abilities/ability.gd" id="1_5a1p7"]
+[ext_resource type="Script" path="res://components/enemy/dialogue.gd" id="1_mkhxr"]
 [ext_resource type="Texture2D" uid="uid://bqpmdnrue0l4r" path="res://art/obscures/magnet/magnet-inactive-up.png" id="4_24leo"]
+
+[sub_resource type="Resource" id="Resource_8eyth"]
+script = ExtResource("1_mkhxr")
+dialogue = "Why did they make these so big"
+voice_line = "magnet1"
+
+[sub_resource type="Resource" id="Resource_8q0f4"]
+script = ExtResource("1_mkhxr")
+dialogue = "Kinda looks like a horseshoe"
+voice_line = "magnet2"
 
 [resource]
 script = ExtResource("1_5a1p7")
@@ -11,3 +22,4 @@ sprite_down = ExtResource("4_24leo")
 sprite_side = ExtResource("4_24leo")
 sprite_up = ExtResource("4_24leo")
 enemy_dialogues = Array[String](["What a nice magnet"])
+dialogues = Array[ExtResource("1_mkhxr")]([SubResource("Resource_8eyth"), SubResource("Resource_8q0f4")])

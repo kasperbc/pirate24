@@ -1,9 +1,30 @@
-[gd_resource type="Resource" script_class="AbilityData" load_steps=5 format=3 uid="uid://0wy1a1le7taa"]
+[gd_resource type="Resource" script_class="AbilityData" load_steps=10 format=3 uid="uid://0wy1a1le7taa"]
 
+[ext_resource type="Script" path="res://components/enemy/dialogue.gd" id="1_4twjl"]
 [ext_resource type="Script" path="res://components/abilities/ability.gd" id="1_ivqgg"]
 [ext_resource type="Texture2D" uid="uid://d3x6redol25wm" path="res://art/obscures/box/cardboardbox.down.png" id="2_oyy25"]
 [ext_resource type="Texture2D" uid="uid://b1fmqoj6di4ey" path="res://art/obscures/box/cardboardbox-sides.png" id="3_mhsrv"]
 [ext_resource type="Texture2D" uid="uid://djx6eeeotg4dh" path="res://art/obscures/box/cardboardbox-up.png" id="4_lxqk6"]
+
+[sub_resource type="Resource" id="Resource_5s2dh"]
+script = ExtResource("1_4twjl")
+dialogue = "We could build a fort out of these"
+voice_line = "box1"
+
+[sub_resource type="Resource" id="Resource_lprfr"]
+script = ExtResource("1_4twjl")
+dialogue = "We are we still using cardboard"
+voice_line = "box2"
+
+[sub_resource type="Resource" id="Resource_eo011"]
+script = ExtResource("1_4twjl")
+dialogue = "A suprising sturdy box"
+voice_line = "box3"
+
+[sub_resource type="Resource" id="Resource_douqh"]
+script = ExtResource("1_4twjl")
+dialogue = "Hehe, it's fun to kick"
+voice_line = "box4"
 
 [resource]
 script = ExtResource("1_ivqgg")
@@ -13,3 +34,4 @@ sprite_down = ExtResource("2_oyy25")
 sprite_side = ExtResource("3_mhsrv")
 sprite_up = ExtResource("4_lxqk6")
 enemy_dialogues = Array[String](["What a nice box"])
+dialogues = Array[ExtResource("1_4twjl")]([SubResource("Resource_5s2dh"), SubResource("Resource_lprfr"), SubResource("Resource_eo011"), SubResource("Resource_douqh")])

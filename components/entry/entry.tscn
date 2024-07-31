@@ -6,5 +6,7 @@
 
 [node name="Entry" type="Node"]
 script = ExtResource("1_spttp")
+segment = 3.0
+skip_beginning_cutscene = true
 main_scene = ExtResource("2_21tli")
 opening_scene = ExtResource("3_pvn50")

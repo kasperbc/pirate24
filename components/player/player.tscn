@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b15lnd5i2umfm"]
+[gd_scene load_steps=13 format=3 uid="uid://b15lnd5i2umfm"]
 
 [ext_resource type="Script" path="res://components/player/player.gd" id="1_t6385"]
 [ext_resource type="SpriteFrames" uid="uid://bergdw84aflyp" path="res://components/player/player_sprites.res" id="2_m2g0d"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cuhsmek8br7a5" path="res://art/exclamationmark-spotted.png" id="6_sp78x"]
 [ext_resource type="PackedScene" uid="uid://bp51cwyi4e5oh" path="res://components/ui/button_prompt.tscn" id="7_wy6iq"]
 [ext_resource type="AudioStream" uid="uid://b70atu4s4kxdj" path="res://audio/music/hilla_music.wav" id="9_1uqxy"]
+[ext_resource type="Script" path="res://components/player/ability_track.gd" id="10_5a733"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ln0a"]
 size = Vector2(14, 6)
@@ -98,6 +99,8 @@ texture = ExtResource("6_sp78x")
 [node name="ButtonPrompt" parent="." instance=ExtResource("7_wy6iq")]
 top_level = true
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AbilityTrack" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_1uqxy")
+autoplay = true
 bus = &"Music"
+script = ExtResource("10_5a733")
