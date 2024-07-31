@@ -28,6 +28,9 @@ grow_vertical = 2
 pivot_offset = Vector2(480, 270)
 color = Color(1, 1, 1, 0)
 
+[node name="AudioListener2D" type="AudioListener2D" parent="Camera"]
+current = true
+
 [node name="LevelLoader" type="Node2D" parent="." groups=["LevelLoader"]]
 script = ExtResource("4_5x8cr")
 default_level = ExtResource("4_nrhxr")

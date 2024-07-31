@@ -37,13 +37,11 @@ func load_level(l : Level, segment : int = 0, reloading : bool = false):
 		spawn_pos_override = Vector2.ZERO
 	
 	if spawn_pos_override != Vector2.ZERO:
-		#GameMan.player.global_position = spawn_pos_override
-		pass
+		GameMan.player.global_position = spawn_pos_override
 	else:
 		GameMan.player.global_position = curr_level_seg.player_start_point.global_position
 	
 	GameMan.player.reset()
-	# GameMan.camera.get_node("Background").color = l.background_color
 	
 	GameMan.player.spotted = false
 	
@@ -51,6 +49,7 @@ func load_level(l : Level, segment : int = 0, reloading : bool = false):
 	GameMan.camera.set_limit_to_curr_segment_bounds()
 	
 	if not reloading or l.restart_music_on_reload:
+		# var music = l.music if GameMan.music_override.is_empty() else GameMan.music_override
 		SoundManager.play_music_at_volume(AudioLib.get_sound(l.music), l.music_vol, 1.0)
 
 func reload_level(fade_anim : bool = false):

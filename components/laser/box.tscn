@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://p6it8rs0ytv3"]
+
+[ext_resource type="PackedScene" uid="uid://bpg7qdnunn3w6" path="res://components/abilities/box/box.tscn" id="1_8qdtq"]
+
+[node name="CardboardBox" instance=ExtResource("1_8qdtq")]

@@ -2,6 +2,7 @@ extends StaticBody2D
 class_name LevelSegmentDoor
 
 @export var next_segment : LevelSegment
+@export var _music_override : String = ""
 
 var activated : bool = false
 
@@ -31,6 +32,9 @@ func _on_player_entered(body):
 	Utils.create_shaker_and_shake(%Sprite2D, 0.75, 0.5)
 	
 	%Sprite2D.animation = "closed"
+	
+	if not _music_override.is_empty():
+		GameMan.music_override = _music_override
 	
 	await get_tree().create_timer(1).timeout
 	

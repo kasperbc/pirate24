@@ -14,7 +14,7 @@ func cutscene():
 	GameMan.screen_fade.fade_screen_in(1.0)
 	
 	await get_tree().create_timer(0.5).timeout
-	SoundManager.play_music(AudioLib.get_sound("spawn_room"))
+	# SoundManager.play_music(AudioLib.get_sound("cutscene"))
 	await get_tree().create_timer(1).timeout
 	%DialogueText.show_dialogue(
 		"... and as always, anything you say can be held against you in the court of interstellar law.",
