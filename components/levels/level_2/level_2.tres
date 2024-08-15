@@ -9,4 +9,4 @@ level_name = "Level2"
 scene = ExtResource("1_md03b")
 music = "final_lvl"
 music_vol = 0.0
-restart_music_on_reload = false
+restart_music_on_reload = true

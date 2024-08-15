@@ -50,7 +50,7 @@ func _process(delta):
 	if input_enabled():
 		controller.process_controller()
 	
-	if Input.is_action_just_pressed("toggle_debug") and OS.has_feature("editor"):
+	if Input.is_action_just_pressed("toggle_debug") and OS.has_feature("debug"):
 		debug_mode = !debug_mode
 		%CollisionShape.disabled = debug_mode
 

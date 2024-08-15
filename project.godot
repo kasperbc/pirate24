@@ -10,11 +10,12 @@ config_version=5
 
 [application]
 
-config/name="pirate24"
-config/version="0.0"
+config/name="Transmute Syndrome"
+config/version="1.0"
 run/main_scene="res://components/entry/entry.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://TMS-desktop-icon.png"
+config/windows_native_icon="res://icon.ico"
 
 [autoload]
 

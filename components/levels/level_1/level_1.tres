@@ -11,4 +11,4 @@ scene = ExtResource("1_mis3m")
 next_level = ExtResource("1_mkfew")
 music = "hospital"
 music_vol = 0.0
-restart_music_on_reload = false
+restart_music_on_reload = true

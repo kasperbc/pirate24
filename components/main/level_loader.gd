@@ -49,7 +49,7 @@ func load_level(l : Level, segment : int = 0, reloading : bool = false):
 	GameMan.camera.set_limit_to_curr_segment_bounds()
 	GameMan.camera.time_since_start = 0
 	
-	if not GameMan.dont_play_music_override and (not reloading or l.restart_music_on_reload):
+	if not reloading or l.restart_music_on_reload:
 		var music = l.music if GameMan.music_override.is_empty() else GameMan.music_override
 		SoundManager.play_music_at_volume(AudioLib.get_sound(l.music), l.music_vol, 1.0)
 
