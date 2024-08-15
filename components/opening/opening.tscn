@@ -39,16 +39,6 @@ expand_mode = 2
 position = Vector2(371, 283)
 scale = Vector2(2, 2)
 
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-
 [node name="YearLabel" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 5
@@ -80,3 +70,13 @@ label_settings = SubResource("LabelSettings_msj27")
 horizontal_alignment = 1
 visible_characters = 0
 visible_ratio = 0.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)

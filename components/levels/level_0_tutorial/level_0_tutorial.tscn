@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://po5ybttecov5"]
+[gd_scene load_steps=22 format=4 uid="uid://po5ybttecov5"]
 
 [ext_resource type="PackedScene" uid="uid://4vqigtk166tx" path="res://components/levels/level_base.tscn" id="1_ikaiy"]
 [ext_resource type="PackedScene" uid="uid://b4wvq5jl7y5tj" path="res://components/abilities/potted_plant/potted_plant.tscn" id="2_po47b"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://bfjlaw27xbb45" path="res://components/levels/level_bounds.tscn" id="12_h7r13"]
 [ext_resource type="PackedScene" uid="uid://n6r0cskgviyw" path="res://components/button_ingame/button_green.tscn" id="15_08ynn"]
 [ext_resource type="PackedScene" uid="uid://dkxh178enq0qb" path="res://components/abilities/water_dispenser/water_dispenser.tscn" id="15_vs2ve"]
+[ext_resource type="Texture2D" uid="uid://ces5jrro13uhm" path="res://art/gradients/light_gradient.tres" id="18_xa5wg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m8ji2"]
 size = Vector2(20, 88)
@@ -350,13 +351,13 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -485.0
-offset_top = -205.0
-offset_right = 485.0
-offset_bottom = 205.0
+offset_top = -120.0
+offset_right = 495.0
+offset_bottom = 110.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
-pivot_offset = Vector2(485, 205)
+pivot_offset = Vector2(485, 102)
 texture = ExtResource("9_nc5gn")
 
 [node name="CutsceneGuard" parent="Segment1" index="9" instance=ExtResource("10_vulg2")]
@@ -365,6 +366,46 @@ position = Vector2(56, 16)
 [node name="Checkpoint" parent="Segment1" index="10" instance=ExtResource("11_eful4")]
 position = Vector2(848, -400)
 scale = Vector2(2, 1)
+
+[node name="Light1" parent="Lights" index="0"]
+position = Vector2(61, -18)
+scale = Vector2(6.9375, 3.3125)
+color = Color(0.9, 1, 0.995, 1)
+
+[node name="Light2" type="PointLight2D" parent="Lights" index="1"]
+position = Vector2(514.5, -160.5)
+scale = Vector2(15.0781, 3.92188)
+color = Color(0.9, 1, 0.995, 1)
+blend_mode = 2
+texture = ExtResource("18_xa5wg")
+
+[node name="Light3" type="PointLight2D" parent="Lights" index="2"]
+position = Vector2(919, -317.5)
+scale = Vector2(8.65625, 4.07812)
+color = Color(0.9, 1, 0.995, 1)
+blend_mode = 2
+texture = ExtResource("18_xa5wg")
+
+[node name="Light4" type="PointLight2D" parent="Lights" index="3"]
+position = Vector2(1017.5, -534)
+scale = Vector2(12.1094, 4.96875)
+color = Color(0.9, 1, 0.995, 1)
+blend_mode = 2
+texture = ExtResource("18_xa5wg")
+
+[node name="Light5" type="PointLight2D" parent="Lights" index="4"]
+position = Vector2(556, -800)
+scale = Vector2(13.4375, 8.15625)
+color = Color(0.9, 1, 0.995, 1)
+blend_mode = 2
+texture = ExtResource("18_xa5wg")
+
+[node name="Light6" type="PointLight2D" parent="Lights" index="5"]
+position = Vector2(1013, -1076.5)
+scale = Vector2(11.8438, 6.39062)
+color = Color(0.9, 1, 0.995, 1)
+blend_mode = 2
+texture = ExtResource("18_xa5wg")
 
 [connection signal="body_entered" from="Segment1/TutorialTrigger" to="Segment1/TutorialTrigger" method="_on_body_entered"]
 [connection signal="body_entered" from="Segment1/TutorialEscapeTrigger" to="Segment1/TutorialEscapeTrigger" method="_on_body_entered"]

@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bptnw51iqv2lt"]
+[gd_scene load_steps=7 format=3 uid="uid://bptnw51iqv2lt"]
 
 [ext_resource type="SpriteFrames" uid="uid://bqlyd80cnfyn4" path="res://components/cutscene_guard/cutscene_guard_sprites.tres" id="1_5baeu"]
 [ext_resource type="Script" path="res://components/cutscene_guard/cutscene_guard.gd" id="1_mtua6"]
 [ext_resource type="Script" path="res://components/cutscene_guard/dialogue_text.gd" id="3_058jr"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_cmlbm"]
+light_mode = 1
 
 [sub_resource type="LabelSettings" id="LabelSettings_xf7bv"]
 outline_size = 3
@@ -30,6 +33,7 @@ position = Vector2(-56, 0)
 [node name="DialogueText" type="Label" parent="."]
 unique_name_in_owner = true
 z_index = 2000
+material = SubResource("CanvasItemMaterial_cmlbm")
 offset_left = -64.0
 offset_top = -40.0
 offset_right = 236.0

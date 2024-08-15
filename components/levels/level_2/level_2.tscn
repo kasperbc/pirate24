@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://c1sngk8slt1m2"]
+[gd_scene load_steps=17 format=4 uid="uid://c1sngk8slt1m2"]
 
 [ext_resource type="PackedScene" uid="uid://4vqigtk166tx" path="res://components/levels/level_base.tscn" id="1_vsryo"]
 [ext_resource type="PackedScene" uid="uid://bg34pji4c88je" path="res://components/laser/laser_shooter.tscn" id="2_gbs45"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://components/laser/laser_group.gd" id="13_3sefk"]
 [ext_resource type="PackedScene" uid="uid://biiesval3nm7m" path="res://components/checkpoint/checkpoint.tscn" id="14_pph45"]
 [ext_resource type="PackedScene" uid="uid://cmct8bi0podun" path="res://components/levels/level_2/control_panel.tscn" id="14_vm16t"]
+[ext_resource type="Texture2D" uid="uid://ces5jrro13uhm" path="res://art/gradients/light_gradient.tres" id="16_jd46e"]
 
 [node name="Level" instance=ExtResource("1_vsryo")]
 
@@ -514,14 +515,7 @@ position = Vector2(256, 104)
 rotation = 1.57079
 timed = true
 
-[node name="Magnet" parent="Segment1" index="13" instance=ExtResource("5_foppq")]
-position = Vector2(88, 152)
-
-[node name="MagnetPanel2" parent="Segment1" index="14" instance=ExtResource("8_3yp7a")]
-position = Vector2(238, -64)
-rotation = 4.71238
-
-[node name="Enemy" parent="Segment1" index="15" instance=ExtResource("10_8520h")]
+[node name="Enemy" parent="Segment1" index="13" instance=ExtResource("10_8520h")]
 position = Vector2(264, 160)
 rotation = 1.57079
 move_speed = 90.0
@@ -533,6 +527,53 @@ detection_distance = 40.0
 position = Vector2(1104, -952)
 rotation = 1.57079
 door = NodePath("../Segment3/Door")
+
+[node name="Light1" parent="Lights" index="0"]
+position = Vector2(104, -46.5)
+scale = Vector2(7.96875, 3.92188)
+color = Color(0.921667, 1, 0.9, 1)
+
+[node name="Light2" type="PointLight2D" parent="Lights" index="1"]
+position = Vector2(341.5, 130)
+scale = Vector2(18.0781, 3.92188)
+color = Color(0.921667, 1, 0.9, 1)
+blend_mode = 2
+texture = ExtResource("16_jd46e")
+
+[node name="Light3" type="PointLight2D" parent="Lights" index="2"]
+position = Vector2(525.5, -30)
+scale = Vector2(12.1094, 3.92188)
+color = Color(0.921667, 1, 0.9, 1)
+blend_mode = 2
+texture = ExtResource("16_jd46e")
+
+[node name="Light4" type="PointLight2D" parent="Lights" index="3"]
+position = Vector2(874.5, -117.5)
+scale = Vector2(9.64063, 9.57812)
+color = Color(0.921667, 1, 0.9, 1)
+blend_mode = 2
+texture = ExtResource("16_jd46e")
+
+[node name="Light5" type="PointLight2D" parent="Lights" index="4"]
+position = Vector2(1032, -628.25)
+scale = Vector2(9.59375, 10.8047)
+color = Color(0.921667, 1, 0.9, 1)
+blend_mode = 2
+texture = ExtResource("16_jd46e")
+
+[node name="Light6" type="PointLight2D" parent="Lights" index="5"]
+position = Vector2(1042, -900)
+scale = Vector2(6.75, 3.5293)
+color = Color(0.921667, 1, 0.9, 1)
+blend_mode = 2
+texture = ExtResource("16_jd46e")
+
+[node name="Light7" type="PointLight2D" parent="Lights" index="6"]
+position = Vector2(1044, -1245)
+scale = Vector2(3.03125, 10.6875)
+color = Color(0.921667, 1, 0.9, 1)
+blend_mode = 2
+texture = ExtResource("16_jd46e")
 
 [connection signal="pressed" from="Segment1/ButtonLaser" to="Segment1/LaserShooter6" method="disable"]
 [connection signal="pressed" from="Segment1/ButtonLaser" to="Segment1/LaserShooter7" method="disable"]

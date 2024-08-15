@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://bkswnb0j23g0o"]
+[gd_scene load_steps=21 format=4 uid="uid://bkswnb0j23g0o"]
 
 [ext_resource type="PackedScene" uid="uid://4vqigtk166tx" path="res://components/levels/level_base.tscn" id="1_byixl"]
 [ext_resource type="PackedScene" uid="uid://ddxecuwavh666" path="res://components/abilities/magnet/magnet.tscn" id="2_t16hw"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://cudlux2rrp6js" path="res://art/obscures/water_dispenser/water_spill_13.png" id="16_erh67"]
 [ext_resource type="PackedScene" uid="uid://c8tg3tte81ex4" path="res://components/abilities/toaster/toaster.tscn" id="16_g1svj"]
 [ext_resource type="PackedScene" uid="uid://biiesval3nm7m" path="res://components/checkpoint/checkpoint.tscn" id="19_yn4x8"]
+[ext_resource type="Texture2D" uid="uid://ces5jrro13uhm" path="res://art/gradients/light_gradient.tres" id="20_1kfed"]
 
 [node name="Level" instance=ExtResource("1_byixl")]
 
@@ -283,3 +284,57 @@ next_segment = NodePath("../../Segment2")
 [node name="Checkpoint" parent="Segment1" index="14" instance=ExtResource("19_yn4x8")]
 position = Vector2(256, 48)
 scale = Vector2(1, 5.72)
+
+[node name="Light1" parent="Lights" index="0"]
+position = Vector2(373.5, 38)
+scale = Vector2(14.8281, 4.28125)
+color = Color(1, 0.936667, 0.9, 1)
+
+[node name="Light2" type="PointLight2D" parent="Lights" index="1"]
+position = Vector2(439.5, -249.75)
+scale = Vector2(4.42188, 9.38281)
+color = Color(1, 0.936667, 0.9, 1)
+blend_mode = 2
+texture = ExtResource("20_1kfed")
+
+[node name="Light3" type="PointLight2D" parent="Lights" index="2"]
+position = Vector2(646, -56)
+scale = Vector2(5.625, 4.53125)
+color = Color(1, 0.936667, 0.9, 1)
+blend_mode = 2
+texture = ExtResource("20_1kfed")
+
+[node name="Light4" type="PointLight2D" parent="Lights" index="3"]
+position = Vector2(854.5, -199.5)
+scale = Vector2(10.5156, 4.79688)
+color = Color(1, 0.936667, 0.9, 1)
+blend_mode = 2
+texture = ExtResource("20_1kfed")
+
+[node name="Light5" type="PointLight2D" parent="Lights" index="4"]
+position = Vector2(1083.5, -394)
+scale = Vector2(14.2031, 6.625)
+color = Color(1, 0.936667, 0.9, 1)
+blend_mode = 2
+texture = ExtResource("20_1kfed")
+
+[node name="Light6" type="PointLight2D" parent="Lights" index="5"]
+position = Vector2(780.5, -629.5)
+scale = Vector2(7.79687, 5.79688)
+color = Color(1, 0.936667, 0.9, 1)
+blend_mode = 2
+texture = ExtResource("20_1kfed")
+
+[node name="Light7" type="PointLight2D" parent="Lights" index="6"]
+position = Vector2(1019, -769)
+scale = Vector2(10.1875, 4.08594)
+color = Color(1, 0.936667, 0.9, 1)
+blend_mode = 2
+texture = ExtResource("20_1kfed")
+
+[node name="Light8" type="PointLight2D" parent="Lights" index="7"]
+position = Vector2(851, -861)
+scale = Vector2(10.1875, 4.08594)
+color = Color(1, 0.936667, 0.9, 1)
+blend_mode = 2
+texture = ExtResource("20_1kfed")

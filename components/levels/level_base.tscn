@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://4vqigtk166tx"]
+[gd_scene load_steps=9 format=3 uid="uid://4vqigtk166tx"]
 
 [ext_resource type="TileSet" uid="uid://tgudx4qv8jnw" path="res://components/levels/tileset.tres" id="1_82r68"]
 [ext_resource type="PackedScene" uid="uid://b8vsk0u1g10cg" path="res://components/level_exit/exit.tscn" id="2_06gur"]
@@ -7,6 +7,7 @@
 [ext_resource type="TileSet" uid="uid://dlhrfgys4dxyt" path="res://components/levels/tileset_decor.tres" id="4_3axtr"]
 [ext_resource type="Script" path="res://components/levels/level_segment.gd" id="5_5dmnh"]
 [ext_resource type="PackedScene" uid="uid://bfjlaw27xbb45" path="res://components/levels/level_bounds.tscn" id="6_dsmw1"]
+[ext_resource type="Texture2D" uid="uid://ces5jrro13uhm" path="res://art/gradients/light_gradient.tres" id="8_ajcp6"]
 
 [node name="Level" type="Node2D"]
 
@@ -42,3 +43,13 @@ player_start_point = NodePath("PlayerStartPoint")
 [node name="LevelBounds" parent="Segment1" instance=ExtResource("6_dsmw1")]
 
 [node name="PlayerStartPoint" type="Node2D" parent="Segment1"]
+
+[node name="Lights" type="Node2D" parent="."]
+
+[node name="Light1" type="PointLight2D" parent="Lights"]
+blend_mode = 2
+texture = ExtResource("8_ajcp6")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+energy = 0.7
+blend_mode = 1
